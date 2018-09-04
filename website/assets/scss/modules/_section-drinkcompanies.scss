@@ -1,0 +1,15 @@
+.section-drink-companies {
+    background-color: $primary-background-color;
+    padding: 3rem 0;
+    &__logo-wrapper{
+        width: 75%;
+        margin: auto;
+        margin-bottom: 1rem;
+        img {
+            width: 100%;
+        }
+        @include atMedium{
+            width: 50%;
+        }
+    }
+}

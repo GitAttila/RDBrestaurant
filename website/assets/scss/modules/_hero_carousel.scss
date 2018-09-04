@@ -1,0 +1,36 @@
+.carousel-hero {
+    &__carousel-item {
+        height: 100vh;
+        &__img {
+            position: absolute;
+            left: -9999px;
+            right: -9999px;
+            margin: 0 auto;
+            min-width: 100%;
+            min-height: 100vh;
+            max-height: 100vw;
+            top: 50%;
+            transform: translateY(-50%);    
+        }
+    }
+    &__carousel-inner {
+        z-index: 1;
+    }
+    &__control-prev, &__control-next {
+        z-index: 3;
+    }
+    &__carousel-indicators {
+        z-index: 4;
+        display: none;
+        @include atExtraSmallLandscape{
+            display: none;
+        }
+        @include atMedium{
+            display: flex;
+        }
+        @include atLarge{
+            display: flex;
+        }
+    }
+
+}

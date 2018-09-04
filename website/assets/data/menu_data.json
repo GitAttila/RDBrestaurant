@@ -1,0 +1,761 @@
+{
+  "category_arr": [
+    {
+      "cz_category": "Předkrmy",
+      "eng_category": "Starters",
+      "category": [
+        {
+          "cz_itemname": "Samosa 2ks",
+          "eng_itemname": "Samosa 2ks",
+          "cz_itemdesc": "Smažená taštička plněná směsí brambor, hrášku, kešu oříšků, indické koření",
+          "eng_itemdesc": "Deep fried patties stuffed with potatoes",
+          "price": "70",
+          "allergenes": "1,8"
+        },
+        {
+          "cz_itemname": "Onion Bhaji  4 ks",
+          "eng_itemname": "Onion Bhaji  4 pcs",
+          "cz_itemdesc": "Kousky smažené cibule obalované v těstíčku z cizrnové mouky",
+          "eng_itemdesc": "Deep fried onion battered with gram flour",
+          "price": "75",
+          "allergenes": "1,12"
+        },
+        {
+          "cz_itemname": "Chilli Paneer",
+          "eng_itemname": "Chilli Paneer",
+          "cz_itemdesc": "Indický obalovný smažený sýr s chilli papričkami",
+          "eng_itemdesc": "Deep fried cottage cheese sauted with chilli capsicum",
+          "price": "135",
+          "allergenes": "6,7"
+        },
+        {
+          "cz_itemname": "Chilli Mushrooms",
+          "eng_itemname": "Chilli Mushrooms",
+          "cz_itemdesc": "Smažené obalované žampiony s chilli papričkami",
+          "eng_itemdesc": "Deep fried mushrooms sauted with chilli capsicum",
+          "price": "95",
+          "allergenes": "6"
+        },
+        {
+          "cz_itemname": "Mushroom Karare",
+          "eng_itemname": "Mushroom Karare",
+          "cz_itemdesc": "Smažené  žampiony v těstíčku, plněné sýrem, koriandr, zelené chilli",
+          "eng_itemdesc": "Battered fried mushrooms stuffed with cheese and khoya, coriander, chilli",
+          "price": "95",
+          "allergenes": "1,7"
+        },
+        {
+          "cz_itemname": "Maree Aloo",
+          "eng_itemname": "Maree Aloo",
+          "cz_itemdesc": "Opečené brambory na másle s černým pepřem, koriandrem, zázvorem a citronem",
+          "eng_itemdesc": "Fried potatoes sautéed with black pepper,fresh coriander, ginger, lemon",
+          "price": "80",
+          "allergenes": "6,7"
+        },
+        {
+          "cz_itemname": "Plain Papadum 2 ks",
+          "eng_itemname": "Plain Papadum 2 ks",
+          "cz_itemdesc": "Tenký plátek z čočkové mouky, servírujeme s omáčkou z manga a máty",
+          "eng_itemdesc": "Crispy bread made of lentil flour, served with mango and mint sauce",
+          "price": "30",
+          "allergenes": "1,2"
+        },
+        {
+          "cz_itemname": "Masala Papadum  2 ks",
+          "eng_itemname": "Masala Papadum  2 ks",
+          "cz_itemdesc": "Tenký křupavý plátek z čočkové mouky s červenou cibulí, chilli a koriandrem, servírujeme s omáčkou z manga a máty",
+          "eng_itemdesc": "Crispy bread made of lentil flour with red onion,green chilli, coriander, served with mango and mint sauce",
+          "price": "50",
+          "allergenes": "1,2"
+        },
+        {
+          "cz_itemname": "Chicken Pakora",
+          "eng_itemname": "Chicken Pakora",
+          "cz_itemdesc": "Smažené křupavé kuřecí kousky obalované v cizrnové mouce",
+          "eng_itemdesc": "Deep fried crispy chicken coated with gram flour batter",
+          "price": "90",
+          "allergenes": "1,12"
+        },
+        {
+          "cz_itemname": "Chicken 65",
+          "eng_itemname": "Chicken 65",
+          "cz_itemdesc": "Smažené pálivé kuřecí kousky obalované v cizrnové mouce",
+          "eng_itemdesc": "Deep fried crispy chicken and spicy coated with gram flour batter",
+          "price": "115",
+          "allergenes": "1,12"
+        },
+        {
+          "cz_itemname": "Chilli Chicken Dry",
+          "eng_itemname": "Chilli Chicken Dry",
+          "cz_itemdesc": "Smažené obalované  kuřecí kousky s chilli papričkou, cibulí a sojovou omáčkou",
+          "eng_itemdesc": "Deep fried spicy chicken sauted with capsicum,onion,soya sauce",
+          "price": "125",
+          "allergenes": "6"
+        },
+        {
+          "cz_itemname": "Fish amritsari",
+          "eng_itemname": "Fish amritsari",
+          "cz_itemdesc": "Smažené pálivé rybí kousky obalované v cizrnové mouce",
+          "eng_itemdesc": "Deep fried spicy crispy fish and coated with gram flour batter",
+          "price": "115",
+          "allergenes": "4"
+        },
+        {
+          "cz_itemname": "Tava tiger prawn  4 ks ",
+          "eng_itemname": "Tava tiger prawn  4 pcs ",
+          "cz_itemdesc": "Grilované tygří  krevety s čerstvým koriandrem s chilli, černým pepřem, sojovou omáčkou a citronem",
+          "eng_itemdesc": "Cooked in a sizzling hot pan, finished with soya, chopped green chillies, coriander",
+          "price": "350",
+          "allergenes": "4,6,12"
+        }
+      ]
+    },
+
+    {
+      "cz_category": "Polévky",
+      "eng_category": "Soup",
+      "category": [
+        {
+          "cz_itemname": "Tomato shorba",
+          "eng_itemname": "Tomato shorba",
+          "cz_itemdesc": "Polévka z čerstvých rajčat s česnekem, s čerstvým zázvorem a koriandrem",
+          "eng_itemdesc": "Fresh and delectable soup of ripe tomatoes with herbs and spices",
+          "price": "70",
+          "allergenes": "1,7"
+        },
+        {
+          "cz_itemname": "Palak and dal shorba",
+          "eng_itemname": "Palak and dal shorba",
+          "cz_itemdesc": "Polévka z indické čočky se špenátem, indické koření",
+          "eng_itemdesc": "Lentil and spinach flavoured with coriander and kumin seeds",
+          "price": "70",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Murg Yakhni shorba ",
+          "eng_itemname": "Murg Yakhni shorba ",
+          "cz_itemdesc": "Kuřecí vývar s kousky masa, koriandr, indické koření",
+          "eng_itemdesc": "Chicken thin soup with fresh coriander, indian herbs and spices",
+          "price": "70",
+          "allergenes": "1,7"
+        }
+      ]
+    },
+    {
+      "cz_category": "Tradiční indické nápoje",
+      "eng_category": "Indian drinks",
+      "category": [
+        {
+          "cz_itemname": "Mango Lassi",
+          "eng_itemname": "Mango Lassi",
+          "cz_itemdesc": "Jogurt, pyré z manga",
+          "eng_itemdesc": "Churned yoghurt with mango puree",
+          "price": "70",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Lassi Meethi",
+          "eng_itemname": "Lassi Meethi",
+          "cz_itemdesc": "Sladký  jogurt ochucený  růžovou vodou",
+          "eng_itemdesc": "Sweet churned yoghurt flavoured with rose water",
+          "price": "65",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Lassi Namkeen",
+          "eng_itemname": "Lassi Namkeen",
+          "cz_itemdesc": "Slaný jogurt ochucený indickým kmínem a koriandrem",
+          "eng_itemdesc": "Salted churned yoghurt flavoured with cumin and fresh coriander",
+          "price": "60",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Indian Masala Tea ",
+          "eng_itemname": "Indian Masala Tea ",
+          "cz_itemdesc": "Indický čaj s mlékem, zázvorem a kardamom",
+          "eng_itemdesc": "Indian tea with fresh ginger, kardamom",
+          "price": "45",
+          "allergenes": "7"
+        }
+      ]
+    },
+
+    {
+      "cz_category": "Vegetariánské speciality z tandůru",
+      "eng_category": "Veg tandoori specialities",
+      "category": [
+        {
+          "cz_itemname": "Paneer Shaslik",
+          "eng_itemname": "Paneer Shaslik",
+          "cz_itemdesc": "Marinovaný domácí indický sýr pečený v tandůru s paprikou a cibulí",
+          "eng_itemdesc": "Marinated cubes of cottage cheese, chef´specials spices served with capsicum and tomato",
+          "price": "195",
+          "allergenes": "7,10"
+        },
+        {
+          "cz_itemname": "Tandoori Mushrooms",
+          "eng_itemname": "Tandoori Mushrooms",
+          "cz_itemdesc": "Čerstvé marinované žampiony, grilované v tandůru",
+          "eng_itemdesc": "Fresh mashrooms marinated with tangy spices, cooked in tandoor",
+          "price": "165",
+          "allergenes": "7,10"
+        },
+        {
+          "cz_itemname": "Tandoori mix grill salad",
+          "eng_itemname": "Tandoori mix grill salad",
+          "cz_itemdesc": "Čerstvá marinovaná míchaná zelenina, pečená v tandůru",
+          "eng_itemdesc": "Fresh vegetables marinated with tangy spices and cooked in tandoor",
+          "price": "155",
+          "allergenes": "7,10"
+        }
+      ]
+    },
+
+    {
+      "cz_category": "Masové speciality z tandooru",
+      "eng_category": "Non veg tandoori specialities",
+      "category": [
+        {
+          "cz_itemname": "Chicken Seekh Kebab",
+          "eng_itemname": "Chicken Seekh Kebab",
+          "cz_itemdesc": "Kebab z mletého kuřecího masa s česnekem, zázvorem a koriandrem",
+          "eng_itemdesc": "Minced chicken mixed with exotic spices,garlic,ginger and fresh coriander",
+          "price": "160",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Chicken Tikka",
+          "eng_itemname": "Chicken Tikka",
+          "cz_itemdesc": "Grilované kousky kuřecího masa marinované v jogurtu s indickým kořením",
+          "eng_itemdesc": "Boneles chicken brest marinated with yoghurtand indian spicy, grilled in tandoor",
+          "price": "175",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Chicken Malai Tikka",
+          "eng_itemname": "Chicken Malai Tikka",
+          "cz_itemdesc": "Marinovaná kuřecí prsa v jogurtu, smetaně a sýru, grilovaná v tandůru",
+          "eng_itemdesc": "Boneles chicken brest marinated with cheese and cream, grilled in tandoor",
+          "price": "180",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Tandoori Murgh",
+          "eng_itemname": "Tandoori Murgh",
+          "cz_itemdesc": "Marinovaná kuřecí stehna s kostí, grilovaná v tandůru",
+          "eng_itemdesc": "Juicy boned chicken marinated with tradicional spices, grilled in tandoor",
+          "price": "185",
+          "allergenes": "7,10"
+        },
+        {
+          "cz_itemname": "Lamb Seekh Kebab",
+          "eng_itemname": "Lamb Seekh Kebab",
+          "cz_itemdesc": "Kebab z mletého jehněčího masa s česnekem, zázvorem a koriandrem",
+          "eng_itemdesc": "A tender minced lamb kebab flavoured with extra ginger, garlic and fresh coriander",
+          "price": "220",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Tava bhoti kebab",
+          "eng_itemname": "Tava bhoti kebab",
+          "cz_itemdesc": "Marinované kostky jehněčí kýty bez kosti,koriandr,zázvor,indické koření",
+          "eng_itemdesc": "Bonelles lamb in house speciality finished chef´s special sauce",
+          "price": "230",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Salmon Fish Tikka",
+          "eng_itemname": "Salmon Fish Tikka",
+          "cz_itemdesc": "Marinovaný losos v indickém koření, grilovaný v tandůru",
+          "eng_itemdesc": "Salmon fish marinated with indian spice, grilled in tandoor",
+          "price": "270",
+          "allergenes": "4"
+        },
+        {
+          "cz_itemname": "Tandoori Jhinga 4 ks",
+          "eng_itemname": "Tandoori Jhinga 4 pcs",
+          "cz_itemdesc": "Marinované tygří krevety grilované v tandůru",
+          "eng_itemdesc": "Tiger prawn marinated with indian spice, grilled in tandoor",
+          "price": "350",
+          "allergenes": "2,7,10"
+        }
+      ]
+    },
+    {
+      "cz_category": "Hlavní jídla nevegetariánská",
+      "eng_category": "Main course non-vegetarian",
+      "category": [
+        {
+          "cz_itemname": "Chicken Vindaloo",
+          "eng_itemname": "Chicken Vindaloo",
+          "cz_itemdesc": "Kousky kuřecích prsíček a brambor vařené v pálivé rajčatové omáčce, indické koření",
+          "eng_itemdesc": "Cubes of chicken and potatoes cooked in tomato based, spicy gravy",
+          "price": "190",
+          "allergenes": "10"
+        },
+        {
+          "cz_itemname": "Chicken tikka masala",
+          "eng_itemname": "Chicken tikka masala",
+          "cz_itemdesc": "Grilované kuřecí kousky s čerstvými rajčaty, cibulí a smetanovou omáčkou",
+          "eng_itemdesc": "Grilled chicken tikka cooked in fresh onion, tomato and cream sauce",
+          "price": "210",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Kadai Chicken",
+          "eng_itemname": "Kadai Chicken",
+          "cz_itemdesc": "Kousky kuřecích prsíček s paprikou a cibulí, v rajčatové omáčce",
+          "eng_itemdesc": "Boneless  chicken breast cooked with capsicum,onion and tomato sauce",
+          "price": "185",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Butter chicken",
+          "eng_itemname": "Butter chicken",
+          "cz_itemdesc": "Grilované kuřecí maso ve smetanovo máslové omáčce s rajčaty",
+          "eng_itemdesc": "Chicken tikka cooked in tomato, cream and butter sauce",
+          "price": "215",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Palak chicken",
+          "eng_itemname": "Palak chicken",
+          "cz_itemdesc": "Kousky kuřecích prsíček se špenátem a smetanovou omáčkou",
+          "eng_itemdesc": "Boneless chicken breast cooked in spinach and cream sauce",
+          "price": "180",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Chicken korma",
+          "eng_itemname": "Chicken korma",
+          "cz_itemdesc": "Kostky grilovaných kuřecích prsíček v omáčce z kešu oříšků, smetany a másla",
+          "eng_itemdesc": "Cubes of grilled chicken cooked in fresh cashew nuts, cream and butter sauce",
+          "price": "180",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Chicken Tamil",
+          "eng_itemname": "Chicken Tamil",
+          "cz_itemdesc": "Tradiční pokrm z jižní Indie-pikantní kuřecí maso, kokosové mléko, curry lístek",
+          "eng_itemdesc": "Authentic sauth India dish is a very special and popular style of cooking in Tamilnad",
+          "price": "205",
+          "allergenes": "6,7,8"
+        },
+        {
+          "cz_itemname": "Chicken pasanda",
+          "eng_itemname": "Chicken pasanda",
+          "cz_itemdesc": "Kostky grilovaných kuřecích prsíček v omáčce z čerstvých rajčat a kešu oříšků a másla",
+          "eng_itemdesc": "Cubes of grilled chicken cooked in fresh tomato, keshu and cream butter sauce",
+          "price": "175",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Rogan Josh",
+          "eng_itemname": "Rogan Josh",
+          "cz_itemdesc": "Kousky jehněčího masa vařené v cibulia v rajčatové omáčce připravované dle pravého kašmírskeho stylu",
+          "eng_itemdesc": "Tender lamb pieces cooked in true Kasmeer style",
+          "price": "240",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Lamb Saag",
+          "eng_itemname": "Lamb Saag",
+          "cz_itemdesc": "Jehněčí maso se špenátem, rajčaty a kořením",
+          "eng_itemdesc": "Exotic preparation of lamb pieces moistened spinach, tomato and spices",
+          "price": "245",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Lamb Vindaloo",
+          "eng_itemname": "Lamb Vindaloo",
+          "cz_itemdesc": "Jehněčí maso s bramborami a pikantní rajčatovou omáčkou s kořením",
+          "eng_itemdesc": "Juicy lamb and potato cooked in tomato based gravy with extra spicy sauce",
+          "price": "260",
+          "allergenes": "10"
+        },
+        {
+          "cz_itemname": "Lamb Jalfrezi",
+          "eng_itemname": "Lamb Jalfrezi",
+          "cz_itemdesc": "Jehněčí maso bez kosti s pálivou omáčkou z paprik, cibule a rajčat",
+          "eng_itemdesc": "Boneless lamb cooked with spicy capsicum,onion and tomato sauce",
+          "price": "250",
+          "allergenes": "10"
+        },
+        {
+          "cz_itemname": "Lamb Pasanda",
+          "eng_itemname": "Lamb Pasanda",
+          "cz_itemdesc": "Jehněčí maso v lehké krémové rajčatovo-kešu omáčce",
+          "eng_itemdesc": "Juicy lamb cooked in light tomato creamy and cashu nuts sauce",
+          "price": "235",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Goan Prawn Curry",
+          "eng_itemname": "Goan Prawn Curry",
+          "cz_itemdesc": "Krevety s Goen kořením, kokosovým mlékem, kari lístky a hořčičnými nebo methi semínky",
+          "eng_itemdesc": "A delicious spicy Goan prawn curry cooked in coconut milk and curry leaves and finished with mustard and methiseeds",
+          "price": "350",
+          "allergenes": "4,7,8,10"
+        },
+        {
+          "cz_itemname": "Fish Tikka Masala",
+          "eng_itemname": "Fish Tikka Masala",
+          "cz_itemdesc": "Rybí tandoori tikka s kokosovým mlékem a tradiční omáčkou",
+          "eng_itemdesc": "Tandoori fish tikka cooked in coconut milk and traditional sauce",
+          "price": "290",
+          "allergenes": "7,8,9,10"
+        }
+      ]
+    },
+
+    {
+      "cz_category": "Hlavní jídla vegetariánská",
+      "eng_category": "Main Course Vegetarian",
+      "category": [
+        {
+          "cz_itemname": "Dal Makhani",
+          "eng_itemname": "Dal Makhani",
+          "cz_itemdesc": "Černá čočka vařená celou noc v tandůru s máslem a smetanou",
+          "eng_itemdesc": "Black lentil cooked overnight in tandoor with butter and cream",
+          "price": "160",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Tadka Dal",
+          "eng_itemname": "Tadka Dal",
+          "cz_itemdesc": "Indická čočka připravovaná s červeným chilli a indickým kmínem",
+          "eng_itemdesc": "Bengal gram and green gram tempered with whole red chilli and cumin seed",
+          "price": "150",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Chana Masala",
+          "eng_itemname": "Chana Masala",
+          "cz_itemdesc": "Cizrna připravovaná  s indickým kořením a bylinkami",
+          "eng_itemdesc": "Chick peas cooked with spices and flavoured with herbs",
+          "price": "150",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Mixed Vegetables",
+          "eng_itemname": "Mixed Vegetables",
+          "cz_itemdesc": "Míchaná zelenina s kořením masala gravy",
+          "eng_itemdesc": "Fresh garden vegetables cooked in masala gravy",
+          "price": "150",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Palak Paneer",
+          "eng_itemname": "Palak Paneer",
+          "cz_itemdesc": "Indický čerstvý domácí sýr se špenátem",
+          "eng_itemdesc": "Fresh cottage cheese with spinach",
+          "price": "190",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Paneer Makhani",
+          "eng_itemname": "Paneer Makhani",
+          "cz_itemdesc": "Indický čerstvý domácí sýr s omáčkou z rajčat, smetany a másla",
+          "eng_itemdesc": "Fresh cottage cheese with tomato cream and butter sauce",
+          "price": "175",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Kadai Paneer",
+          "eng_itemname": "Kadai Paneer",
+          "cz_itemdesc": "Indický sýr  se zeleným pepřem, kořením a rajčatovou omáčkou",
+          "eng_itemdesc": "Cottage cheese cooked with green bell pepper, whole spice and finished with tomato gravy",
+          "price": "180",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Bagain Bharta",
+          "eng_itemname": "Bagain Bharta",
+          "cz_itemdesc": "Mimořádná mísa pečených lilků, restovaných s cibulí a kořením",
+          "eng_itemdesc": "An extra ordinary dish of baked egg-plant sautéed with onion and spices",
+          "price": "170",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Aloo Gobi",
+          "eng_itemname": "Aloo Gobi",
+          "cz_itemdesc": "Brambory s květákem a rajčaty, čerstvý koriandr",
+          "eng_itemdesc": "Cauliflower with potato, cooked with tomato and fresh coriander",
+          "price": "155",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Mutter mushrooms",
+          "eng_itemname": "Mutter mushrooms",
+          "cz_itemdesc": "Hrášek se žampiony a s omáčkou z rajčat a smetany",
+          "eng_itemdesc": "Green peas and fresh mushrooms cooked with cream and tomato sauce",
+          "price": "165",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Mutter Methi Malai",
+          "eng_itemname": "Mutter Methi Malai",
+          "cz_itemdesc": "Zelený hrášek s řeckým senem a smetanou",
+          "eng_itemdesc": "Green peas cooked in fresh fenugreek and cream",
+          "price": "160",
+          "allergenes": "7,8"
+        }
+      ]
+    },
+    {
+      "cz_category": "Rýžové speciality",
+      "eng_category": "Rice specialities",
+      "category": [
+        {
+          "cz_itemname": "Chicken Biryani",
+          "eng_itemname": "Chicken Biryani",
+          "cz_itemdesc": "Dlouhozrnná basmati rýže s kuřecím masem, indické koření",
+          "eng_itemdesc": "Long grain Basmati rice cooked with chicken meat,indian spices",
+          "price": "220",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Lamb Biryani",
+          "eng_itemname": "Lamb Biryani",
+          "cz_itemdesc": "Dlouhá pulao rýže s jehněčím masem, raita",
+          "eng_itemdesc": "Long grained Pulao rice cooked with lamb, accompanied with Raita",
+          "price": "255",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Vegetarian Biryani",
+          "eng_itemname": "Vegetarian Biryani",
+          "cz_itemdesc": "Míchaná zelenina s rýží basmati, s čerstvou mátou a šafránem",
+          "eng_itemdesc": "Fresh garden vegetables cooked in Basmari rice, flavoured with fresh mint and saffron",
+          "price": "190",
+          "allergenes": "1,7,8"
+        },
+        {
+          "cz_itemname": "Smažená rýže s vejci",
+          "eng_itemname": "Egg Fried Rice",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "115",
+          "allergenes": "3"
+        },
+        {
+          "cz_itemname": "Smažená rýže",
+          "eng_itemname": "Jeera Pulao Rice",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "90",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Citronová rýže",
+          "eng_itemname": "Lemon rice",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "99",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Žampionová rýže",
+          "eng_itemname": "Mushrooms rice",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "115",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Bílá basmati rýže",
+          "eng_itemname": "Plain basmati rice",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "55",
+          "allergenes": " "
+        }
+      ]
+    },
+
+    {
+      "cz_category": "Indický chléb",
+      "eng_category": "Indian bread",
+      "category": [
+        {
+          "cz_itemname": "Tandoori Roti",
+          "eng_itemname": "Tandoori Roti",
+          "cz_itemdesc": "Tradiční indická placka z celozrnné mouky",
+          "eng_itemdesc": "Whole wheat flour bread cooked in tandoor",
+          "price": "40",
+          "allergenes": "1"
+        },
+        {
+          "cz_itemname": "Laccha Parantha",
+          "eng_itemname": "Laccha Parantha",
+          "cz_itemdesc": "Indická placka-tradiční styl, pečená v tandůru",
+          "eng_itemdesc": "Multi-layered wheat flour flaky bread, cooked in tandoor",
+          "price": "55",
+          "allergenes": "1,7"
+        },
+        {
+          "cz_itemname": "Pudina Parantha",
+          "eng_itemname": "Pudina Parantha",
+          "cz_itemdesc": "Indická placka z cizrnové mouky s mátou, pečená v tandúru",
+          "eng_itemdesc": "Multi-layered wheat flour bread cooked in tandoor, flavoured fresh mint",
+          "price": "55",
+          "allergenes": "1,7"
+        },
+        {
+          "cz_itemname": "Butter Naan",
+          "eng_itemname": "Butter Naan",
+          "cz_itemdesc": "Indický chléb s máslem, pečený v tandůru",
+          "eng_itemdesc": "Fine flour bread cooked in tandoor and layered with butter",
+          "price": "50",
+          "allergenes": "1,3,7"
+        },
+        {
+          "cz_itemname": "Plain Naan",
+          "eng_itemname": "Plain Naan",
+          "cz_itemdesc": "Indický chléb pečený v tandůru",
+          "eng_itemdesc": "Fine flour bread cooked in tandoor",
+          "price": "45",
+          "allergenes": "1,3,7"
+        },
+        {
+          "cz_itemname": "Garlic Naan",
+          "eng_itemname": "Garlic Naan",
+          "cz_itemdesc": "Indický česnekový chléb pečený v tandůru",
+          "eng_itemdesc": "Fine flour bread cooked in tandoor with freshly chopped garlic",
+          "price": "50",
+          "allergenes": "1,3,7"
+        },
+        {
+          "cz_itemname": "Chilli garlic Naan",
+          "eng_itemname": "Chilli garlic Naan",
+          "cz_itemdesc": "Indický česnekový chléb s chilli, pečený v tandůru",
+          "eng_itemdesc": "Fine flour bread cooked in tandoor flavoured with freshly chopped garlic and chilli flakes",
+          "price": "70",
+          "allergenes": "1,3,7,"
+        },
+        {
+          "cz_itemname": "Stuffed Kulcha",
+          "eng_itemname": "Stuffed Kulcha",
+          "cz_itemdesc": "Celozrnná placka plněná dle vašeho výběru – sýr, cibule, brambory, květák nebo mleté jehněčí maso",
+          "eng_itemdesc": "Whole wheat bread , stuffed with a choice of cottage cheese, onion, potato, cauliflower and minced lamb",
+          "price": "75",
+          "allergenes": "1,7"
+        }
+      ]
+    },
+    {
+      "cz_category": "Saláty",
+      "eng_category": "Salad",
+      "category": [
+        {
+          "cz_itemname": "Zeleninový salát",
+          "eng_itemname": "Green garden salad",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "75",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Kuchumber salad",
+          "eng_itemname": "Kuchumber salad",
+          "cz_itemdesc": "Pikantní drobně krájená okurka, rajče, červená cibule, koriandr, zelené chilli, citron",
+          "eng_itemdesc": "Spicey salad with cucumber, tomato, red onion, coriander, green chilli,lemon",
+          "price": "85",
+          "allergenes": " "
+        },
+        {
+          "cz_itemname": "Aloo chat",
+          "eng_itemname": "Aloo chat",
+          "cz_itemdesc": "Pálivý bramborový salát s indickým kořením",
+          "eng_itemdesc": "Spicy potato salad with traditional indian style",
+          "price": "65",
+          "allergenes": " "
+        }
+      ]
+    },
+    {
+      "cz_category": "Indické dochucovací omáčky",
+      "eng_category": "Indian chutneys",
+      "category": [
+        {
+          "cz_itemname": "Mango Chutney / Mint chutney / Imli chutney",
+          "eng_itemname": "Mango Chutney / Mint chutney / Imli Chutney",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "25",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Mixed Pickles",
+          "eng_itemname": "Mixed pickles",
+          "cz_itemdesc": " ",
+          "eng_itemdesc": " ",
+          "price": "25",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Mixed Raita",
+          "eng_itemname": "Mixed Raita",
+          "cz_itemdesc": "Jogurt míchaný s rajčaty a okurkou, jemně okořeněný",
+          "eng_itemdesc": "Yoghurt mixed with tomato and cucumber and mild spices",
+          "price": "60",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Aloo Raita",
+          "eng_itemname": "Aloo Raita",
+          "cz_itemdesc": "Jogurt s bramborami, jemně okořeněný",
+          "eng_itemdesc": "Yoghurt mixed with potato, mild spices",
+          "price": "60",
+          "allergenes": "7"
+        },
+        {
+          "cz_itemname": "Pineapple Raita",
+          "eng_itemname": "Pineapple Raita",
+          "cz_itemdesc": "Domácí jogurt s ananasem",
+          "eng_itemdesc": "Pineapple mixed with homemade yoghurt",
+          "price": "80",
+          "allergenes": "7"
+        }
+      ]
+    },
+    {
+      "cz_category": "Dezerty",
+      "eng_category": "Desserts",
+      "category": [
+        {
+          "cz_itemname": "Thandi Kheer",
+          "eng_itemname": "Thandi Kheer",
+          "cz_itemdesc": "Indický rýžový puding se šafránem",
+          "eng_itemdesc": "Saffron flavour sweet rice puding served chilled",
+          "price": "85",
+          "allergenes": "7,8"
+        },
+        {
+          "cz_itemname": "Gulabjamun  2pcs/2 ks ",
+          "eng_itemname": "Gulabjamun  2pcs/2 ks ",
+          "cz_itemdesc": "Smažené tvarohové knedlíčky s cukrovým sirupem",
+          "eng_itemdesc": "Fried cheese dumpling soaked in sugar syrup and served hot",
+          "price": "90",
+          "allergenes": "1,7,8"
+        },
+        {
+          "cz_itemname": "Mango Kulfi",
+          "eng_itemname": "Mango Kulfi",
+          "cz_itemdesc": "Indická zmrzlina z manga, servírovaná v keramické dóze",
+          "eng_itemdesc": "Mango flavoured indian ice cream served in clay pot",
+          "price": "120",
+          "allergenes": "1,7"
+        },
+        {
+          "cz_itemname": "Pista Kulfi ",
+          "eng_itemname": "Pista Kulfi ",
+          "cz_itemdesc": "Indická pistáciová zmrzlina servírovaná v dekorativní keramické dóze",
+          "eng_itemdesc": "Indian ice cream flavoured pistachio, served in clay pot",
+          "price": "120",
+          "allergenes": "1,7,8"
+        }
+      ]
+    }
+  ]
+}
