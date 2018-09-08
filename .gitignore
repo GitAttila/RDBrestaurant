@@ -8,6 +8,9 @@ yarn-error.log*
 #dist
 dist/
 
+#temp
+website/temp
+
 # Runtime data
 pids
 *.pid

@@ -79,8 +79,8 @@ gulp.task('usemin',['deleteDistFolder','styles','scripts'],function(){
 		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build',['deleteDistFolder','usemin','images', 'copyGeneralFiles']);
+gulp.task('build',['deleteDistFolder','usemin','images', 'fonts', 'copyGeneralFiles']);
 
-gulp.task('quickbuild',['deleteDistFolder','usemin','copyGeneralFiles']);
+gulp.task('quickbuild',['deleteDistFolder','usemin', 'fonts', 'copyGeneralFiles']);
 
 gulp.task('default',['build']);
