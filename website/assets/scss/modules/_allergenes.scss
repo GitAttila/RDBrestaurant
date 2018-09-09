@@ -1,0 +1,21 @@
+.allergenes {
+    &__group{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    &__item {
+        width: 2rem;
+        height: auto;
+        margin-right: 0.25rem;
+        img {
+            width: 100%;
+        }
+        &--large {
+            width: 3rem;
+        }
+    }
+    
+}

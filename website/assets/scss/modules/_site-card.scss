@@ -1,0 +1,85 @@
+.site-card {
+    background-color: $primary-background-color;
+    padding: 1rem;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 4px 2px -2px rgba(0,0,0,.12);
+    color: $secondary-text-color;
+    &__menu-item__divider{
+        height: 1px;
+        width: 100%;
+        background-color: rgba($color-white, 0.4);
+        margin-bottom: 1rem;
+    }
+    &__title {
+        font-family: $logo-font;
+        font-size: 2.8rem;
+        line-height: 2.8rem;
+        font-weight: bold;
+        @include atMedium{
+            font-size: 3.2rem;
+            line-height: 3.2rem;
+        }
+        @include atLarge{
+            font-size: 3.8rem;
+            line-height: 3.8rem;
+        }
+    }
+    &__subtitle {
+        font-family: $headline-font;
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        color: $color-white;
+        font-weight: bold;
+        @include atMedium{
+            font-size: 2rem;
+            line-height: 2rem;
+        }
+        @include atLarge{
+            font-size: 2.2rem;
+            line-height: 2.2rem;
+        }
+    }
+    &__text {
+        font-family: $text-font;
+        text-align: justify;
+    }
+    &__price-tag {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-bottom: 0.5rem;
+        width: 4.2rem;
+        height: 4.2rem;
+        border-radius: 50%;
+        background-color: $color-white;
+        @include atMedium{
+            width: 5rem;
+            height: 5rem;
+        }
+        @include atMedium{
+            width: 5.2rem;
+            height: 5.2rem;
+        }
+    }
+    &__price {
+        color: $primary-background-color;
+        margin-bottom: 0;
+        padding: 1rem;
+    }
+    &__secondary {
+        color: $highlight-text-color;
+        background-color: $secondary-background-color;
+        .site-card__price {
+            color: $secondary-background-color;
+        } 
+    }
+    &__tertiary {
+        color: $secondary-text-color;
+        background-color: $highlight-background-color;
+        .site-card__price {
+            color: $highlight-background-color;
+        } 
+    }
+    
+
+}

@@ -18,6 +18,7 @@
     "bootstrap": "^4.1.3",
     "browser-sync": "^2.24.7",
     "del": "^2.2.2",
+    "expose-loader": "^0.7.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
@@ -38,6 +39,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
     "animate.scss": "0.0.6",
+    "isotope-layout": "^3.0.6",
     "jquery": "^3.3.1",
     "lazysizes": "^4.1.1",
     "popper.js": "^1.14.4",

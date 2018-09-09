@@ -1,19 +1,21 @@
 // ---------- Rang De Basanti Color Palette ---------- 
-$RDB-darkgrey: rgb(52,56,58);
-$RDB-mediumgrey: rgb(98,99,96);
-$RDB-lightgrey: rgb(192,191,189);
+$RDB-darkgrey: rgb(58,56,54);
+$RDB-mediumgrey: rgb(100,98,96);
+$RDB-lightgrey: rgb(193,191,189);
 $RDB-yellow: rgb(254,190,40);
 $RDB-orange: rgb(247,148,50);
 
 // ---------- Site COLORS ---------- 
 $primary-text-color: $RDB-darkgrey;
 $secondary-text-color: $RDB-mediumgrey;
-$ternary-text-color: $RDB-lightgrey;
+$tertiary-text-color: $RDB-lightgrey;
 $highlight-text-color: $RDB-yellow;
-$primary-background-color: $RDB-yellow;
-$secondary-background-color: $RDB-lightgrey;
-$ternary-background-color: $RDB-mediumgrey;
-$highlight-color: $RDB-yellow;
+$primary-background-color: $RDB-lightgrey;
+$secondary-background-color: $RDB-mediumgrey;
+$tertiary-background-color: $RDB-darkgrey;
+$highlight-background-color: $RDB-yellow;
+
+$body-background-color: rgb(242,240,238);
 $color-white: rgb(255,255,255);
 
 // ---------- Social network COLORS ---------- 

@@ -1,6 +1,5 @@
 .site-footer {
-    background-color: $ternary-background-color;
-    padding-top: 3rem;
+    background-color: $tertiary-background-color;
     /*background: url('../../assets/images/pattern_dark2.png');*/
     &__feature{
         padding: 1rem;
@@ -16,7 +15,7 @@
             }
         }
         &__text {
-            color: $ternary-text-color;
+            color: $tertiary-text-color;
             font-family: $text-font;
             font-size: 1.2rem;
             line-height: 1.8rem;
@@ -38,7 +37,7 @@
             display: inline-block;
             width: 4rem;
             margin: 0 0.5rem 0.5rem 0;
-            color: $ternary-text-color;
+            color: $tertiary-text-color;
             img {
                 width: 100%;
                 filter: grayscale(100%);
@@ -59,9 +58,8 @@
         
         &__text {
             font-family: $text-font;
-            color: $secondary-text-color;
+            color: $primary-text-color;
             text-align: center;
-            padding: 2rem 0;
             margin: 0 auto;
             p {
                 margin: 0;

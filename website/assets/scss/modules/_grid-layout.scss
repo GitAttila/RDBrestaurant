@@ -1,0 +1,17 @@
+.grid-layout {
+    margin-right: -1rem; // compensation for left padding bellow
+    &__item{
+        float: left;
+        width: 100%;
+        padding: 1rem 1rem 0 0;
+        @include atMedium{
+            width: 50%;
+        }
+        @include atLarge{
+            width: 33%;
+        }
+        /*&--width2{
+            width: 66%;
+        }*/
+    }
+}
