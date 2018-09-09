@@ -81,35 +81,13 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(1);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _Person = __webpack_require__(2);
-
-var _Person2 = _interopRequireDefault(_Person);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/*jshint esversion: 6 */
-
-var john = new _Person2.default('John Doe', 'blue');
-john.greet();
-
-// $('h1').remove();
-
-/***/ }),
-/* 1 */
+/* 0 */,
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10480,7 +10458,185 @@ return jQuery;
 
 
 /***/ }),
-/* 2 */
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v4.1.3): util.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+
+const Util = (($) => {
+  /**
+   * ------------------------------------------------------------------------
+   * Private TransitionEnd Helpers
+   * ------------------------------------------------------------------------
+   */
+
+  const TRANSITION_END = 'transitionend'
+  const MAX_UID = 1000000
+  const MILLISECONDS_MULTIPLIER = 1000
+
+  // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  function toType(obj) {
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase()
+  }
+
+  function getSpecialTransitionEndEvent() {
+    return {
+      bindType: TRANSITION_END,
+      delegateType: TRANSITION_END,
+      handle(event) {
+        if ($(event.target).is(this)) {
+          return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
+        }
+        return undefined // eslint-disable-line no-undefined
+      }
+    }
+  }
+
+  function transitionEndEmulator(duration) {
+    let called = false
+
+    $(this).one(Util.TRANSITION_END, () => {
+      called = true
+    })
+
+    setTimeout(() => {
+      if (!called) {
+        Util.triggerTransitionEnd(this)
+      }
+    }, duration)
+
+    return this
+  }
+
+  function setTransitionEndSupport() {
+    $.fn.emulateTransitionEnd = transitionEndEmulator
+    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
+  }
+
+  /**
+   * --------------------------------------------------------------------------
+   * Public Util Api
+   * --------------------------------------------------------------------------
+   */
+
+  const Util = {
+
+    TRANSITION_END: 'bsTransitionEnd',
+
+    getUID(prefix) {
+      do {
+        // eslint-disable-next-line no-bitwise
+        prefix += ~~(Math.random() * MAX_UID) // "~~" acts like a faster Math.floor() here
+      } while (document.getElementById(prefix))
+      return prefix
+    },
+
+    getSelectorFromElement(element) {
+      let selector = element.getAttribute('data-target')
+      if (!selector || selector === '#') {
+        selector = element.getAttribute('href') || ''
+      }
+
+      try {
+        return document.querySelector(selector) ? selector : null
+      } catch (err) {
+        return null
+      }
+    },
+
+    getTransitionDurationFromElement(element) {
+      if (!element) {
+        return 0
+      }
+
+      // Get transition-duration of the element
+      let transitionDuration = $(element).css('transition-duration')
+      const floatTransitionDuration = parseFloat(transitionDuration)
+
+      // Return 0 if element or transition duration is not found
+      if (!floatTransitionDuration) {
+        return 0
+      }
+
+      // If multiple durations are defined, take the first
+      transitionDuration = transitionDuration.split(',')[0]
+
+      return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER
+    },
+
+    reflow(element) {
+      return element.offsetHeight
+    },
+
+    triggerTransitionEnd(element) {
+      $(element).trigger(TRANSITION_END)
+    },
+
+    // TODO: Remove in v5
+    supportsTransitionEnd() {
+      return Boolean(TRANSITION_END)
+    },
+
+    isElement(obj) {
+      return (obj[0] || obj).nodeType
+    },
+
+    typeCheckConfig(componentName, config, configTypes) {
+      for (const property in configTypes) {
+        if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
+          const expectedTypes = configTypes[property]
+          const value         = config[property]
+          const valueType     = value && Util.isElement(value)
+            ? 'element' : toType(value)
+
+          if (!new RegExp(expectedTypes).test(valueType)) {
+            throw new Error(
+              `${componentName.toUpperCase()}: ` +
+              `Option "${property}" provided type "${valueType}" ` +
+              `but expected type "${expectedTypes}".`)
+          }
+        }
+      }
+    }
+  }
+
+  setTransitionEndSupport()
+
+  return Util
+})(jquery__WEBPACK_IMPORTED_MODULE_0___default.a)
+
+/* harmony default export */ __webpack_exports__["default"] = (Util);
+
+
+/***/ }),
+/* 4 */,
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _MobileMenu = __webpack_require__(6);
+
+var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mobileMenu = new _MobileMenu2.default(); /*jshint esversion: 6 */
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10490,30 +10646,468 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*jshint esversion: 6 */
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+__webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/*jshint esversion: 6 */
-var Person = function () {
-    function Person(fullName, favColor) {
-        _classCallCheck(this, Person);
+var MobileMenu = function () {
+    function MobileMenu() {
+        _classCallCheck(this, MobileMenu);
 
-        this.name = fullName;
-        this.favoriteColor = favColor;
+        this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
+        this.menuContent = (0, _jquery2.default)("#menuContent");
+        this.menuHeader = (0, _jquery2.default)(".site-header");
+        this.events();
     }
 
-    _createClass(Person, [{
-        key: "greet",
-        value: function greet() {
-            console.log("Hi there, my name is " + this.name + " and my favorite color is " + this.favoriteColor);
+    _createClass(MobileMenu, [{
+        key: "events",
+        value: function events() {
+            var self = this;
+            (0, _jquery2.default)(this.menuContent).on("show.bs.collapse", function () {
+                self.toggleTheIcon();
+            });
+            (0, _jquery2.default)(this.menuContent).on("shown.bs.collapse", function () {
+                self.toggleTheMenu();
+            });
+            (0, _jquery2.default)(this.menuContent).on("hide.bs.collapse", function () {
+                self.toggleTheMenu();
+                self.toggleTheIcon();
+            });
+        }
+    }, {
+        key: "toggleTheMenu",
+        value: function toggleTheMenu() {
+            this.menuHeader.toggleClass("site-header--is-expanded");
+        }
+    }, {
+        key: "toggleTheIcon",
+        value: function toggleTheIcon() {
+            this.menuIcon.toggleClass("site-header__menu-icon--close-x");
         }
     }]);
 
-    return Person;
+    return MobileMenu;
 }();
 
-exports.default = Person;
+exports.default = MobileMenu;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+
+
+
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v4.1.3): collapse.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+
+const Collapse = (($) => {
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  const NAME                = 'collapse'
+  const VERSION             = '4.1.3'
+  const DATA_KEY            = 'bs.collapse'
+  const EVENT_KEY           = `.${DATA_KEY}`
+  const DATA_API_KEY        = '.data-api'
+  const JQUERY_NO_CONFLICT  = $.fn[NAME]
+
+  const Default = {
+    toggle : true,
+    parent : ''
+  }
+
+  const DefaultType = {
+    toggle : 'boolean',
+    parent : '(string|element)'
+  }
+
+  const Event = {
+    SHOW           : `show${EVENT_KEY}`,
+    SHOWN          : `shown${EVENT_KEY}`,
+    HIDE           : `hide${EVENT_KEY}`,
+    HIDDEN         : `hidden${EVENT_KEY}`,
+    CLICK_DATA_API : `click${EVENT_KEY}${DATA_API_KEY}`
+  }
+
+  const ClassName = {
+    SHOW       : 'show',
+    COLLAPSE   : 'collapse',
+    COLLAPSING : 'collapsing',
+    COLLAPSED  : 'collapsed'
+  }
+
+  const Dimension = {
+    WIDTH  : 'width',
+    HEIGHT : 'height'
+  }
+
+  const Selector = {
+    ACTIVES     : '.show, .collapsing',
+    DATA_TOGGLE : '[data-toggle="collapse"]'
+  }
+
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
+
+  class Collapse {
+    constructor(element, config) {
+      this._isTransitioning = false
+      this._element         = element
+      this._config          = this._getConfig(config)
+      this._triggerArray    = $.makeArray(document.querySelectorAll(
+        `[data-toggle="collapse"][href="#${element.id}"],` +
+        `[data-toggle="collapse"][data-target="#${element.id}"]`
+      ))
+      const toggleList = [].slice.call(document.querySelectorAll(Selector.DATA_TOGGLE))
+      for (let i = 0, len = toggleList.length; i < len; i++) {
+        const elem = toggleList[i]
+        const selector = _util__WEBPACK_IMPORTED_MODULE_1__["default"].getSelectorFromElement(elem)
+        const filterElement = [].slice.call(document.querySelectorAll(selector))
+          .filter((foundElem) => foundElem === element)
+
+        if (selector !== null && filterElement.length > 0) {
+          this._selector = selector
+          this._triggerArray.push(elem)
+        }
+      }
+
+      this._parent = this._config.parent ? this._getParent() : null
+
+      if (!this._config.parent) {
+        this._addAriaAndCollapsedClass(this._element, this._triggerArray)
+      }
+
+      if (this._config.toggle) {
+        this.toggle()
+      }
+    }
+
+    // Getters
+
+    static get VERSION() {
+      return VERSION
+    }
+
+    static get Default() {
+      return Default
+    }
+
+    // Public
+
+    toggle() {
+      if ($(this._element).hasClass(ClassName.SHOW)) {
+        this.hide()
+      } else {
+        this.show()
+      }
+    }
+
+    show() {
+      if (this._isTransitioning ||
+        $(this._element).hasClass(ClassName.SHOW)) {
+        return
+      }
+
+      let actives
+      let activesData
+
+      if (this._parent) {
+        actives = [].slice.call(this._parent.querySelectorAll(Selector.ACTIVES))
+          .filter((elem) => elem.getAttribute('data-parent') === this._config.parent)
+
+        if (actives.length === 0) {
+          actives = null
+        }
+      }
+
+      if (actives) {
+        activesData = $(actives).not(this._selector).data(DATA_KEY)
+        if (activesData && activesData._isTransitioning) {
+          return
+        }
+      }
+
+      const startEvent = $.Event(Event.SHOW)
+      $(this._element).trigger(startEvent)
+      if (startEvent.isDefaultPrevented()) {
+        return
+      }
+
+      if (actives) {
+        Collapse._jQueryInterface.call($(actives).not(this._selector), 'hide')
+        if (!activesData) {
+          $(actives).data(DATA_KEY, null)
+        }
+      }
+
+      const dimension = this._getDimension()
+
+      $(this._element)
+        .removeClass(ClassName.COLLAPSE)
+        .addClass(ClassName.COLLAPSING)
+
+      this._element.style[dimension] = 0
+
+      if (this._triggerArray.length) {
+        $(this._triggerArray)
+          .removeClass(ClassName.COLLAPSED)
+          .attr('aria-expanded', true)
+      }
+
+      this.setTransitioning(true)
+
+      const complete = () => {
+        $(this._element)
+          .removeClass(ClassName.COLLAPSING)
+          .addClass(ClassName.COLLAPSE)
+          .addClass(ClassName.SHOW)
+
+        this._element.style[dimension] = ''
+
+        this.setTransitioning(false)
+
+        $(this._element).trigger(Event.SHOWN)
+      }
+
+      const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1)
+      const scrollSize = `scroll${capitalizedDimension}`
+      const transitionDuration = _util__WEBPACK_IMPORTED_MODULE_1__["default"].getTransitionDurationFromElement(this._element)
+
+      $(this._element)
+        .one(_util__WEBPACK_IMPORTED_MODULE_1__["default"].TRANSITION_END, complete)
+        .emulateTransitionEnd(transitionDuration)
+
+      this._element.style[dimension] = `${this._element[scrollSize]}px`
+    }
+
+    hide() {
+      if (this._isTransitioning ||
+        !$(this._element).hasClass(ClassName.SHOW)) {
+        return
+      }
+
+      const startEvent = $.Event(Event.HIDE)
+      $(this._element).trigger(startEvent)
+      if (startEvent.isDefaultPrevented()) {
+        return
+      }
+
+      const dimension = this._getDimension()
+
+      this._element.style[dimension] = `${this._element.getBoundingClientRect()[dimension]}px`
+
+      _util__WEBPACK_IMPORTED_MODULE_1__["default"].reflow(this._element)
+
+      $(this._element)
+        .addClass(ClassName.COLLAPSING)
+        .removeClass(ClassName.COLLAPSE)
+        .removeClass(ClassName.SHOW)
+
+      const triggerArrayLength = this._triggerArray.length
+      if (triggerArrayLength > 0) {
+        for (let i = 0; i < triggerArrayLength; i++) {
+          const trigger = this._triggerArray[i]
+          const selector = _util__WEBPACK_IMPORTED_MODULE_1__["default"].getSelectorFromElement(trigger)
+          if (selector !== null) {
+            const $elem = $([].slice.call(document.querySelectorAll(selector)))
+            if (!$elem.hasClass(ClassName.SHOW)) {
+              $(trigger).addClass(ClassName.COLLAPSED)
+                .attr('aria-expanded', false)
+            }
+          }
+        }
+      }
+
+      this.setTransitioning(true)
+
+      const complete = () => {
+        this.setTransitioning(false)
+        $(this._element)
+          .removeClass(ClassName.COLLAPSING)
+          .addClass(ClassName.COLLAPSE)
+          .trigger(Event.HIDDEN)
+      }
+
+      this._element.style[dimension] = ''
+      const transitionDuration = _util__WEBPACK_IMPORTED_MODULE_1__["default"].getTransitionDurationFromElement(this._element)
+
+      $(this._element)
+        .one(_util__WEBPACK_IMPORTED_MODULE_1__["default"].TRANSITION_END, complete)
+        .emulateTransitionEnd(transitionDuration)
+    }
+
+    setTransitioning(isTransitioning) {
+      this._isTransitioning = isTransitioning
+    }
+
+    dispose() {
+      $.removeData(this._element, DATA_KEY)
+
+      this._config          = null
+      this._parent          = null
+      this._element         = null
+      this._triggerArray    = null
+      this._isTransitioning = null
+    }
+
+    // Private
+
+    _getConfig(config) {
+      config = {
+        ...Default,
+        ...config
+      }
+      config.toggle = Boolean(config.toggle) // Coerce string values
+      _util__WEBPACK_IMPORTED_MODULE_1__["default"].typeCheckConfig(NAME, config, DefaultType)
+      return config
+    }
+
+    _getDimension() {
+      const hasWidth = $(this._element).hasClass(Dimension.WIDTH)
+      return hasWidth ? Dimension.WIDTH : Dimension.HEIGHT
+    }
+
+    _getParent() {
+      let parent = null
+      if (_util__WEBPACK_IMPORTED_MODULE_1__["default"].isElement(this._config.parent)) {
+        parent = this._config.parent
+
+        // It's a jQuery object
+        if (typeof this._config.parent.jquery !== 'undefined') {
+          parent = this._config.parent[0]
+        }
+      } else {
+        parent = document.querySelector(this._config.parent)
+      }
+
+      const selector =
+        `[data-toggle="collapse"][data-parent="${this._config.parent}"]`
+
+      const children = [].slice.call(parent.querySelectorAll(selector))
+      $(children).each((i, element) => {
+        this._addAriaAndCollapsedClass(
+          Collapse._getTargetFromElement(element),
+          [element]
+        )
+      })
+
+      return parent
+    }
+
+    _addAriaAndCollapsedClass(element, triggerArray) {
+      if (element) {
+        const isOpen = $(element).hasClass(ClassName.SHOW)
+
+        if (triggerArray.length) {
+          $(triggerArray)
+            .toggleClass(ClassName.COLLAPSED, !isOpen)
+            .attr('aria-expanded', isOpen)
+        }
+      }
+    }
+
+    // Static
+
+    static _getTargetFromElement(element) {
+      const selector = _util__WEBPACK_IMPORTED_MODULE_1__["default"].getSelectorFromElement(element)
+      return selector ? document.querySelector(selector) : null
+    }
+
+    static _jQueryInterface(config) {
+      return this.each(function () {
+        const $this   = $(this)
+        let data      = $this.data(DATA_KEY)
+        const _config = {
+          ...Default,
+          ...$this.data(),
+          ...typeof config === 'object' && config ? config : {}
+        }
+
+        if (!data && _config.toggle && /show|hide/.test(config)) {
+          _config.toggle = false
+        }
+
+        if (!data) {
+          data = new Collapse(this, _config)
+          $this.data(DATA_KEY, data)
+        }
+
+        if (typeof config === 'string') {
+          if (typeof data[config] === 'undefined') {
+            throw new TypeError(`No method named "${config}"`)
+          }
+          data[config]()
+        }
+      })
+    }
+  }
+
+  /**
+   * ------------------------------------------------------------------------
+   * Data Api implementation
+   * ------------------------------------------------------------------------
+   */
+
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
+    if (event.currentTarget.tagName === 'A') {
+      event.preventDefault()
+    }
+
+    const $trigger = $(this)
+    const selector = _util__WEBPACK_IMPORTED_MODULE_1__["default"].getSelectorFromElement(this)
+    const selectors = [].slice.call(document.querySelectorAll(selector))
+    $(selectors).each(function () {
+      const $target = $(this)
+      const data    = $target.data(DATA_KEY)
+      const config  = data ? 'toggle' : $trigger.data()
+      Collapse._jQueryInterface.call($target, config)
+    })
+  })
+
+  /**
+   * ------------------------------------------------------------------------
+   * jQuery
+   * ------------------------------------------------------------------------
+   */
+
+  $.fn[NAME] = Collapse._jQueryInterface
+  $.fn[NAME].Constructor = Collapse
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT
+    return Collapse._jQueryInterface
+  }
+
+  return Collapse
+})(jquery__WEBPACK_IMPORTED_MODULE_0___default.a)
+
+/* harmony default export */ __webpack_exports__["default"] = (Collapse);
+
 
 /***/ })
 /******/ ]);

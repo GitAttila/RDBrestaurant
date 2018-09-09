@@ -1,8 +1,8 @@
 var path = require('path');
 module.exports = {
     entry: {
-        App: "./website/assets/js/App.js",
-        Vendor: "./website/assets/js/Vendor.js"
+        Vendor: "./website/assets/js/Vendor.js",
+        App: "./website/assets/js/App.js"
     },
     mode: 'none',
     output: {

@@ -39,6 +39,10 @@
             flex-direction: column;
         }
     }
+    &--small {
+        padding: 0rem 0.5rem;
+        margin: 0;
+    }
     &--icon {
         display: inline-flex;
         justify-content: center;
