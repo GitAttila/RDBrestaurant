@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 
-import $ from "jquery";
 import 'bootstrap/js/src/collapse';
 
 class MobileMenu {

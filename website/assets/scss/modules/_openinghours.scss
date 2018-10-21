@@ -1,0 +1,23 @@
+.oh-table {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    &__row {
+        &--active {
+            background-color: $secondary-text-color;
+            color: $primary-background-color;
+        }
+    }
+    &__day {
+        padding: 0 0.5rem;
+        text-align: left;
+        border-bottom-left-radius: 1rem;
+        border-top-left-radius: 1rem;
+    }
+    &__hours {
+        padding: 0 0.5rem;
+        text-align: right;
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+}

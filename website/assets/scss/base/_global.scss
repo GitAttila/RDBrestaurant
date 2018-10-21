@@ -16,8 +16,8 @@ body {
 }
 
 a[href^=tel] {
-   	text-decoration: none;
-   	color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 a:active, a:focus  {
 	color: $primary-text-color;

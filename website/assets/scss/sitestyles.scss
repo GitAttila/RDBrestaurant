@@ -2,12 +2,14 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap-reboot";
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid";
 @import "../../../node_modules/bootstrap/scss/carousel";
+@import "../../../node_modules/bootstrap/scss/modal";
+@import "../../../node_modules/bootstrap/scss/close";
 @import "../../../node_modules/bootstrap/scss/transitions";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
-@import "../../../node_modules/animate.scss/vendor/assets/stylesheets/animate";
+@import "../../../node_modules/animatewithsassclass/animate.scss";
 
 @import "base/variables";
 @import "base/mixins";
@@ -16,12 +18,15 @@
 
 @import "modules/section";
 @import "modules/site-header";
+@import "modules/site-form";
 @import "modules/section-hero";
 @import "modules/section-body";
 @import "modules/grid-layout";
 @import "modules/primary-nav";
 @import "modules/hero_carousel";
 @import "modules/site-card";
+@import "modules/site-modal";
+@import "modules/openinghours";
 @import "modules/allergenes";
 @import "modules/buttons";
 @import "modules/section-drinkcompanies";

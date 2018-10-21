@@ -3,6 +3,25 @@
     padding: 1rem;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 4px 2px -2px rgba(0,0,0,.12);
     color: $secondary-text-color;
+    position: relative;
+    .btn-site {
+        background-color: $secondary-text-color;
+        color: $primary-background-color;
+        border-color: $secondary-text-color;
+        &:hover {
+            background-color: $primary-background-color;
+            color: $secondary-text-color;
+        }
+    }
+    &__carousel__indicators {
+        display: none;
+    }
+    &__menu-item {
+        display: inline-block;
+    }
+    &__carousel__item__img{
+        width: 100%;
+    }
     &__menu-item__divider{
         height: 1px;
         width: 100%;
@@ -41,6 +60,57 @@
     &__text {
         font-family: $text-font;
         text-align: justify;
+        position: relative;
+        z-index: 1;
+        &--lead {
+            font-size: 1.2em;
+            line-height: 1.4em;
+            letter-spacing: 0.1rem;
+            text-align: left;
+            font-style: italic;
+        }
+    }
+    &__image {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        z-index: 0;
+        left: 0;
+        right: 0;
+        img {
+            width: 100%;
+        }
+        &--bottom{
+            bottom: 0;
+        }
+        &--top{
+            top: 0;
+        }
+        &--transparent33 {
+            opacity: 0.33;
+        }
+    }
+    &__expand-icon {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        top: 0;
+        margin: 0.3rem 0.5rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover{
+            background-color: rgba(255,255,255,0.67);
+        }
+        &--selected {
+            background-color: rgba(255,255,255,0.5);
+            color: $primary-background-color;
+        }
     }
     &__price-tag {
         display: flex;
@@ -66,19 +136,84 @@
         margin-bottom: 0;
         padding: 1rem;
     }
+    &__map-container{
+        width: 100%;
+        height: 33vh;
+        background-color: $primary-background-color;
+    }
     &__secondary {
         color: $highlight-text-color;
         background-color: $secondary-background-color;
+        .btn-site {
+            background-color: $highlight-text-color;
+            color: $secondary-background-color;
+            border-color: $highlight-text-color;
+            &:hover {
+                background-color: $secondary-background-color;
+                color: $highlight-text-color;
+            }
+        }
         .site-card__price {
             color: $secondary-background-color;
         } 
+        .site-card__expand-icon--selected {
+            color: $secondary-background-color;
+        }
+        .oh-table__row--active{
+            color: $secondary-background-color;
+            background-color: $highlight-text-color;
+        }
+        .site-form__field-wrapper--material {
+            .site-form__feedback {
+                color: $highlight-text-color;
+            }
+            .site-form__field {
+                border-bottom: 1px solid $highlight-text-color;
+            }
+            hr {
+                background: $highlight-text-color;
+            }
+            .site-form__label {
+                color: $highlight-text-color;
+            }
+        }
     }
     &__tertiary {
         color: $secondary-text-color;
         background-color: $highlight-background-color;
+        .btn-site {
+            background-color: $secondary-text-color;
+            color: $highlight-background-color;
+            border-color: $secondary-text-color;
+            &:hover {
+                background-color: $highlight-background-color;
+                color: $secondary-text-color;
+            }
+        }
         .site-card__price {
             color: $highlight-background-color;
         } 
+        .site-card__expand-icon--selected {
+            color: $highlight-background-color;
+        }
+        .oh-table__row--active{
+            color: $highlight-background-color;
+            background-color: $secondary-text-color;
+        }
+        .site-form__field-wrapper--material {
+            .site-form__feedback {
+                color: $secondary-text-color;
+            }
+            .site-form__field {
+                border-bottom: 1px solid $secondary-text-color;
+            }
+            hr {
+                background: $secondary-text-color;
+            }
+            .site-form__label {
+                color: $secondary-text-color;
+            }
+        }
     }
     
 

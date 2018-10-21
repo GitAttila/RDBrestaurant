@@ -19,9 +19,12 @@
         text-decoration: none;
         color: $color-white;
         transition: 0.3s color ease-in-out,0.2s background-color ease-in-out,0.3s border ease-in-out;
-        &:hover {
+        &:hover, &:focus {
             color: $highlight-text-color;
             text-decoration: none;
+        }
+        &--active {
+            color: $highlight-text-color;
         }
     }
 }

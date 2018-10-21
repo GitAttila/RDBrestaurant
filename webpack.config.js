@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var path = require('path');
 module.exports = {
     entry: {
@@ -14,11 +15,18 @@ module.exports = {
             {
                 loader: 'babel-loader',
                 query: {
+                    plugins: ["transform-runtime"],
                     presets: ['es2015']
                 },
                 test: /\.js$/,
                 exclude: /node_modules/
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        })
+    ]
 };

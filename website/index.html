@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="cz">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="Indian Restaurant 'Rang De Basanti' located in Prague, Dolní Počernice. Indická restaurace 'Rang De Basanti' nacházející se v Praze, Dolních Počernicích.">
-      <meta name="keywords"
-            content="Indian Restaurant,Rang De Basanti,Indian food,restaurace Dolní Počernice,indická restaurace,indická restaurace Praha,indická jídla, polední menu Praha,tikka masala,indická kuchyně"/>
-      <meta name="author" content="AHAstudio">
-      <link rel="icon" href="assets/images/RDB_favicon.ico" type="image/x-icon">
-      <title>Rang De Basanti | Indian Restaurant Prague | Indická Restaurace | Praha - Dolní Počernice</title>
-      <!-- build:css ./assets/styles/sitestyles.css -->
-      <link href="temp/styles/sitestyles.css" rel="stylesheet">
-      <!-- endbuild -->
+      <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="Indian Restaurant 'Rang De Basanti' located in Prague, Dolní Počernice. Indická restaurace 'Rang De Basanti' nacházející se v Praze, Dolních Počernicích.">
+            <meta name="keywords"
+                  content="Indian Restaurant,Rang De Basanti,Indian food,restaurace Dolní Počernice,indická restaurace,indická restaurace Praha,indická jídla, polední menu Praha,tikka masala,indická kuchyně"/>
+            <meta name="author" content="AHAstudio">
+            <link rel="icon" href="assets/images/RDB_favicon.ico" type="image/x-icon">
+            <title>Rang De Basanti | Indian Restaurant Prague | Indická Restaurace | Praha - Dolní Počernice</title>
+            <!-- build:css ./assets/styles/sitestyles.css -->
+            <link href="temp/styles/sitestyles.css" rel="stylesheet">
+            <!-- endbuild -->
 
-      <!-- build:js ./assets/js/Vendor.js -->
-      <script src="temp/js/Vendor.js" type="text/javascript"></script> 
-      <!-- endbuild -->
+            <!-- build:js ./assets/js/Vendor.js -->
+            <script src="temp/js/Vendor.js" type="text/javascript"></script> 
+            <!-- endbuild -->
 
-   </head>
-   <body>
+      </head>
+      
+      <body>
 
-      <header class="site-header">
+      <header class="site-header site-header--shadowed">
             <div class="container site-header__wrapper">
                   <a href="#" class="site-header__brand-wrapper">
                         <img src="./assets/images/RDB_logo_white_abbrev_outline.png" alt="Rang de Basanti logo short white">
@@ -32,24 +33,24 @@
                         </div>
                   </div>  
                   <nav class="primary-nav site-header__nav-wrapper collapse" id="menuContent">
-                        <ul  class="primary-nav__items-wrapper">
+                        <ul class="primary-nav__items-wrapper">
                               <li class="primary-nav__item">
-                                    <a class="primary-nav__link" href="#"><i class="fas fa-home"></i></a>
+                                    <a data-filter="home" class="primary-nav__link primary-nav__link--active" href="#"><i class="fas fa-home"></i></a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a class="primary-nav__link" href="#">about us</a>
+                                    <a data-filter="about" class="primary-nav__link" href="#">about us</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a class="primary-nav__link" href="#">daily menu</a>
+                                    <a data-filter="daily-menu"  class="primary-nav__link" href="#">daily menu</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a class="primary-nav__link" href="#">menu</a>
+                                    <a data-filter="menu" class="primary-nav__link" href="#">menu</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a class="primary-nav__link" href="#">reservations</a>
+                                    <a data-filter="reservations" class="primary-nav__link" href="#">reservations</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a class="primary-nav__link" href="#">contact</a>
+                                    <a data-filter="contact" class="primary-nav__link" href="#">contact</a>
                               </li>
                         </ul>
                   </nav>
@@ -122,13 +123,614 @@
 
       </section>
 
-      <section class="section section-body">
-            <div class="container">
-                  <h2 class="section__title">about us</h2>
+      <div class="btn-site btn-site--icon btn-site--nav-icon btn-site--rounded" data-toggle="modal" data-target="#allergenes-list">
+            <i class="fas fa-allergies"></i>
+      </div>
 
+      <!-- MODAL:ALLERGENES LIST -->
+      <div id="allergenes-list" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog site-modal modal-lg">
+                  <div class="modal-content site-modal__content">
+                        <div class="modal-header">
+                              <h3 class="modal-title">Allergenes list</h3>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                              </button>
+                        </div>
+                        
+                        <div class="modal-body allergenes__group">
+                              <div class="row align-items-center">
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Cereals containing gluten, namely: wheat (such as spelt and khorasan wheat), rye, barley, oats or their hybridised strains, and products thereof, except:</h4>
+                                                <p>(a) wheat based glucose syrups including dextrose</p>
+                                                <p>(b) wheat based maltodextrins</p>
+                                                <p>(c) glucose syrups based on barley</p>
+                                                <p>(d) cereals used for making alcoholic distillates including ethyl alcohol of agricultural origin.</p>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/2-crustaceans.png" alt="2-crustaceans allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Crustaceans and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/3-eggs.png" alt="3-eggs allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Eggs and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/4-fish.png" alt="4-fish allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Fish and products thereof, except:</h4>
+                                                <p>(a) fish gelatine used as carrier for vitamin or carotenoid preparations</p>
+                                                <p>(b) fish gelatine or Isinglass used as fining agent in beer and wine.</p>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/5-peanuts.png" alt="5-peanuts allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Peanuts and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/6-soya.png" alt="6-soya allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Soybeans and products thereof, except:</h4>
+                                                <p>(a) fully refined soybean oil and fat</p>
+                                                <p>(b) natural mixed tocopherols (E306), natural D-alpha tocopherol, natural D-alpha tocopherol acetate, and natural D-alpha tocopherol succinate from soybean sources</p>
+                                                <p>(c) vegetable oils derived phytosterols and phytosterol esters from soybean sources</p>
+                                                <p>(d) plant stanol ester produced from vegetable oil sterols from soybean sources.</p>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Milk and products thereof (including lactose), except:</h4>
+                                                <p>(a) whey used for making alcoholic distillates including ethyl alcohol of agricultural origin</p>
+                                                <p>(b) lactitol.</p>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Nuts, namely: almonds (Amygdalus communis L.), hazelnuts (Corylus avellana), walnuts (Juglans regia), cashews (Anacardium occidentale), pecan nuts (Carya illinoinensis (Wangenh.) K. Koch), Brazil nuts (Bertholletia excelsa), pistachio nuts (Pistacia vera), macadamia or Queensland nuts (Macadamia ternifolia), and products thereof, except for nuts used for making alcoholic distillates including ethyl alcohol of agricultural origin.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/9-celery.png" alt="9-celery allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Celery and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Mustard and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/11-sesame.png" alt="11-sesame allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Sesame seeds and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/12-sulphites.png" alt="12-sulphites allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Sulphur dioxide and sulphites at concentrations of more than 10 mg/kg or 10 mg/litre in terms of the total SO2 which are to be calculated for products as proposed ready for consumption or as reconstituted according to the instructions of the manufacturers.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/13-lupin.png" alt="13-lupin allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Lupin and products thereof.</h4>
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-2 align-self-start">
+                                          <div class="allergenes__item">
+                                                <img src="./assets/images/allergenes/14-molluscs.png" alt="14-molluscs allergenes icon">
+                                          </div>
+                                    </div>
+                                    <div class="col-12 col-sm-10">
+                                          <div class="allergenes__text">
+                                                <h4>Molluscs and products thereof.</h4>
+                                          </div>
+                                    </div>
+
+                              </div>
+                        </div>
+
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <!-- END OF MODAL:ALLERGENES LIST -->
+
+      <section class="section section-body">
+
+            <div class="container">
+                  <h2 id="main-section-title" class="section__title">about us</h2>
+
+                  <!--  GRID SECTION -->
                   <div class="grid-layout" id="mainGrid">
 
-                        <div class="grid-layout__item">
+                        <div data-menu="about" class="grid-layout__item grid-layout__item--width2">
+                              <div class="site-card">
+                                    <h3 class="site-card__title">Restaurant Rang De Basanti</h3>
+
+                                    <p class="site-card__text site-card__text--lead">Indian restaurant Rang De Basanti is located in Dolní Počernice, Prague.</p>
+
+                                    <p class="site-card__text">U nás, v indické restauraci Rang de Basanti věříme, že jsme nositeli tradice v indické kuchyni ale zároveň pečlivě dbáme na to, aby nami nabízené jídlo bylo vždy připravené z čerstvých a nejkvalitnejších surovin a aby jsme neopomíjeli taky zdraví našich hostů, takže si můžete vychutnat naše jídlo bez obav z obsahu vysokého cholesterolu.
+                                          V naši indické restauraci v Dolních Počernicích vyřizujeme a zavážime objednávky jídel do tří kilometrů zdarma. Nabízime možnost pronajmutí prostor včetně nabídky kompletního cateringového servisu při příležitosti organizace oslav, jako jsou svadby a různé jiné výročí.</p>
+                                    <div class="site-card__image site-card__image--bottom">
+                                          <img src="./assets/images/dp_bridge.png" alt="Dolní Počernice, pond near Rang de Basanti">
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div data-menu="about" class="grid-layout__item">
+                              <div class="site-card">
+                                    <h3 class="site-card__title">Photo gallery</h3>
+                                    <div class="site-card__expand-icon">
+                                          <i class="fas fa-expand"></i>
+                                    </div>
+
+                                    <div id="aboutPhotoGallery" class="carousel site-card__carousel slide" data-ride="carousel" data-interval="300000000">
+                                          <ol class="carousel-indicators site-card__carousel__indicators">
+                                                <li data-target="#aboutPhotoGallery" data-slide-to="0" class="active"></li>
+                                                <li data-target="#aboutPhotoGallery" data-slide-to="1"></li>
+                                                <li data-target="#aboutPhotoGallery" data-slide-to="2"></li>
+                                                <li data-target="#aboutPhotoGallery" data-slide-to="3"></li>
+                                          </ol>
+                                          <div class="carousel-inner">
+                                                <div class="carousel-item site-card__carousel__item active">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_01--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_01--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/gallery/indian_restaurant_interior01.jpg" class="site-card__carousel__item__img" alt="Rang De Basanti restaurant interior">
+                                                      </picture>
+                                                </div>
+                                                <div class="carousel-item site-card__carousel__item">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_02--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_02--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/gallery/indian_restaurant_interior02.jpg" class="site-card__carousel__item__img"  alt="Rang De Basanti restaurant interior">
+                                                      </picture>
+                                                </div>
+                                                <div class="carousel-item site-card__carousel__item">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_03--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_03--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/gallery/indian_restaurant_interior03.jpg" class="site-card__carousel__item__img" alt="Rang De Basanti restaurant interior">
+                                                      </picture>
+                                                </div>
+                                                <div class="carousel-item site-card__carousel__item">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_04--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_04--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/gallery/indian_restaurant_interior04.jpg" class="site-card__carousel__item__img" alt="Rang De Basanti restaurant interior">
+                                                      </picture>
+                                                </div>
+                                          </div>
+                        
+                                          <a class="carousel-control-prev" href="#aboutPhotoGallery" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="carousel-control-next" href="#aboutPhotoGallery" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                          </a>
+                        
+                                    </div>
+
+                              </div>
+                        </div>
+
+                        <div data-menu="about" class="grid-layout__item grid-layout--sizer">
+                              <div class="site-card site-card__secondary">
+                                    <h3 class="site-card__subtitle">Our meals are grilled in genuine tandoor</h3>
+                                    <div class="site-card__image site-card__image--bottom">
+                                          <img src="./assets/images/tandoor.jpg" alt="Indian tandoor / Rang de Basanti">
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div data-menu="about, daily-menu" class="grid-layout__item">
+                              <div class="site-card site-card__secondary">
+                                    <div class="site-card__image site-card__image--top">
+                                          <img src="./assets/images/beerontap.png" alt="Beer / pivo on tap at Rang de Basanti">
+                                    </div>
+                                    <h3 class="site-card__subtitle">Pilsen and Kozel beer on tap</h3>
+                              </div>
+                        </div>
+
+                        <div data-menu="about" class="grid-layout__item">
+                              <div class="site-card site-card__tertiary">
+                                    <h3 class="site-card__title">Lunch menu</h3>
+
+                                    <div class="row align-items-center">
+                                          <div class="col-8">
+                                                <h3 class="site-card__subtitle">all-you-can-eat-buffet</h3>
+                                          </div>
+                                          <div class="col-4">
+                                                <div class="site-card__price-tag">
+                                                      <h3 class="site-card__subtitle site-card__price">135<sup class="site-card__currency">Kč</sup></h3>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="site-card__text site-card__text--lead">Mon-Fri<sup>*</sup> <br>from 11:00<sup>a.m.</sup> till 2:30<sup>p.m.</sup></div>
+                                    <p class="site-card__text">* not applicable to public holidays</p>
+
+                                    <div class="site-card__image site-card__image--bottom">
+                                          <img src="./assets/images/lunchbuffet.jpg" alt="Lunch menu / Rang de Basanti">
+                                    </div>
+                              </div>
+                        </div>
+
+                        <div data-menu="daily-menu" class="grid-layout__item grid-layout__item--width2">
+                              <div class="site-card site-card__secondary">
+                                    <h3 class="site-card__title">Lunch menu</h3>
+                                    <div class="site-card__expand-icon">
+                                          <i class="fas fa-expand"></i>
+                                    </div>
+
+                                    <div class="row align-items-center">
+                                          <div class="col-8">
+                                                <h3 class="site-card__subtitle">all-you-can-eat-buffet<sup>*</sup></h3>
+                                          </div>
+                                          <div class="col-4">
+                                                <div class="site-card__price-tag">
+                                                      <h3 class="site-card__subtitle site-card__price">135<sup class="site-card__currency">Kč</sup></h3>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="site-card__text site-card__text--lead">Mon-Fri <br>from 11:00<sup>a.m.</sup> till 2:30<sup>p.m.</sup></div>
+                                    <p class="site-card__text">*not applicable to public holidays</p>
+
+                                    <div id="lunchGallery" class="carousel site-card__carousel slide" data-ride="carousel" data-interval="300000000">
+                                          <ol class="carousel-indicators site-card__carousel__indicators">
+                                                <li data-target="#lunchGallery" data-slide-to="0" class="active"></li>
+                                                <li data-target="#lunchGallery" data-slide-to="1"></li>
+                                                <li data-target="#lunchGallery" data-slide-to="2"></li>
+                                          </ol>
+                                          <div class="carousel-inner">
+                                                <div class="carousel-item site-card__carousel__item active">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_01--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_01--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/lunchmenu1.jpg" class="site-card__carousel__item__img" alt="Rang De Basanti lunch menu">
+                                                      </picture>
+                                                </div>
+                                                <div class="carousel-item site-card__carousel__item">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_02--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_02--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/lunchmenu2.jpg" class="site-card__carousel__item__img"  alt="Rang De Basanti lunch menu">
+                                                      </picture>
+                                                </div>
+                                                <div class="carousel-item site-card__carousel__item">
+                                                      <picture>
+                                                            <!-- <source srcset="./assets/images/hero/RDB_hero_03--large.jpg" media="(min-width:2048px)">
+                                                            <source srcset="./assets/images/hero/RDB_hero_03--medium.jpg" media="(min-width:820px)"> -->
+                                                            <img src="./assets/images/lunchmenu3.jpg" class="site-card__carousel__item__img" alt="Rang De Basanti lunch menu">
+                                                      </picture>
+                                                </div>
+
+                                          </div>
+                        
+                                          <a class="carousel-control-prev" href="#lunchGallery" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                          </a>
+                                          <a class="carousel-control-next" href="#lunchGallery" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                          </a>
+                        
+                                    </div>
+
+                              </div>
+                        </div>
+
+                        <div data-menu="about" class="grid-layout__item">
+                              <div class="site-card">
+                                    <h3 class="site-card__subtitle">Opening hours</h3>
+                                    <p class="site-card__text">Mon-Fri: 11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup>
+                                    <br>Sat-Sun: 12:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></p>
+                                    <p class="site-card__text--lead">We are charging additional 10Kč for each meal box.</p>
+                              </div>
+                        </div>
+
+                        <div data-menu="contact" class="grid-layout__item grid-layout__item--width2">
+                              <div class="site-card">
+                                    <h3 class="site-card__title">Find us on the map</h3>
+                                    <div class="site-card__expand-icon">
+                                          <i class="fas fa-expand"></i>
+                                    </div>
+                                    <div id="contact-map" class="site-card__map-container"></div>
+                              </div>
+                        </div>
+
+                        <div data-menu="daily-menu, contact, reservations" class="grid-layout__item">
+                              <div class="site-card site-card__secondary">
+                                    <h3 class="site-card__title">Opening hours</h3>
+                                    <h3 class="site-card__text site-card__text--lead" id="oh-message"></h3> <!-- msg written in by Javascript-->
+                                    <table class="oh-table" id="main-opening-hours">
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Monday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Tuesday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Wednesday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Thursday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Friday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Saturday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                          <tr class="oh-table__row">
+                                                <td class="oh-table__day">Sunday</td>
+                                                <td class="oh-table__hours">11:00<sup>a.m.</sup> - 10:00<sup>p.m.</sup></td>
+                                          </tr>
+                                    </table>
+                                    <p class="site-card__text">Opening hours may differ on public holidays in Czech Republic.</p>
+                              </div>
+                        </div>
+
+                        <div data-menu="contact" class="grid-layout__item">
+                              <div class="site-card site-card__tertiary">
+                                    <h3 class="site-card__title">Contact info</h3>
+                                    <address>
+                                          <p class="site-card__text">Národních hrdinů 28
+                                          <br>190 12 Praha - Dolní Počernice
+                                          <br>Česká Republika</p>
+                                    </address>
+                                    <table>
+                                          <tr>
+                                                <td>
+                                                      <i class="fas fa-phone"></i>&nbsp;&nbsp;++420 222-222-222
+                                                </td>
+                                          </tr>
+                                          <tr>
+                                                <td>
+                                                      <i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;++420 773 197 878
+                                                </td>
+                                          </tr>
+                                          <tr>
+                                                <td>
+                                                      <i class="far fa-envelope"></i>&nbsp;&nbsp;info@rangdebasanti.cz
+                                                </td>
+                                          </tr>
+                                    </table>
+                              </div>
+                        </div>
+
+                        <div data-menu="contact, reservations" class="grid-layout__item grid-layout__item--width2">
+                                    <div class="site-card">
+                                          <h3 class="site-card__title">Follow us on social media
+                                          </h3>
+                                          <div class="btn-site__group btn-site__group--flex-row justify-content-left">
+                                                <a 
+                                                      class="btn-site btn-site--icon btn-site--rounded"
+                                                      href="https://www.tripadvisor.cz/Restaurant_Review-g274707-d7682064-Reviews-Rang_De_Basanti_Indian_Restaurant-Prague_Bohemia.html" 
+                                                      target="_blank">
+                                                      <i class="fab fa-2x fa-tripadvisor"></i>
+                                                </a>
+                                                <a 
+                                                      class="btn-site btn-site--icon btn-site--rounded"
+                                                      href="https://www.facebook.com/RDBDolniPocernice/" 
+                                                      target="_blank">
+                                                      <i class="fab fa-2x fa-facebook-f"></i>
+                                                </a>
+                                                <a 
+                                                      class="btn-site btn-site--icon btn-site--rounded"
+                                                      href="https://foursquare.com/v/rang-de-basanti/5518276f498edbb34cb787e3" 
+                                                      target="_blank">
+                                                      <i class="fab fa-2x fa-foursquare"></i>
+                                                </a>
+                                                <a 
+                                                      class="btn-site btn-site--icon btn-site--rounded"
+                                                      href="" 
+                                                      target="_blank">
+                                                      <i class="fab fa-2x fa-google-plus-g"></i>
+                                                </a>
+                                          </div>
+                                    </div>
+                              </div>
+
+                        <div data-menu="contact" class="grid-layout__item grid-layout__item--width2">
+                              <div class="site-card">
+                                    <h3 class="site-card__title">Send us a message</h3>
+                                    <form action="">
+                                          <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="your name" type="text" name="name" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="name">your name</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                      
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="your email" type="text" name="email" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="email">your email</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                </div>
+                                                <div class="col-12">
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <textarea class="site-form site-form__field" placeholder="your message" type="text" name="message" rows="6" autocomplete="off" required></textarea>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="message">your message</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                </div>
+                                          </div>
+                                          <a href="#" class="btn-site btn-site--rounded btn-site--text-bold  btn-site--full-width" role="button">send</a>
+                                    </form>
+                              </div>
+                        </div>
+
+                        <div data-menu="reservations" class="grid-layout__item grid-layout__item--width2">
+                              <div class="site-card site-card__secondary">
+                                    <h3 class="site-card__title">Make a reservation</h3>
+                                    <h3 class="site-card__text site-card__text--lead">Please fill out the fields below and we will get back to you with confirmation of your reservation.</h3>
+                                    <form action="">
+
+                                          <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="your name" type="text" name="name" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="name">your name</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="your email" type="text" name="email" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="email">your email</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="your phone number" type="text" name="phone" rows="6" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="phone">your phone number</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                </div>
+                                                <div class="col-12 col-md-6">
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="reservation date" type="text" name="resservationDate" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="reservationDate">reservation date</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="reservation time" type="text" name="reservationTime" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="reservationTime">reservation time</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <input class="site-form site-form__field" placeholder="number of guests" type="text" name="guestsNumber" rows="6" autocomplete="off" required>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="guestsNumber">number of guests</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                </div>
+                                          
+                                                <div class="col-12">
+                                                      <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
+                                                            <div class="site-form__field-wrapper">
+                                                                  <textarea class="site-form site-form__field" placeholder="your message" type="text" name="message" rows="6" autocomplete="off" required></textarea>
+                                                                  <hr>
+                                                                  <label class="site-form site-form__label" for="message">your message</label>
+                                                            </div>
+                                                            <div class="site-form site-form__feedback">Some feedback message.</div>
+                                                      </fieldset>
+                                                </div>
+                                          </div>
+                                          <a href="#" class="btn-site btn-site--rounded btn-site--text-bold  btn-site--full-width" role="button">send</a>
+                                    </form>
+                              </div>
+                        </div>
+
+
+                        <div data-menu="menu" class="grid-layout__item">
                               <div class="site-card">
                                     <h3 class="site-card__title">Tandoori specialities: vegetarian</h3>
 
@@ -152,9 +754,8 @@
                                                 </div>
                                           </div>
                                           <p class="site-card__text">Marinated cubes of cottage chees, chef´specials spices served with capsicum and tomato</p>
+                                          <div class="site-card__menu-item__divider"></div>
                                     </div>
-                                    
-                                    <div class="site-card__menu-item__divider"></div>
 
                                     <div class="site-card__menu-item">
                                           <div class="row align-items-center">
@@ -176,61 +777,593 @@
                                                 </div>
                                           </div>
                                           <p class="site-card__text">Fresh mashrooms marinated with tangy spices,cooked in tandoor.</p>
+                                          <div class="site-card__menu-item__divider"></div>
                                     </div>
 
-                                    <div class="site-card__menu-item__divider"></div>
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Tandoori mix grill salad</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">155<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Fresh vegetables marinated with tangy spices and cooked in tandoor.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
 
                               </div>
                         </div>
 
-                        <div class="grid-layout__item">
+                        <div data-menu="menu" class="grid-layout__item grid-layout__item--menu grid-layout__item--width2">
                               <div class="site-card site-card__secondary">
                                     <h3 class="site-card__title">Main course: non-vegetarian</h3>
-                                    <div class="row align-items-center">
-                                          <div class="col-8">
-                                                <h3 class="site-card__subtitle">Chicken Vindaloo</h3>
-                                          </div>
-                                          <div class="col-4">
-                                                <div class="site-card__price-tag">
-                                                      <h3 class="site-card__subtitle site-card__price">190<sup class="site-card__currency">Kč</sup></h3>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Chicken Vindaloo</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">190<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
                                                 </div>
                                           </div>
-                                    </div>
-                                    <div class="allergenes__group">
-                                          <div class="allergenes__item">
-                                                <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                                </div>
                                           </div>
+                                          <p class="site-card__text">Cubes of chicken and potatoes cooked in tomato based, spicy gravy. </p>
+                                          <div class="site-card__menu-item__divider"></div>
                                     </div>
-                                    <p class="site-card__text">Cubes of chicken and potatoes cooked in tomato based, spicy gravy. </p>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Chicken Tikka Masala</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">210<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Grilled chicken tikka cooked in fresh onion, tomato and cream sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Kadai Chicken</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">185<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="site-card__image">
+                                                <img src="./assets/images/menu/kadaichicken.png" alt="indian bread / Rang de Basanti">
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Boneless  chicken breast cooked with capsicum,onion and tomato sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Buther Chicken</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">215<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Chicken tikka cooked in tomato, cream and butter sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Palak Chicken</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">180<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Boneless chicken breast cooked in spinach and cream sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Chicken Korma</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">180<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Cubes of grilled chicken cooked in fresh cashew nuts, cream and butter sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Chicken Tamil</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">190<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/6-soya.png" alt="6-soya allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Authentic sauth India dish is a very special and popular style of cooking in Tamilnad.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Rogan josh</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">210<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Tender lamb pieces cooked in true Kasmeer style.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Lamb saag</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">215<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Exotic preparation of lamb pieces moistened spinach, tomato and spices.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Lamb vindaloo</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">220<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Juicy lamb and potato cooked in tomato based gravy with extra spicy sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Lamb jalfrezi</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">210<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Boneless lamb cooked with spicy capsicum,onion and tomato sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Lamb pasanda</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">205<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Juicy lamb cooked in light tomato creamy and cashu nuts sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Chicken pasanda</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">175<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Cubes of grilled chicken cooked in fresh tomato, keshu and cream butter sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Gawn prawn curry</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">300<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/4-fish.png" alt="4-fish allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">A delicious spicy Goan prawn curry cooked in coconut milk and curry leaves and finished with mustard and methiseeds.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+                                    
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Fish tikka masala</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">250<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/8-nuts.png" alt="8-nuts allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/9-celery.png" alt="9-celery allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/10-mustard.png" alt="10-mustard allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Tandoori fish tikka cooked in coconut milk and traditional sauce.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
                               </div>
                         </div>
-                        <div class="grid-layout__item">
+
+
+                        <div data-menu="menu" class="grid-layout__item grid-layout__item--menu grid-layout__item--width2">
                               <div class="site-card site-card__tertiary">
                                     <h3 class="site-card__title">Indian bread</h3>
-                                    <div class="row align-items-center">
-                                          <div class="col-8">
-                                                <h3 class="site-card__subtitle">Pudina parantha</h3>
-                                          </div>
-                                          <div class="col-4">
-                                                <div class="site-card__price-tag">
-                                                      <h3 class="site-card__subtitle site-card__price">55<sup class="site-card__currency">Kč</sup></h3>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Tandoori roti</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">40<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
                                                 </div>
                                           </div>
-                                    </div>
-                                    <div class="allergenes__group">
-                                          <div class="allergenes__item">
-                                                <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
                                           </div>
-                                          <div class="allergenes__item">
-                                                <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
-                                          </div>
+                                          <p class="site-card__text">Whole wheat flour bread cooked in tandoor.</p>
+                                          <div class="site-card__menu-item__divider"></div>
                                     </div>
-                                    <p class="site-card__text">Multi-layered wheat flour bread cooked in tandoor, flavoured fresh mint.</p>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Laccha parantha</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">55<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Multi-layered wheat flour flaky bread, cooked in tandoor.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Pudina parantha</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">55<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Multi-layered wheat flour bread cooked in tandoor, flavoured fresh mint.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Butter naan</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">50<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/3-eggs.png" alt="3-eggs allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Fine flour bread cooked in tandoor and layered with butter.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Plain naan</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">45<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/3-eggs.png" alt="3-eggs allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Fine flour bread cooked in tandoor.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Garlic naan</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">50<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="site-card__image">
+                                                <img src="./assets/images/menu/garlic_naan.png" alt="indian bread / Rang de Basanti">
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/3-eggs.png" alt="3-eggs allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Fine flour bread cooked in tandoor with freshly chopped garlic.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Chilli Garlic naan</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">70<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/3-eggs.png" alt="3-eggs allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Fine flour bread cooked in tandoor flavoured with freshly chopped garlic and chilli flakes.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
+                                    <div class="site-card__menu-item">
+                                          <div class="row align-items-center">
+                                                <div class="col-8">
+                                                      <h3 class="site-card__subtitle">Stuffed kulcha</h3>
+                                                </div>
+                                                <div class="col-4">
+                                                      <div class="site-card__price-tag">
+                                                            <h3 class="site-card__subtitle site-card__price">75<sup class="site-card__currency">Kč</sup></h3>
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="allergenes__group">
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/1-wheat.png" alt="1-wheat allergenes icon">
+                                                </div>
+                                                <div class="allergenes__item">
+                                                      <img src="./assets/images/allergenes/7-milk.png" alt="7-milk allergenes icon">
+                                                </div>
+                                          </div>
+                                          <p class="site-card__text">Whole wheat bread, stuffed with a choice of cottage cheese, onion, potato, cauliflower or minced lamb meat.</p>
+                                          <div class="site-card__menu-item__divider"></div>
+                                    </div>
+
                               </div>
                         </div>
                         
                   </div>
-
+                  <!-- END OF GRID SECTION -->
             </div>
       </section>
 
@@ -387,6 +1520,8 @@
       <!-- build:js ./assets/js/App.js -->
       <script src="temp/js/App.js" type="text/javascript"></script> 
       <!-- endbuild -->
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo&callback=initMap"></script>
 
-   </body>
+      </body>
+
 </html>

@@ -1,0 +1,19 @@
+.site-modal {
+    &__content{
+        background-color: $highlight-background-color;
+        color: $secondary-text-color;
+        border-radius: 2rem;
+    }
+    .allergenes__item {
+        width: 40%;
+        margin: auto;
+        margin-top: 1rem;
+        @include atExtraSmallLandscape {
+            width: 25%;
+        }
+        @include atSmall {
+            width: 100%;
+        }
+        
+    }
+}

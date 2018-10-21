@@ -1,5 +1,6 @@
 .section {
     padding: 2rem 0;
+    position: relative;
     &__title{
         font-family: $headline-font;
         font-weight: bold;

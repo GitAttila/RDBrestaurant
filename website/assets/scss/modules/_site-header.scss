@@ -5,6 +5,9 @@
     background-color: rgba($RDB-darkgrey,0.6);
     color: $highlight-text-color;
     transition: 0.3s background-color ease-in-out;
+    &--shadowed{
+        box-shadow: 0 2px 4px rgba(0,0,0,.5);
+    }
     &--is-expanded {
         background-color: rgba($RDB-darkgrey,0.85);
     }
