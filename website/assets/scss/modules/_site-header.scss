@@ -2,14 +2,32 @@
     position: fixed;
     width: 100%;
     z-index: 1000;
-    background-color: rgba($RDB-darkgrey,0.6);
+    background-color: rgba($secondary-background-color,1);
     color: $highlight-text-color;
     transition: 0.3s background-color ease-in-out;
     &--shadowed{
-        box-shadow: 0 2px 4px rgba(0,0,0,.5);
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    }
+    &--transparent {
+        background-color: transparent;
+        &.site-header--shadowed{
+            box-shadow: none;
+        }
+        .site-header__brand-wrapper {
+            background-color: transparent;
+            &--shadowed{
+                box-shadow: none;
+            }
+        }
     }
     &--is-expanded {
-        background-color: rgba($RDB-darkgrey,0.85);
+        background-color: rgba($secondary-background-color,0.85);
+        &.site-header--transparent {
+            background-color: rgba($secondary-background-color,0.85);
+        }
+        .site-header__menu-icon__wrapper {
+            background-color: transparent;
+        }
     }
     &__wrapper {
         position: relative;
@@ -22,15 +40,18 @@
         left: 0;
         top: 0;
         padding: 1rem;
-        background-color: rgba($secondary-background-color,0.6);
+        background-color: rgba($secondary-background-color,1);
+        transition: 0.3s background-color ease-in-out;
         display: none;
         img {
             height: 4rem;
         }
+        &--shadowed{
+            box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+        }
         @include atMedium {
             display: block;
         }
-
     }
     &__nav-wrapper {
         margin: 0 auto;
@@ -46,13 +67,14 @@
 
     }  
     &__menu-icon__wrapper {
-        background-color: rgba($RDB-darkgrey,0.33);
+        background-color: rgba(0,0,0,0.4);
         padding: 1rem;
         border-radius: 50%;
         position: absolute;
         top: 10px;
         right: 10px;
         padding: 1.4rem;
+        transition: 0.3s background-color ease-in-out;
         @include atMedium {
             display: none;
         }
