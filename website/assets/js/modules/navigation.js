@@ -4,11 +4,11 @@ import Isotope from "isotope-layout";
 import "isotope-layout/js/layout-modes/fit-rows";
 import "bootstrap/js/dist/modal";
 
+import '../vendors/picker';
 class Navigation {
     
     constructor() {
         this.mainGrid = $('#mainGrid');
-        
         this.Grid = new Isotope( this.mainGrid[0], {
             percentPosition : true,
             itemSelector: '.grid-layout__item',
@@ -60,13 +60,41 @@ class Navigation {
             grid.layout();
         });
 
+        let minDate = new Date();
+        let sixmonths = 180 * 60 * 60 * 24 * 1000;
+        let maxDate = new Date(minDate.getTime() + sixmonths);
+
+        $('#res-date').pickadate({
+            min: minDate,
+            max: maxDate
+        });
+        $('#res-time').pickatime({
+            min: [11,0],
+            max: [21,30]
+        });
+
+        $('input.site-form__field, textarea.site-form__field').on('change', function(ev){
+            if ($(this).val() !== '' ) {
+                $(this).siblings('label').addClass('site-form__label--activated');
+            } else {
+                $(this).siblings('label').removeClass('site-form__label--activated');
+            }
+        });
+
+        var showAllergenes = function(modalEl){
+            modalEl = modalEl || '';
+            $(modalEl).modal('show');
+        };
+
         $('#allergenes-list').on('shown.bs.modal', function () {
-            console.log('showing allergenes list...');
             
         });
 
+        return {
+            showAllergenes:showAllergenes
+        };
+
     }
-    
 
 }
 

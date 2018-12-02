@@ -13,7 +13,9 @@
             <!-- build:css ./assets/styles/sitestyles.css -->
             <link href="temp/styles/sitestyles.css" rel="stylesheet">
             <!-- endbuild -->
-
+            <!-- build:css ./assets/styles/vendors.css -->
+            <link href="temp/styles/vendors.css" rel="stylesheet">
+            <!-- endbuild -->
             <!-- build:js ./assets/js/Vendor.js -->
             <script src="temp/js/Vendor.js" type="text/javascript"></script> 
             <!-- endbuild -->
@@ -60,7 +62,7 @@
 
       <section class="section-hero">
 
-            <div id="mainHeroCarousel" class="carousel carousel-hero slide" data-ride="carousel" data-interval="1000000">
+            <div id="mainHeroCarousel" class="carousel carousel-hero slide">
                   <ol class="carousel-indicators carousel-hero__carousel-indicators">
                         <li data-target="#mainHeroCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#mainHeroCarousel" data-slide-to="1"></li>
@@ -331,7 +333,7 @@
                                           <i class="fas fa-expand"></i>
                                     </div>
 
-                                    <div id="aboutPhotoGallery" class="carousel site-card__carousel slide" data-ride="carousel" data-interval="300000000">
+                                    <div id="aboutPhotoGallery" class="carousel site-card__carousel slide">
                                           <ol class="carousel-indicators site-card__carousel__indicators">
                                                 <li data-target="#aboutPhotoGallery" data-slide-to="0" class="active"></li>
                                                 <li data-target="#aboutPhotoGallery" data-slide-to="1"></li>
@@ -636,7 +638,7 @@
                                                 <div class="col-12">
                                                       <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
                                                             <div class="site-form__field-wrapper">
-                                                                  <textarea class="site-form site-form__field" placeholder="your message" type="text" name="message" rows="6" autocomplete="off" required></textarea>
+                                                                  <textarea id="contact-msg" class="site-form site-form__field" placeholder="your message" type="text" name="message" rows="6" autocomplete="off" required></textarea>
                                                                   <hr>
                                                                   <label class="site-form site-form__label" for="message">your message</label>
                                                             </div>
@@ -687,7 +689,7 @@
                                                 <div class="col-12 col-md-6">
                                                       <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
                                                             <div class="site-form__field-wrapper">
-                                                                  <input class="site-form site-form__field" placeholder="reservation date" type="text" name="resservationDate" autocomplete="off" required>
+                                                                  <input id="res-date" class="site-form site-form__field" placeholder="reservation date" type="text" name="resservationDate" autocomplete="off" required>
                                                                   <hr>
                                                                   <label class="site-form site-form__label" for="reservationDate">reservation date</label>
                                                             </div>
@@ -696,7 +698,7 @@
                                                 
                                                       <fieldset class="site-form__fieldset-wrapper site-form__field-wrapper--material">
                                                             <div class="site-form__field-wrapper">
-                                                                  <input class="site-form site-form__field" placeholder="reservation time" type="text" name="reservationTime" autocomplete="off" required>
+                                                                  <input id="res-time" class="site-form site-form__field" placeholder="reservation time" type="text" name="reservationTime" autocomplete="off" required>
                                                                   <hr>
                                                                   <label class="site-form site-form__label" for="reservationTime">reservation time</label>
                                                             </div>

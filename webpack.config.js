@@ -10,6 +10,9 @@ module.exports = {
         path: __dirname + "/website/temp/js",
         filename: "[name].js"
     },
+    resolve: {
+        alias: {'picker' : '../vendors/picker'}
+    },
     module: {
         rules: [
             {
@@ -26,7 +29,8 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             $: "jquery",
-            jQuery: "jquery"
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
         })
     ]
 };

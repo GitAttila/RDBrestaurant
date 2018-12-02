@@ -42,7 +42,7 @@
                 transform: scaleX(1);
                 visibility: visible;
             }
-            &:focus ~ label, &:valid ~ label  {
+            &:focus ~ label /*, &:valid ~ label*/  {
 		        transform: scale(0.6);
 	        }
         }
@@ -78,6 +78,9 @@
             transform-origin: 0 -150%;
             transition: transform 300ms ease;
             pointer-events: none;
+            &--activated{
+                transform: scale(0.6);
+            }
         }
         
         
