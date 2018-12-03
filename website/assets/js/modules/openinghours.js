@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
-
+import $ from 'jquery';
+import './animatecss';
 class OpeningHours {
     
     constructor() {
@@ -156,7 +157,7 @@ class OpeningHours {
             _self.updateTimeMsg(msg);
             if (ohData[now.getDay()].closingHr - nowHours <=2) {
                 this.clockInterval(function(){
-                    now = _selg.getNowDate();
+                    now = _self.getNowDate();
                     msg = _self.compileMsg(ohData[now.getDay()], now, 'closing');
                     _self.updateTimeMsg(msg.msg,msg.hours, msg.minutes);
                 });
