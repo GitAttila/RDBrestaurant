@@ -18582,7 +18582,7 @@ setTimeout(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+
 
 $.fn.extend({
     animateCss: function animateCss(animationName, callback) {
@@ -18611,7 +18611,6 @@ $.fn.extend({
         return this;
     }
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
 /* 90 */
@@ -18781,7 +18780,7 @@ window.initMap = initMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -18839,7 +18838,6 @@ var MobileMenu = function () {
 }(); /*jshint esversion: 6 */
 
 exports.default = MobileMenu;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
 /* 92 */
@@ -19329,7 +19327,7 @@ const Collapse = (($) => {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -19380,7 +19378,6 @@ var Carousels = function () {
 }();
 
 exports.default = Carousels;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
 /* 99 */
@@ -20108,7 +20105,7 @@ exports.default = Carousels;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -20235,7 +20232,6 @@ var Navigation = function () {
 }();
 
 exports.default = Navigation;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ }),
 /* 102 */
@@ -20881,7 +20877,7 @@ exports.default = Navigation;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -21078,7 +21074,6 @@ var OpeningHours = function () {
 }();
 
 exports.default = OpeningHours;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(2)))
 
 /***/ })
 /******/ ]);
