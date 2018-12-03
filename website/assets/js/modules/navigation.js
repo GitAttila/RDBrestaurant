@@ -1,13 +1,14 @@
 /*jshint esversion: 6 */
-
+import $ from 'jquery';
 import Isotope from "isotope-layout";
 import "isotope-layout/js/layout-modes/fit-rows";
 import "bootstrap/js/dist/modal";
-
 import '../vendors/picker';
+import ScrollingActions from './scrolling_actions';
 class Navigation {
     
     constructor() {
+        this.scrollActions = new ScrollingActions();
         this.mainGrid = $('#mainGrid');
         this.Grid = new Isotope( this.mainGrid[0], {
             percentPosition : true,
@@ -25,7 +26,8 @@ class Navigation {
         };
     }
 
-    events(grid) {
+    events(grid) {  
+        self = this;
         grid = grid || this.Grid;
         $("#menuContent [data-filter]").on('click', function(e){
             e.preventDefault();
@@ -50,6 +52,14 @@ class Navigation {
                     return found;
                 }
             });
+
+            grid.once( 'arrangeComplete', function( event, filteredItems ) {
+                console.log( event );
+                console.log( filteredItems );
+                var pos = $('#main-section')[0].offsetTop;
+                self.scrollActions.scrollTo('html, body',pos);
+            });
+            
         });
 
         $('.site-card__expand-icon').on( 'click', function() {
@@ -89,6 +99,8 @@ class Navigation {
         $('#allergenes-list').on('shown.bs.modal', function () {
             
         });
+
+        
 
         return {
             showAllergenes:showAllergenes

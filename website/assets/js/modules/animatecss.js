@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 $.fn.extend({
     animateCss: function(animationName, callback) {
         var animationEnd = (function(el) {

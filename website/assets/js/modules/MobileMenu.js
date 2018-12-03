@@ -1,7 +1,8 @@
 /*jshint esversion: 6 */
-
+import $ from 'jquery';
 import 'bootstrap/js/src/collapse';
 
+console.log($(".site-header__menu-icon"));
 class MobileMenu {
     
     constructor() {
