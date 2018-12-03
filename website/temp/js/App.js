@@ -18580,44 +18580,6 @@ setTimeout(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
-
-
-$.fn.extend({
-    animateCss: function animateCss(animationName, callback) {
-        var animationEnd = function (el) {
-            var animations = {
-                animation: 'animationend',
-                OAnimation: 'oAnimationEnd',
-                MozAnimation: 'mozAnimationEnd',
-                WebkitAnimation: 'webkitAnimationEnd'
-            };
-
-            for (var t in animations) {
-                if (el.style[t] !== undefined) {
-                    return animations[t];
-                }
-            }
-        }(document.createElement('div'));
-
-        this.addClass('animated ' + animationName).one(animationEnd, function () {
-            $(this).removeClass('animated ' + animationName);
-            if (typeof callback === 'function') {
-                callback();
-            }
-        });
-
-        return this;
-    }
-});
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-=======
->>>>>>> waypoints
 
 
 /*jshint esversion: 6 */
@@ -21933,8 +21895,6 @@ var OpeningHours = function () {
 }();
 
 exports.default = OpeningHours;
-<<<<<<< HEAD
-=======
 
 /***/ }),
 /* 105 */
@@ -21976,7 +21936,6 @@ _jquery2.default.fn.extend({
         return this;
     }
 });
->>>>>>> waypoints
 
 /***/ })
 /******/ ]);

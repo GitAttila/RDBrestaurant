@@ -53,8 +53,7 @@ class Navigation {
                 }
             });
 
-            grid.once( 'arrangeComplete', function( event, filteredItems ) {
-                console.log( event );
+            grid.once( 'arrangeComplete', function( filteredItems ) {
                 console.log( filteredItems );
                 var pos = $('#main-section')[0].offsetTop;
                 self.scrollActions.scrollTo('html, body',pos);
