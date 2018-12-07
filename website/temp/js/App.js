@@ -18563,17 +18563,24 @@ var _openinghours = __webpack_require__(104);
 
 var _openinghours2 = _interopRequireDefault(_openinghours);
 
+var _menu = __webpack_require__(106);
+
+var _menu2 = _interopRequireDefault(_menu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/*jshint esversion: 6 */
-var mobileMenu = new _MobileMenu2.default();
+var mobileMenu = new _MobileMenu2.default(); /*jshint esversion: 6 */
+
 var carousels = new _carousels2.default();
 var navigation = new _navigation2.default();
 var openinghours = new _openinghours2.default();
+var menu = new _menu2.default();
 
 setTimeout(function () {
     navigation.updateGrid();
 }, 1000);
+
+console.log(menu);
 
 /***/ }),
 /* 89 */
@@ -20168,8 +20175,7 @@ var Navigation = function () {
                     }
                 });
 
-                grid.once('arrangeComplete', function (event, filteredItems) {
-                    console.log(event);
+                grid.once('arrangeComplete', function (filteredItems) {
                     console.log(filteredItems);
                     var pos = (0, _jquery2.default)('#main-section')[0].offsetTop;
                     self.scrollActions.scrollTo('html, body', pos);
@@ -21936,6 +21942,166 @@ _jquery2.default.fn.extend({
         return this;
     }
 });
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _classCallCheck2 = __webpack_require__(91);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(92);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Menu = function () {
+    function Menu() {
+        var _this = this;
+
+        (0, _classCallCheck3.default)(this, Menu);
+
+        this.URL = './assets/data/menu_data.json';
+        this.imagePath = './assets/images/allergenes/';
+        this.allergenesList = [{
+            imageFileName: '1-wheat.png',
+            alt: 'wheat allergenes icon'
+        }, {
+            imageFileName: '2-crustaceans.png',
+            alt: 'crustaceans allergenes icon'
+        }, {
+            imageFileName: '3-eggs.png',
+            alt: 'eggs allergenes icon'
+        }, {
+            imageFileName: '4-fish.png',
+            alt: 'fish allergenes icon'
+        }, {
+            imageFileName: '5-peanuts.png',
+            alt: 'peanuts allergenes icon'
+        }, {
+            imageFileName: '6-soya.png',
+            alt: 'soya allergenes icon'
+        }, {
+            imageFileName: '7-milk.png',
+            alt: 'milk allergenes icon'
+        }, {
+            imageFileName: '8-nuts.png',
+            alt: 'nuts allergenes icon'
+        }, {
+            imageFileName: '9-celery.png',
+            alt: 'celery allergenes icon'
+        }, {
+            imageFileName: '10-mustard.png',
+            alt: 'mustard allergenes icon'
+        }, {
+            imageFileName: '11-sesame.png',
+            alt: 'sesame allergenes icon'
+        }, {
+            imageFileName: '12-sulphites.png',
+            alt: 'sulphites allergenes icon'
+        }, {
+            imageFileName: '13-lupin.png',
+            alt: 'lupin allergenes icon'
+        }, {
+            imageFileName: '14-molluscs.png',
+            alt: 'molluscs allergenes icon'
+        }];
+        this.menu = this.getMenu(this.URL, function () {
+            var html = _this.buildMenu(_this.menu, 'en');
+            console.log(html);
+            (0, _jquery2.default)('#mainGrid').append(html);
+        });
+    }
+
+    (0, _createClass3.default)(Menu, [{
+        key: 'getMenu',
+        value: function getMenu(url, fallbackFn) {
+            var _self = this;
+            fallbackFn = fallbackFn || function () {};
+            _jquery2.default.getJSON(url, function () {}).done(function (data) {
+                console.log("menu loaded...");
+                _self.menu = data;
+            }).fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ": " + error;
+                console.log("Unable to load menu: " + err);
+                _self.menu = [];
+            }).always(function () {
+                fallbackFn();
+            });
+        }
+    }, {
+        key: 'buildMenu',
+        value: function buildMenu(menu, lang) {
+            menu = menu || [];
+            lang = (lang || '').trim();
+            lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
+            var html = '';
+            for (var i = 0; i < menu.length; i++) {
+                var categoryName = menu[i][lang + '_category'];
+                html += '<div data-menu="menu" class="grid-layout__item grid-layout__item--menu">';
+                html += '<div class="site-card site-card__tertiary">';
+                html += '<h3 class="site-card__title">' + categoryName + '</h3>';
+                for (var x = 0; x < menu[i].category.length; x++) {
+                    html += this.buildMenuItem(menu[i].category[x], lang);
+                }
+                html += '</div></div>';
+            }
+            return html;
+        }
+    }, {
+        key: 'buildMenuItem',
+        value: function buildMenuItem(menuItem, lang) {
+            menuItem = menuItem || { cz_itemname: '', en_itemname: '', cz_itemdesc: '', en_itemdesc: '', price: 0, allergenes: '' };
+            var name = menuItem[lang + '_itemname'];
+            var description = menuItem[lang + '_itemdesc'];
+            var str = '';
+            str += '<div class="site-card__menu-item"><div class="row align-items-center">';
+            str += '<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
+            str += '<div class="col-4"><div class="site-card__price-tag">';
+            str += '<h3 class="site-card__subtitle site-card__price">' + menuItem.price + '<sup class="site-card__currency">Kč</sup></h3>';
+            str += '</div></div></div>';
+            str += this.buildAllergenes(menuItem.allergenes);
+            str += '<p class="site-card__text">' + description + '</p>';
+            str += '<div class="site-card__menu-item__divider"></div></div>';
+            return str;
+        }
+    }, {
+        key: 'buildAllergenes',
+        value: function buildAllergenes(allergenes) {
+            typeof allergenes === 'string' ? allergenes = allergenes : allergenes = '';
+            var txt = '';
+            var temp = new Array();
+            temp = allergenes.split(',');
+            for (var i in temp) {
+                temp[i] = parseInt(temp[i], 10);
+            }
+            txt = '<div class="allergenes__group">';
+            for (var a; a < temp.length; a++) {
+                txt += '<div class="allergenes__item">';
+                txt += '<img src="' + this.imagePath + this.allergenesList[a + 1].imageFileName + ' alt=' + this.allergenesList[a + 1].alt + '>';
+                txt += '</div>';
+            }
+            txt += '</div>';
+            return txt;
+        }
+    }]);
+    return Menu;
+}();
+
+exports.default = Menu;
 
 /***/ })
 /******/ ]);
