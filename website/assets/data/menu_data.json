@@ -4,14 +4,16 @@
     "en_category": "Starters",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Samosa 2ks",
         "en_itemname": "Samosa 2ks",
         "cz_itemdesc": "Smažená taštička plněná směsí brambor, hrášku, kešu oříšků, indické koření",
         "en_itemdesc": "Deep fried patties stuffed with potatoes",
         "price": "70",
-        "allergenes": "1,8"
+        "allergenes": ",1,8,"
       },
       {
+        "image": "",
         "cz_itemname": "Onion Bhaji  4 ks",
         "en_itemname": "Onion Bhaji  4 pcs",
         "cz_itemdesc": "Kousky smažené cibule obalované v těstíčku z cizrnové mouky",
@@ -20,6 +22,7 @@
         "allergenes": "1,12"
       },
       {
+        "image": "",
         "cz_itemname": "Chilli Paneer",
         "en_itemname": "Chilli Paneer",
         "cz_itemdesc": "Indický obalovný smažený sýr s chilli papričkami",
@@ -28,6 +31,7 @@
         "allergenes": "6,7"
       },
       {
+        "image": "",
         "cz_itemname": "Chilli Mushrooms",
         "en_itemname": "Chilli Mushrooms",
         "cz_itemdesc": "Smažené obalované žampiony s chilli papričkami",
@@ -36,6 +40,7 @@
         "allergenes": "6"
       },
       {
+        "image": "",
         "cz_itemname": "Mushroom Karare",
         "en_itemname": "Mushroom Karare",
         "cz_itemdesc": "Smažené  žampiony v těstíčku, plněné sýrem, koriandr, zelené chilli",
@@ -44,6 +49,7 @@
         "allergenes": "1,7"
       },
       {
+        "image": "",
         "cz_itemname": "Maree Aloo",
         "en_itemname": "Maree Aloo",
         "cz_itemdesc": "Opečené brambory na másle s černým pepřem, koriandrem, zázvorem a citronem",
@@ -52,6 +58,7 @@
         "allergenes": "6,7"
       },
       {
+        "image": "",
         "cz_itemname": "Plain Papadum 2 ks",
         "en_itemname": "Plain Papadum 2 ks",
         "cz_itemdesc": "Tenký plátek z čočkové mouky, servírujeme s omáčkou z manga a máty",
@@ -60,6 +67,7 @@
         "allergenes": "1,2"
       },
       {
+        "image": "masala_papadam.png",
         "cz_itemname": "Masala Papadum  2 ks",
         "en_itemname": "Masala Papadum  2 ks",
         "cz_itemdesc": "Tenký křupavý plátek z čočkové mouky s červenou cibulí, chilli a koriandrem, servírujeme s omáčkou z manga a máty",
@@ -68,6 +76,7 @@
         "allergenes": "1,2"
       },
       {
+        "image": "",
         "cz_itemname": "Chicken Pakora",
         "en_itemname": "Chicken Pakora",
         "cz_itemdesc": "Smažené křupavé kuřecí kousky obalované v cizrnové mouce",
@@ -76,6 +85,7 @@
         "allergenes": "1,12"
       },
       {
+        "image": "",
         "cz_itemname": "Chicken 65",
         "en_itemname": "Chicken 65",
         "cz_itemdesc": "Smažené pálivé kuřecí kousky obalované v cizrnové mouce",
@@ -84,6 +94,7 @@
         "allergenes": "1,12"
       },
       {
+        "image": "",
         "cz_itemname": "Chilli Chicken Dry",
         "en_itemname": "Chilli Chicken Dry",
         "cz_itemdesc": "Smažené obalované  kuřecí kousky s chilli papričkou, cibulí a sojovou omáčkou",
@@ -92,6 +103,7 @@
         "allergenes": "6"
       },
       {
+        "image": "",
         "cz_itemname": "Fish amritsari",
         "en_itemname": "Fish amritsari",
         "cz_itemdesc": "Smažené pálivé rybí kousky obalované v cizrnové mouce",
@@ -100,6 +112,7 @@
         "allergenes": "4"
       },
       {
+        "image": "tiger_prawns.png",
         "cz_itemname": "Tava tiger prawn  4 ks ",
         "en_itemname": "Tava tiger prawn  4 pcs ",
         "cz_itemdesc": "Grilované tygří  krevety s čerstvým koriandrem s chilli, černým pepřem, sojovou omáčkou a citronem",
@@ -115,6 +128,7 @@
     "en_category": "Soup",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Tomato shorba",
         "en_itemname": "Tomato shorba",
         "cz_itemdesc": "Polévka z čerstvých rajčat s česnekem, s čerstvým zázvorem a koriandrem",
@@ -123,6 +137,7 @@
         "allergenes": "1,7"
       },
       {
+        "image": "spinach_soup.png",
         "cz_itemname": "Palak and dal shorba",
         "en_itemname": "Palak and dal shorba",
         "cz_itemdesc": "Polévka z indické čočky se špenátem, indické koření",
@@ -131,6 +146,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Murg Yakhni shorba ",
         "en_itemname": "Murg Yakhni shorba ",
         "cz_itemdesc": "Kuřecí vývar s kousky masa, koriandr, indické koření",
@@ -145,6 +161,7 @@
     "en_category": "Indian drinks",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Mango Lassi",
         "en_itemname": "Mango Lassi",
         "cz_itemdesc": "Jogurt, pyré z manga",
@@ -153,6 +170,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Lassi Meethi",
         "en_itemname": "Lassi Meethi",
         "cz_itemdesc": "Sladký  jogurt ochucený  růžovou vodou",
@@ -161,6 +179,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Lassi Namkeen",
         "en_itemname": "Lassi Namkeen",
         "cz_itemdesc": "Slaný jogurt ochucený indickým kmínem a koriandrem",
@@ -169,6 +188,7 @@
         "allergenes": "7"
       },
       {
+        "image": "masala_tea.png",
         "cz_itemname": "Indian Masala Tea ",
         "en_itemname": "Indian Masala Tea ",
         "cz_itemdesc": "Indický čaj s mlékem, zázvorem a kardamom",
@@ -184,6 +204,7 @@
     "en_category": "Veg tandoori specialities",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Paneer Shaslik",
         "en_itemname": "Paneer Shaslik",
         "cz_itemdesc": "Marinovaný domácí indický sýr pečený v tandůru s paprikou a cibulí",
@@ -192,6 +213,7 @@
         "allergenes": "7,10"
       },
       {
+        "image": "",
         "cz_itemname": "Tandoori Mushrooms",
         "en_itemname": "Tandoori Mushrooms",
         "cz_itemdesc": "Čerstvé marinované žampiony, grilované v tandůru",
@@ -200,6 +222,7 @@
         "allergenes": "7,10"
       },
       {
+        "image": "",
         "cz_itemname": "Tandoori mix grill salad",
         "en_itemname": "Tandoori mix grill salad",
         "cz_itemdesc": "Čerstvá marinovaná míchaná zelenina, pečená v tandůru",
@@ -215,6 +238,7 @@
     "en_category": "Non veg tandoori specialities",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Chicken Seekh Kebab",
         "en_itemname": "Chicken Seekh Kebab",
         "cz_itemdesc": "Kebab z mletého kuřecího masa s česnekem, zázvorem a koriandrem",
@@ -223,6 +247,7 @@
         "allergenes": "7"
       },
       {
+        "image": "chickentikka.png",
         "cz_itemname": "Chicken Tikka",
         "en_itemname": "Chicken Tikka",
         "cz_itemdesc": "Grilované kousky kuřecího masa marinované v jogurtu s indickým kořením",
@@ -231,6 +256,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Chicken Malai Tikka",
         "en_itemname": "Chicken Malai Tikka",
         "cz_itemdesc": "Marinovaná kuřecí prsa v jogurtu, smetaně a sýru, grilovaná v tandůru",
@@ -239,6 +265,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Tandoori Murgh",
         "en_itemname": "Tandoori Murgh",
         "cz_itemdesc": "Marinovaná kuřecí stehna s kostí, grilovaná v tandůru",
@@ -247,6 +274,7 @@
         "allergenes": "7,10"
       },
       {
+        "image": "",
         "cz_itemname": "Lamb Seekh Kebab",
         "en_itemname": "Lamb Seekh Kebab",
         "cz_itemdesc": "Kebab z mletého jehněčího masa s česnekem, zázvorem a koriandrem",
@@ -255,6 +283,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Tava bhoti kebab",
         "en_itemname": "Tava bhoti kebab",
         "cz_itemdesc": "Marinované kostky jehněčí kýty bez kosti,koriandr,zázvor,indické koření",
@@ -263,6 +292,7 @@
         "allergenes": " "
       },
       {
+        "image": "",
         "cz_itemname": "Salmon Fish Tikka",
         "en_itemname": "Salmon Fish Tikka",
         "cz_itemdesc": "Marinovaný losos v indickém koření, grilovaný v tandůru",
@@ -271,6 +301,7 @@
         "allergenes": "4"
       },
       {
+        "image": "",
         "cz_itemname": "Tandoori Jhinga 4 ks",
         "en_itemname": "Tandoori Jhinga 4 pcs",
         "cz_itemdesc": "Marinované tygří krevety grilované v tandůru",
@@ -285,6 +316,7 @@
     "en_category": "Main course non-vegetarian",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Chicken Vindaloo",
         "en_itemname": "Chicken Vindaloo",
         "cz_itemdesc": "Kousky kuřecích prsíček a brambor vařené v pálivé rajčatové omáčce, indické koření",
@@ -293,6 +325,7 @@
         "allergenes": "10"
       },
       {
+        "image": "tikka_masala.png",
         "cz_itemname": "Chicken tikka masala",
         "en_itemname": "Chicken tikka masala",
         "cz_itemdesc": "Grilované kuřecí kousky s čerstvými rajčaty, cibulí a smetanovou omáčkou",
@@ -301,6 +334,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "kadaichicken.png",
         "cz_itemname": "Kadai Chicken",
         "en_itemname": "Kadai Chicken",
         "cz_itemdesc": "Kousky kuřecích prsíček s paprikou a cibulí, v rajčatové omáčce",
@@ -309,6 +343,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Butter chicken",
         "en_itemname": "Butter chicken",
         "cz_itemdesc": "Grilované kuřecí maso ve smetanovo máslové omáčce s rajčaty",
@@ -317,6 +352,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Palak chicken",
         "en_itemname": "Palak chicken",
         "cz_itemdesc": "Kousky kuřecích prsíček se špenátem a smetanovou omáčkou",
@@ -325,6 +361,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Chicken korma",
         "en_itemname": "Chicken korma",
         "cz_itemdesc": "Kostky grilovaných kuřecích prsíček v omáčce z kešu oříšků, smetany a másla",
@@ -333,6 +370,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Chicken Tamil",
         "en_itemname": "Chicken Tamil",
         "cz_itemdesc": "Tradiční pokrm z jižní Indie-pikantní kuřecí maso, kokosové mléko, curry lístek",
@@ -341,6 +379,7 @@
         "allergenes": "6,7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Chicken pasanda",
         "en_itemname": "Chicken pasanda",
         "cz_itemdesc": "Kostky grilovaných kuřecích prsíček v omáčce z čerstvých rajčat a kešu oříšků a másla",
@@ -349,6 +388,7 @@
         "allergenes": " "
       },
       {
+        "image": "",
         "cz_itemname": "Rogan Josh",
         "en_itemname": "Rogan Josh",
         "cz_itemdesc": "Kousky jehněčího masa vařené v cibulia v rajčatové omáčce připravované dle pravého kašmírskeho stylu",
@@ -357,6 +397,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Lamb Saag",
         "en_itemname": "Lamb Saag",
         "cz_itemdesc": "Jehněčí maso se špenátem, rajčaty a kořením",
@@ -365,6 +406,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Lamb Vindaloo",
         "en_itemname": "Lamb Vindaloo",
         "cz_itemdesc": "Jehněčí maso s bramborami a pikantní rajčatovou omáčkou s kořením",
@@ -373,6 +415,7 @@
         "allergenes": "10"
       },
       {
+        "image": "",
         "cz_itemname": "Lamb Jalfrezi",
         "en_itemname": "Lamb Jalfrezi",
         "cz_itemdesc": "Jehněčí maso bez kosti s pálivou omáčkou z paprik, cibule a rajčat",
@@ -381,6 +424,7 @@
         "allergenes": "10"
       },
       {
+        "image": "",
         "cz_itemname": "Lamb Pasanda",
         "en_itemname": "Lamb Pasanda",
         "cz_itemdesc": "Jehněčí maso v lehké krémové rajčatovo-kešu omáčce",
@@ -389,6 +433,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Goan Prawn Curry",
         "en_itemname": "Goan Prawn Curry",
         "cz_itemdesc": "Krevety s Goen kořením, kokosovým mlékem, kari lístky a hořčičnými nebo methi semínky",
@@ -397,6 +442,7 @@
         "allergenes": "4,7,8,10"
       },
       {
+        "image": "",
         "cz_itemname": "Fish Tikka Masala",
         "en_itemname": "Fish Tikka Masala",
         "cz_itemdesc": "Rybí tandoori tikka s kokosovým mlékem a tradiční omáčkou",
@@ -412,6 +458,7 @@
     "en_category": "Main Course Vegetarian",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Dal Makhani",
         "en_itemname": "Dal Makhani",
         "cz_itemdesc": "Černá čočka vařená celou noc v tandůru s máslem a smetanou",
@@ -420,6 +467,7 @@
         "allergenes": "7"
       },
       {
+        "image": "tadka_dal.png",
         "cz_itemname": "Tadka Dal",
         "en_itemname": "Tadka Dal",
         "cz_itemdesc": "Indická čočka připravovaná s červeným chilli a indickým kmínem",
@@ -428,6 +476,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Chana Masala",
         "en_itemname": "Chana Masala",
         "cz_itemdesc": "Cizrna připravovaná  s indickým kořením a bylinkami",
@@ -436,6 +485,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Mixed Vegetables",
         "en_itemname": "Mixed Vegetables",
         "cz_itemdesc": "Míchaná zelenina s kořením masala gravy",
@@ -444,6 +494,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Palak Paneer",
         "en_itemname": "Palak Paneer",
         "cz_itemdesc": "Indický čerstvý domácí sýr se špenátem",
@@ -452,6 +503,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Paneer Makhani",
         "en_itemname": "Paneer Makhani",
         "cz_itemdesc": "Indický čerstvý domácí sýr s omáčkou z rajčat, smetany a másla",
@@ -460,6 +512,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Kadai Paneer",
         "en_itemname": "Kadai Paneer",
         "cz_itemdesc": "Indický sýr  se zeleným pepřem, kořením a rajčatovou omáčkou",
@@ -468,6 +521,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Bagain Bharta",
         "en_itemname": "Bagain Bharta",
         "cz_itemdesc": "Mimořádná mísa pečených lilků, restovaných s cibulí a kořením",
@@ -476,6 +530,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Aloo Gobi",
         "en_itemname": "Aloo Gobi",
         "cz_itemdesc": "Brambory s květákem a rajčaty, čerstvý koriandr",
@@ -484,6 +539,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Mutter mushrooms",
         "en_itemname": "Mutter mushrooms",
         "cz_itemdesc": "Hrášek se žampiony a s omáčkou z rajčat a smetany",
@@ -492,6 +548,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Mutter Methi Malai",
         "en_itemname": "Mutter Methi Malai",
         "cz_itemdesc": "Zelený hrášek s řeckým senem a smetanou",
@@ -506,6 +563,7 @@
     "en_category": "Rice specialities",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Chicken Biryani",
         "en_itemname": "Chicken Biryani",
         "cz_itemdesc": "Dlouhozrnná basmati rýže s kuřecím masem, indické koření",
@@ -514,6 +572,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Lamb Biryani",
         "en_itemname": "Lamb Biryani",
         "cz_itemdesc": "Dlouhá pulao rýže s jehněčím masem, raita",
@@ -522,6 +581,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Vegetarian Biryani",
         "en_itemname": "Vegetarian Biryani",
         "cz_itemdesc": "Míchaná zelenina s rýží basmati, s čerstvou mátou a šafránem",
@@ -530,6 +590,7 @@
         "allergenes": "1,7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Smažená rýže s vejci",
         "en_itemname": "Egg Fried Rice",
         "cz_itemdesc": " ",
@@ -538,6 +599,7 @@
         "allergenes": "3"
       },
       {
+        "image": "",
         "cz_itemname": "Smažená rýže",
         "en_itemname": "Jeera Pulao Rice",
         "cz_itemdesc": " ",
@@ -546,6 +608,7 @@
         "allergenes": " "
       },
       {
+        "image": "",
         "cz_itemname": "Citronová rýže",
         "en_itemname": "Lemon rice",
         "cz_itemdesc": " ",
@@ -554,6 +617,7 @@
         "allergenes": " "
       },
       {
+        "image": "",
         "cz_itemname": "Žampionová rýže",
         "en_itemname": "Mushrooms rice",
         "cz_itemdesc": " ",
@@ -562,6 +626,7 @@
         "allergenes": " "
       },
       {
+        "image": "",
         "cz_itemname": "Bílá basmati rýže",
         "en_itemname": "Plain basmati rice",
         "cz_itemdesc": " ",
@@ -577,6 +642,7 @@
     "en_category": "Indian bread",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Tandoori Roti",
         "en_itemname": "Tandoori Roti",
         "cz_itemdesc": "Tradiční indická placka z celozrnné mouky",
@@ -585,6 +651,7 @@
         "allergenes": "1"
       },
       {
+        "image": "",
         "cz_itemname": "Laccha Parantha",
         "en_itemname": "Laccha Parantha",
         "cz_itemdesc": "Indická placka-tradiční styl, pečená v tandůru",
@@ -593,6 +660,7 @@
         "allergenes": "1,7"
       },
       {
+        "image": "",
         "cz_itemname": "Pudina Parantha",
         "en_itemname": "Pudina Parantha",
         "cz_itemdesc": "Indická placka z cizrnové mouky s mátou, pečená v tandúru",
@@ -601,6 +669,7 @@
         "allergenes": "1,7"
       },
       {
+        "image": "",
         "cz_itemname": "Butter Naan",
         "en_itemname": "Butter Naan",
         "cz_itemdesc": "Indický chléb s máslem, pečený v tandůru",
@@ -609,6 +678,7 @@
         "allergenes": "1,3,7"
       },
       {
+        "image": "",
         "cz_itemname": "Plain Naan",
         "en_itemname": "Plain Naan",
         "cz_itemdesc": "Indický chléb pečený v tandůru",
@@ -617,6 +687,7 @@
         "allergenes": "1,3,7"
       },
       {
+        "image": "garlic_naan.png",
         "cz_itemname": "Garlic Naan",
         "en_itemname": "Garlic Naan",
         "cz_itemdesc": "Indický česnekový chléb pečený v tandůru",
@@ -625,6 +696,7 @@
         "allergenes": "1,3,7"
       },
       {
+        "image": "",
         "cz_itemname": "Chilli garlic Naan",
         "en_itemname": "Chilli garlic Naan",
         "cz_itemdesc": "Indický česnekový chléb s chilli, pečený v tandůru",
@@ -633,6 +705,7 @@
         "allergenes": "1,3,7,"
       },
       {
+        "image": "",
         "cz_itemname": "Stuffed Kulcha",
         "en_itemname": "Stuffed Kulcha",
         "cz_itemdesc": "Celozrnná placka plněná dle vašeho výběru – sýr, cibule, brambory, květák nebo mleté jehněčí maso",
@@ -647,6 +720,7 @@
     "en_category": "Salad",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Zeleninový salát",
         "en_itemname": "Green garden salad",
         "cz_itemdesc": " ",
@@ -655,6 +729,7 @@
         "allergenes": " "
       },
       {
+        "image": "cucumber_salad.png",
         "cz_itemname": "Kuchumber salad",
         "en_itemname": "Kuchumber salad",
         "cz_itemdesc": "Pikantní drobně krájená okurka, rajče, červená cibule, koriandr, zelené chilli, citron",
@@ -663,6 +738,7 @@
         "allergenes": " "
       },
       {
+        "image": "",
         "cz_itemname": "Aloo chat",
         "en_itemname": "Aloo chat",
         "cz_itemdesc": "Pálivý bramborový salát s indickým kořením",
@@ -677,6 +753,7 @@
     "en_category": "Indian chutneys",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Mango Chutney / Mint chutney / Imli chutney",
         "en_itemname": "Mango Chutney / Mint chutney / Imli Chutney",
         "cz_itemdesc": " ",
@@ -685,6 +762,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Mixed Pickles",
         "en_itemname": "Mixed pickles",
         "cz_itemdesc": " ",
@@ -693,6 +771,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Mixed Raita",
         "en_itemname": "Mixed Raita",
         "cz_itemdesc": "Jogurt míchaný s rajčaty a okurkou, jemně okořeněný",
@@ -701,6 +780,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Aloo Raita",
         "en_itemname": "Aloo Raita",
         "cz_itemdesc": "Jogurt s bramborami, jemně okořeněný",
@@ -709,6 +789,7 @@
         "allergenes": "7"
       },
       {
+        "image": "",
         "cz_itemname": "Pineapple Raita",
         "en_itemname": "Pineapple Raita",
         "cz_itemdesc": "Domácí jogurt s ananasem",
@@ -723,6 +804,7 @@
     "en_category": "Desserts",
     "category": [
       {
+        "image": "",
         "cz_itemname": "Thandi Kheer",
         "en_itemname": "Thandi Kheer",
         "cz_itemdesc": "Indický rýžový puding se šafránem",
@@ -731,6 +813,7 @@
         "allergenes": "7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Gulabjamun  2pcs/2 ks ",
         "en_itemname": "Gulabjamun  2pcs/2 ks ",
         "cz_itemdesc": "Smažené tvarohové knedlíčky s cukrovým sirupem",
@@ -739,6 +822,7 @@
         "allergenes": "1,7,8"
       },
       {
+        "image": "",
         "cz_itemname": "Mango Kulfi",
         "en_itemname": "Mango Kulfi",
         "cz_itemdesc": "Indická zmrzlina z manga, servírovaná v keramické dóze",
@@ -747,6 +831,7 @@
         "allergenes": "1,7"
       },
       {
+        "image": "",
         "cz_itemname": "Pista Kulfi ",
         "en_itemname": "Pista Kulfi ",
         "cz_itemdesc": "Indická pistáciová zmrzlina servírovaná v dekorativní keramické dóze",

@@ -18555,30 +18555,27 @@ var _carousels = __webpack_require__(97);
 
 var _carousels2 = _interopRequireDefault(_carousels);
 
-var _navigation = __webpack_require__(100);
-
-var _navigation2 = _interopRequireDefault(_navigation);
-
-var _openinghours = __webpack_require__(104);
+var _openinghours = __webpack_require__(100);
 
 var _openinghours2 = _interopRequireDefault(_openinghours);
 
-var _menu = __webpack_require__(106);
+var _menu = __webpack_require__(102);
 
 var _menu2 = _interopRequireDefault(_menu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _MobileMenu2.default(); /*jshint esversion: 6 */
-
+// import Navigation from './modules/navigation';
+/*jshint esversion: 6 */
+var mobileMenu = new _MobileMenu2.default();
 var carousels = new _carousels2.default();
-var navigation = new _navigation2.default();
+// var navigation = new Navigation();
 var openinghours = new _openinghours2.default();
 var menu = new _menu2.default();
 
-setTimeout(function () {
-    navigation.updateGrid();
-}, 1000);
+// setTimeout(()=>{
+//     navigation.updateGrid();
+// },1000)
 
 console.log(menu);
 
@@ -20103,17 +20100,506 @@ var _jquery = __webpack_require__(2);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+__webpack_require__(101);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/*jshint esversion: 6 */
+var OpeningHours = function () {
+    function OpeningHours() {
+        (0, _classCallCheck3.default)(this, OpeningHours);
+
+        this.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        this.clockInterval = function (callBackFunc) {
+            if (typeof callBackFunc !== 'function') {
+                callBackFunc = function callBackFunc() {};
+            }
+            setInterval(function () {
+                callBackFunc();
+            }, 5000);
+        };
+
+        this.getNowDate = function () {
+            var nowDate = new Date();
+            return nowDate;
+        };
+        this.ohMsg = '';
+        this.curCountdownHrs = 0;
+        this.curCountdownMins = 0;
+        this.initOH();
+    }
+
+    (0, _createClass3.default)(OpeningHours, [{
+        key: 'initOH',
+        value: function initOH() {
+            var msg = "";
+            var oh = [{
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }, {
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }, {
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }, {
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }, {
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }, {
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }, {
+                openingHr: 11,
+                openingMin: 0,
+                closingHr: 22,
+                closingMin: 0
+            }];
+            var numOfDay = this.getNowDate().getDay();
+            var indexOfDay = 0 ? undefined : numOfDay = numOfDay - 1;
+            (0, _jquery2.default)('#main-opening-hours .oh-table__row').removeClass('oh-table__row--active');
+            (0, _jquery2.default)((0, _jquery2.default)('#main-opening-hours .oh-table__row').eq(indexOfDay)).addClass('oh-table__row--active');
+            this.initOhMsg(oh);
+        }
+    }, {
+        key: 'updateTimeMsg',
+        value: function updateTimeMsg(msg, hrs, mins) {
+            msg = msg || '';
+            hrs = hrs || 0;
+            mins = mins || 0;
+            (0, _jquery2.default)('#oh-message').text(msg);
+            if (this.curCountdownMins !== mins) {
+                (0, _jquery2.default)('#oh-message').animateCss('fadeInDown');
+                this.curCountdownHrs = hrs;
+                this.curCountdownMins = mins;
+            }
+            console.log(msg, hrs, mins, this.curCountdownHrs, this.curCountdownMins);
+        }
+    }, {
+        key: 'countTimeDiff',
+        value: function countTimeDiff(fromTime, toTime) {
+            var diff = toTime - fromTime;
+            var hours = new Date(diff).getUTCHours();
+            var minutes = new Date(diff).getUTCMinutes();
+            var seconds = new Date(diff).getUTCSeconds();
+            if (hours === 0 && minutes === 0 && seconds <= 59) {
+                minutes = -1;
+            }
+            return {
+                hours: hours,
+                minutes: minutes,
+                seconds: seconds
+            };
+        }
+
+        // helper function to return proper hour(s) and/or minute(s)
+
+    }, {
+        key: 'compileTimeUnit',
+        value: function compileTimeUnit(timeNum, timeUnit) {
+            timeUnit = (timeUnit || "").trim();
+            if (timeNum === -1 && timeUnit === 'minute') {
+                return ' less than a ' + timeUnit;
+            }
+            if (timeNum > 1) {
+                return ' ' + timeNum + ' ' + timeUnit + 's';
+            } else if (timeNum === 1) {
+                return ' ' + timeNum + ' ' + timeUnit;
+            } else {
+                return '';
+            }
+        }
+
+        //helper function to set message
+
+    }, {
+        key: 'compileMsg',
+        value: function compileMsg(benchmarkedOHdata, nowTimeData, action) {
+            var msg = '';
+            var compareToDate = new Date(nowTimeData.getFullYear(), nowTimeData.getMonth(), nowTimeData.getDate(), benchmarkedOHdata[action + 'Hr'], benchmarkedOHdata[action + 'Min'], 0);
+            var countDownTime = this.countTimeDiff(nowTimeData, compareToDate);
+            msg = "We are " + action + " in" + this.compileTimeUnit(countDownTime.hours, 'hour') + this.compileTimeUnit(countDownTime.minutes, 'minute') + ".";
+            this.ohMsg = msg;
+            return {
+                msg: msg,
+                hours: countDownTime.hours,
+                minutes: countDownTime.minutes
+            };
+        }
+    }, {
+        key: 'initOhMsg',
+        value: function initOhMsg(ohData) {
+            var _self = this;
+            var msg = void 0;
+            var now = this.getNowDate();
+            //now = new Date('2018','9','21','22','5','0');
+            var nowHours = now.getHours();
+
+            // is it opened or closed today?
+            if (nowHours >= ohData[now.getDay()].openingHr && nowHours < ohData[now.getDay()].closingHr) {
+                msg = "We are open at the moment.";
+                _self.updateTimeMsg(msg);
+                if (ohData[now.getDay()].closingHr - nowHours <= 2) {
+                    this.clockInterval(function () {
+                        now = _self.getNowDate();
+                        msg = _self.compileMsg(ohData[now.getDay()], now, 'closing');
+                        _self.updateTimeMsg(msg.msg, msg.hours, msg.minutes);
+                    });
+                } else {
+                    _self.updateTimeMsg(msg);
+                }
+            } else {
+                msg = "Restaurant is now closed.";
+                _self.updateTimeMsg(msg);
+                if (Math.abs(ohData[now.getDay()].openingHr - nowHours) <= 2) {
+                    this.clockInterval(function () {
+                        now = _self.getNowDate();
+                        msg = _self.compileMsg(ohData[now.getDay()], now, 'opening');
+                        console.log(msg);
+                        _self.updateTimeMsg(msg.msg, msg.hours, msg.minutes);
+                    });
+                } else {
+                    _self.updateTimeMsg(msg);
+                }
+            }
+            console.log(msg);
+            return msg;
+        }
+    }]);
+    return OpeningHours;
+}();
+
+exports.default = OpeningHours;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_jquery2.default.fn.extend({
+    animateCss: function animateCss(animationName, callback) {
+        var animationEnd = function (el) {
+            var animations = {
+                animation: 'animationend',
+                OAnimation: 'oAnimationEnd',
+                MozAnimation: 'mozAnimationEnd',
+                WebkitAnimation: 'webkitAnimationEnd'
+            };
+
+            for (var t in animations) {
+                if (el.style[t] !== undefined) {
+                    return animations[t];
+                }
+            }
+        }(document.createElement('div'));
+
+        this.addClass('animated ' + animationName).one(animationEnd, function () {
+            (0, _jquery2.default)(this).removeClass('animated ' + animationName);
+            if (typeof callback === 'function') {
+                callback();
+            }
+        });
+
+        return this;
+    }
+});
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _classCallCheck2 = __webpack_require__(91);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(92);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _navigation = __webpack_require__(103);
+
+var _navigation2 = _interopRequireDefault(_navigation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Menu = function () {
+    function Menu() {
+        var _this = this;
+
+        (0, _classCallCheck3.default)(this, Menu);
+
+        this.URL = './assets/data/menu_data.json';
+        this.imagePath = './assets/images/allergenes/';
+        this.menuImagePath = './assets/images/menu/';
+        this.cardClass = ['', '__secondary', '__tertiary'];
+        this.allergenesList = [{
+            imageFileName: '1-wheat.png',
+            alt: 'wheat allergenes icon'
+        }, {
+            imageFileName: '2-crustaceans.png',
+            alt: 'crustaceans allergenes icon'
+        }, {
+            imageFileName: '3-eggs.png',
+            alt: 'eggs allergenes icon'
+        }, {
+            imageFileName: '4-fish.png',
+            alt: 'fish allergenes icon'
+        }, {
+            imageFileName: '5-peanuts.png',
+            alt: 'peanuts allergenes icon'
+        }, {
+            imageFileName: '6-soya.png',
+            alt: 'soya allergenes icon'
+        }, {
+            imageFileName: '7-milk.png',
+            alt: 'milk allergenes icon'
+        }, {
+            imageFileName: '8-nuts.png',
+            alt: 'nuts allergenes icon'
+        }, {
+            imageFileName: '9-celery.png',
+            alt: 'celery allergenes icon'
+        }, {
+            imageFileName: '10-mustard.png',
+            alt: 'mustard allergenes icon'
+        }, {
+            imageFileName: '11-sesame.png',
+            alt: 'sesame allergenes icon'
+        }, {
+            imageFileName: '12-sulphites.png',
+            alt: 'sulphites allergenes icon'
+        }, {
+            imageFileName: '13-lupin.png',
+            alt: 'lupin allergenes icon'
+        }, {
+            imageFileName: '14-molluscs.png',
+            alt: 'molluscs allergenes icon'
+        }];
+        this.categoryConfig = {
+            'starters': {
+                filterTags: 'starters, meals',
+                categoryThemingClass: 'site-card__secondary'
+            },
+            'soup': {
+                filterTags: 'soup, meals',
+                categoryTheming: ''
+            },
+            'indian drinks': {
+                filterTags: 'drinks',
+                categoryTheming: 'site-card__tertiary'
+            },
+            'veg tandoori specialities': {
+                filterTags: 'tandoor, meals, vegetarian',
+                categoryTheming: 'site-card__tertiary'
+            },
+            'non veg tandoori specialities': {
+                filterTags: 'tandoor, meals, non-vegetarian',
+                categoryTheming: 'site-card__secondary'
+            },
+            'main course non-vegetarian': {
+                filterTags: 'meals, non-vegetarian',
+                categoryTheming: 'site-card__secondary'
+            },
+            'main course vegetarian': {
+                filterTags: 'meals, vegetarian',
+                categoryTheming: 'site-card__tertiary'
+            },
+            'rice specialities': {
+                filterTags: 'side dish, vegetarian, rice',
+                categoryTheming: ''
+            },
+            'indian bread': {
+                filterTags: 'side dish, vegetarian, bread',
+                categoryTheming: 'site-card__secondary'
+            },
+            'salad': {
+                filterTags: 'starters, vegetarian, salad',
+                categoryTheming: 'site-card__tertiary'
+            },
+            'indian chutneys': {
+                filterTags: 'side dish, vegetarian',
+                categoryTheming: ''
+            },
+            'desserts': {
+                filterTags: 'desserts',
+                categoryTheming: 'site-card__secondary'
+            }
+        };
+
+        this.menu = this.getMenu(this.URL, function () {
+            var html = _this.buildMenu(_this.menu, 'en');
+            // console.log(html);
+            (0, _jquery2.default)('#mainGrid').append(html);
+            setTimeout(function () {
+                var navigation = new _navigation2.default();
+                console.log(navigation);
+                navigation.updateGrid();
+            }, 1000);
+        });
+    }
+
+    (0, _createClass3.default)(Menu, [{
+        key: 'getMenu',
+        value: function getMenu(url, fallbackFn) {
+            var _self = this;
+            fallbackFn = fallbackFn || function () {};
+            _jquery2.default.getJSON(url, function () {}).done(function (data) {
+                console.log("menu loaded...");
+                _self.menu = data;
+            }).fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ": " + error;
+                console.log("Unable to load menu: " + err);
+                _self.menu = [];
+            }).always(function () {
+                fallbackFn();
+            });
+        }
+    }, {
+        key: 'buildMenu',
+        value: function buildMenu(menu, lang) {
+            var randomStyle = void 0;
+            randomStyle === 'site-card' ? randomStyle = '' : randomStyle = randomStyle;
+            console.log(randomStyle);
+            menu = menu || [];
+            lang = (lang || '').trim();
+            lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
+            var html = '';
+            for (var i = 0; i < menu.length; i++) {
+                randomStyle = 'site-card' + this.cardClass[Math.floor(Math.random() * 3)];
+                randomStyle === 'site-card' ? randomStyle = '' : randomStyle = randomStyle;
+                var categoryName = menu[i][lang + '_category'];
+                html += '<div data-menu="menu" class="grid-layout__item grid-layout__item--menu">';
+                html += '<div class="site-card ' + randomStyle + '">';
+                html += '<h3 class="site-card__title">' + categoryName + '</h3>';
+                for (var x = 0; x < menu[i].category.length; x++) {
+                    html += this.buildMenuItem(menu[i].category[x], lang);
+                }
+                html += '</div></div>';
+            }
+            return html;
+        }
+    }, {
+        key: 'buildMenuItem',
+        value: function buildMenuItem(menuItem, lang) {
+            var str = '';
+            var imageHtml = '';
+            menuItem = menuItem || { cz_itemname: '', en_itemname: '', cz_itemdesc: '', en_itemdesc: '', price: 0, allergenes: '' };
+            var name = menuItem[lang + '_itemname'];
+            var description = menuItem[lang + '_itemdesc'];
+            if (menuItem.image.toLowerCase().trim() !== '') {
+                imageHtml += '<div class="site-card__image">';
+                imageHtml += '<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
+                imageHtml += '</div>';
+            }
+            str += '<div class="site-card__menu-item"><div class="row align-items-center">';
+            str += imageHtml;
+            str += '<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
+            str += '<div class="col-4"><div class="site-card__price-tag">';
+            str += '<h3 class="site-card__subtitle site-card__price">' + menuItem.price + '<sup class="site-card__currency">Kč</sup></h3>';
+            str += '</div></div></div>';
+            str += this.buildAllergenes(menuItem.allergenes);
+            str += '<p class="site-card__text">' + description + '</p>';
+            str += '<div class="site-card__menu-item__divider"></div></div>';
+            return str;
+        }
+    }, {
+        key: 'buildAllergenes',
+        value: function buildAllergenes(allergenes) {
+            var txt = '';
+            var allergArr = [];
+            if (allergenes.trim() === '') {
+                return txt;
+            }
+            typeof allergenes === 'string' ? allergenes = allergenes : allergenes = '';
+            var temp = new Array();
+            temp = allergenes.split(',');
+            for (var i in temp) {
+                if (temp[i] !== '' && temp[i] !== undefined && temp[i] !== NaN) {
+                    allergArr.push(parseInt(temp[i], 10));
+                }
+            }
+            txt = '<div class="allergenes__group">';
+            for (var a = 0; a < allergArr.length; a++) {
+                txt += '<div class="allergenes__item">';
+                txt += '<img src="' + this.imagePath + this.allergenesList[allergArr[a] - 1].imageFileName + '" alt="' + this.allergenesList[allergArr[a] - 1].alt + '">';
+                txt += '</div>';
+            }
+            txt += '</div>';
+            return txt;
+        }
+    }]);
+    return Menu;
+}();
+
+exports.default = Menu;
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _classCallCheck2 = __webpack_require__(91);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(92);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _isotopeLayout = __webpack_require__(4);
 
 var _isotopeLayout2 = _interopRequireDefault(_isotopeLayout);
 
 __webpack_require__(15);
 
-__webpack_require__(101);
+__webpack_require__(104);
 
 __webpack_require__(18);
 
-var _scrolling_actions = __webpack_require__(102);
+var _scrolling_actions = __webpack_require__(105);
 
 var _scrolling_actions2 = _interopRequireDefault(_scrolling_actions);
 
@@ -20229,7 +20715,7 @@ var Navigation = function () {
 exports.default = Navigation;
 
 /***/ }),
-/* 101 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -20868,7 +21354,7 @@ exports.default = Navigation;
 
 
 /***/ }),
-/* 102 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20890,7 +21376,7 @@ var _jquery = __webpack_require__(2);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _noframework = __webpack_require__(103);
+var _noframework = __webpack_require__(106);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20932,7 +21418,7 @@ var ScrollingActions = function () {
 exports.default = ScrollingActions;
 
 /***/ }),
-/* 103 */
+/* 106 */
 /***/ (function(module, exports) {
 
 /*!
@@ -21693,415 +22179,6 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
   Waypoint.Adapter = NoFrameworkAdapter
 }())
 ;
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _classCallCheck2 = __webpack_require__(91);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(92);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _jquery = __webpack_require__(2);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-__webpack_require__(105);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/*jshint esversion: 6 */
-var OpeningHours = function () {
-    function OpeningHours() {
-        (0, _classCallCheck3.default)(this, OpeningHours);
-
-        this.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        this.clockInterval = function (callBackFunc) {
-            if (typeof callBackFunc !== 'function') {
-                callBackFunc = function callBackFunc() {};
-            }
-            setInterval(function () {
-                callBackFunc();
-            }, 5000);
-        };
-
-        this.getNowDate = function () {
-            var nowDate = new Date();
-            return nowDate;
-        };
-        this.ohMsg = '';
-        this.curCountdownHrs = 0;
-        this.curCountdownMins = 0;
-        this.initOH();
-    }
-
-    (0, _createClass3.default)(OpeningHours, [{
-        key: 'initOH',
-        value: function initOH() {
-            var msg = "";
-            var oh = [{
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }, {
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }, {
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }, {
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }, {
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }, {
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }, {
-                openingHr: 11,
-                openingMin: 0,
-                closingHr: 22,
-                closingMin: 0
-            }];
-            var numOfDay = this.getNowDate().getDay();
-            var indexOfDay = 0 ? undefined : numOfDay = numOfDay - 1;
-            (0, _jquery2.default)('#main-opening-hours .oh-table__row').removeClass('oh-table__row--active');
-            (0, _jquery2.default)((0, _jquery2.default)('#main-opening-hours .oh-table__row').eq(indexOfDay)).addClass('oh-table__row--active');
-            this.initOhMsg(oh);
-        }
-    }, {
-        key: 'updateTimeMsg',
-        value: function updateTimeMsg(msg, hrs, mins) {
-            msg = msg || '';
-            hrs = hrs || 0;
-            mins = mins || 0;
-            (0, _jquery2.default)('#oh-message').text(msg);
-            if (this.curCountdownMins !== mins) {
-                (0, _jquery2.default)('#oh-message').animateCss('fadeInDown');
-                this.curCountdownHrs = hrs;
-                this.curCountdownMins = mins;
-            }
-            console.log(msg, hrs, mins, this.curCountdownHrs, this.curCountdownMins);
-        }
-    }, {
-        key: 'countTimeDiff',
-        value: function countTimeDiff(fromTime, toTime) {
-            var diff = toTime - fromTime;
-            var hours = new Date(diff).getUTCHours();
-            var minutes = new Date(diff).getUTCMinutes();
-            var seconds = new Date(diff).getUTCSeconds();
-            if (hours === 0 && minutes === 0 && seconds <= 59) {
-                minutes = -1;
-            }
-            return {
-                hours: hours,
-                minutes: minutes,
-                seconds: seconds
-            };
-        }
-
-        // helper function to return proper hour(s) and/or minute(s)
-
-    }, {
-        key: 'compileTimeUnit',
-        value: function compileTimeUnit(timeNum, timeUnit) {
-            timeUnit = (timeUnit || "").trim();
-            if (timeNum === -1 && timeUnit === 'minute') {
-                return ' less than a ' + timeUnit;
-            }
-            if (timeNum > 1) {
-                return ' ' + timeNum + ' ' + timeUnit + 's';
-            } else if (timeNum === 1) {
-                return ' ' + timeNum + ' ' + timeUnit;
-            } else {
-                return '';
-            }
-        }
-
-        //helper function to set message
-
-    }, {
-        key: 'compileMsg',
-        value: function compileMsg(benchmarkedOHdata, nowTimeData, action) {
-            var msg = '';
-            var compareToDate = new Date(nowTimeData.getFullYear(), nowTimeData.getMonth(), nowTimeData.getDate(), benchmarkedOHdata[action + 'Hr'], benchmarkedOHdata[action + 'Min'], 0);
-            var countDownTime = this.countTimeDiff(nowTimeData, compareToDate);
-            msg = "We are " + action + " in" + this.compileTimeUnit(countDownTime.hours, 'hour') + this.compileTimeUnit(countDownTime.minutes, 'minute') + ".";
-            this.ohMsg = msg;
-            return {
-                msg: msg,
-                hours: countDownTime.hours,
-                minutes: countDownTime.minutes
-            };
-        }
-    }, {
-        key: 'initOhMsg',
-        value: function initOhMsg(ohData) {
-            var _self = this;
-            var msg = void 0;
-            var now = this.getNowDate();
-            //now = new Date('2018','9','21','22','5','0');
-            var nowHours = now.getHours();
-
-            // is it opened or closed today?
-            if (nowHours >= ohData[now.getDay()].openingHr && nowHours < ohData[now.getDay()].closingHr) {
-                msg = "We are open at the moment.";
-                _self.updateTimeMsg(msg);
-                if (ohData[now.getDay()].closingHr - nowHours <= 2) {
-                    this.clockInterval(function () {
-                        now = _self.getNowDate();
-                        msg = _self.compileMsg(ohData[now.getDay()], now, 'closing');
-                        _self.updateTimeMsg(msg.msg, msg.hours, msg.minutes);
-                    });
-                } else {
-                    _self.updateTimeMsg(msg);
-                }
-            } else {
-                msg = "Restaurant is now closed.";
-                _self.updateTimeMsg(msg);
-                if (Math.abs(ohData[now.getDay()].openingHr - nowHours) <= 2) {
-                    this.clockInterval(function () {
-                        now = _self.getNowDate();
-                        msg = _self.compileMsg(ohData[now.getDay()], now, 'opening');
-                        console.log(msg);
-                        _self.updateTimeMsg(msg.msg, msg.hours, msg.minutes);
-                    });
-                } else {
-                    _self.updateTimeMsg(msg);
-                }
-            }
-            console.log(msg);
-            return msg;
-        }
-    }]);
-    return OpeningHours;
-}();
-
-exports.default = OpeningHours;
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(2);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_jquery2.default.fn.extend({
-    animateCss: function animateCss(animationName, callback) {
-        var animationEnd = function (el) {
-            var animations = {
-                animation: 'animationend',
-                OAnimation: 'oAnimationEnd',
-                MozAnimation: 'mozAnimationEnd',
-                WebkitAnimation: 'webkitAnimationEnd'
-            };
-
-            for (var t in animations) {
-                if (el.style[t] !== undefined) {
-                    return animations[t];
-                }
-            }
-        }(document.createElement('div'));
-
-        this.addClass('animated ' + animationName).one(animationEnd, function () {
-            (0, _jquery2.default)(this).removeClass('animated ' + animationName);
-            if (typeof callback === 'function') {
-                callback();
-            }
-        });
-
-        return this;
-    }
-});
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _classCallCheck2 = __webpack_require__(91);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(92);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _jquery = __webpack_require__(2);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Menu = function () {
-    function Menu() {
-        var _this = this;
-
-        (0, _classCallCheck3.default)(this, Menu);
-
-        this.URL = './assets/data/menu_data.json';
-        this.imagePath = './assets/images/allergenes/';
-        this.allergenesList = [{
-            imageFileName: '1-wheat.png',
-            alt: 'wheat allergenes icon'
-        }, {
-            imageFileName: '2-crustaceans.png',
-            alt: 'crustaceans allergenes icon'
-        }, {
-            imageFileName: '3-eggs.png',
-            alt: 'eggs allergenes icon'
-        }, {
-            imageFileName: '4-fish.png',
-            alt: 'fish allergenes icon'
-        }, {
-            imageFileName: '5-peanuts.png',
-            alt: 'peanuts allergenes icon'
-        }, {
-            imageFileName: '6-soya.png',
-            alt: 'soya allergenes icon'
-        }, {
-            imageFileName: '7-milk.png',
-            alt: 'milk allergenes icon'
-        }, {
-            imageFileName: '8-nuts.png',
-            alt: 'nuts allergenes icon'
-        }, {
-            imageFileName: '9-celery.png',
-            alt: 'celery allergenes icon'
-        }, {
-            imageFileName: '10-mustard.png',
-            alt: 'mustard allergenes icon'
-        }, {
-            imageFileName: '11-sesame.png',
-            alt: 'sesame allergenes icon'
-        }, {
-            imageFileName: '12-sulphites.png',
-            alt: 'sulphites allergenes icon'
-        }, {
-            imageFileName: '13-lupin.png',
-            alt: 'lupin allergenes icon'
-        }, {
-            imageFileName: '14-molluscs.png',
-            alt: 'molluscs allergenes icon'
-        }];
-        this.menu = this.getMenu(this.URL, function () {
-            var html = _this.buildMenu(_this.menu, 'en');
-            console.log(html);
-            (0, _jquery2.default)('#mainGrid').append(html);
-        });
-    }
-
-    (0, _createClass3.default)(Menu, [{
-        key: 'getMenu',
-        value: function getMenu(url, fallbackFn) {
-            var _self = this;
-            fallbackFn = fallbackFn || function () {};
-            _jquery2.default.getJSON(url, function () {}).done(function (data) {
-                console.log("menu loaded...");
-                _self.menu = data;
-            }).fail(function (jqxhr, textStatus, error) {
-                var err = textStatus + ": " + error;
-                console.log("Unable to load menu: " + err);
-                _self.menu = [];
-            }).always(function () {
-                fallbackFn();
-            });
-        }
-    }, {
-        key: 'buildMenu',
-        value: function buildMenu(menu, lang) {
-            menu = menu || [];
-            lang = (lang || '').trim();
-            lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
-            var html = '';
-            for (var i = 0; i < menu.length; i++) {
-                var categoryName = menu[i][lang + '_category'];
-                html += '<div data-menu="menu" class="grid-layout__item grid-layout__item--menu">';
-                html += '<div class="site-card site-card__tertiary">';
-                html += '<h3 class="site-card__title">' + categoryName + '</h3>';
-                for (var x = 0; x < menu[i].category.length; x++) {
-                    html += this.buildMenuItem(menu[i].category[x], lang);
-                }
-                html += '</div></div>';
-            }
-            return html;
-        }
-    }, {
-        key: 'buildMenuItem',
-        value: function buildMenuItem(menuItem, lang) {
-            menuItem = menuItem || { cz_itemname: '', en_itemname: '', cz_itemdesc: '', en_itemdesc: '', price: 0, allergenes: '' };
-            var name = menuItem[lang + '_itemname'];
-            var description = menuItem[lang + '_itemdesc'];
-            var str = '';
-            str += '<div class="site-card__menu-item"><div class="row align-items-center">';
-            str += '<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
-            str += '<div class="col-4"><div class="site-card__price-tag">';
-            str += '<h3 class="site-card__subtitle site-card__price">' + menuItem.price + '<sup class="site-card__currency">Kč</sup></h3>';
-            str += '</div></div></div>';
-            str += this.buildAllergenes(menuItem.allergenes);
-            str += '<p class="site-card__text">' + description + '</p>';
-            str += '<div class="site-card__menu-item__divider"></div></div>';
-            return str;
-        }
-    }, {
-        key: 'buildAllergenes',
-        value: function buildAllergenes(allergenes) {
-            typeof allergenes === 'string' ? allergenes = allergenes : allergenes = '';
-            var txt = '';
-            var temp = new Array();
-            temp = allergenes.split(',');
-            for (var i in temp) {
-                temp[i] = parseInt(temp[i], 10);
-            }
-            txt = '<div class="allergenes__group">';
-            for (var a; a < temp.length; a++) {
-                txt += '<div class="allergenes__item">';
-                txt += '<img src="' + this.imagePath + this.allergenesList[a + 1].imageFileName + ' alt=' + this.allergenesList[a + 1].alt + '>';
-                txt += '</div>';
-            }
-            txt += '</div>';
-            return txt;
-        }
-    }]);
-    return Menu;
-}();
-
-exports.default = Menu;
 
 /***/ })
 /******/ ]);

@@ -1,10 +1,15 @@
 import $ from 'jquery';
 
+import Navigation from './navigation';
+
+
 class Menu {
 
     constructor() {
         this.URL = './assets/data/menu_data.json';
         this.imagePath = './assets/images/allergenes/';
+        this.menuImagePath = './assets/images/menu/';
+        this.cardClass = ['','__secondary','__tertiary'];
         this.allergenesList = [
             {
                 imageFileName: '1-wheat.png',
@@ -63,10 +68,78 @@ class Menu {
                 alt: 'molluscs allergenes icon'
             }
         ];
+        this.categoryConfig = {
+            'starters':
+                {
+                    filterTags: 'starters, meals',
+                    categoryThemingClass: 'site-card__secondary'
+                },
+            'soup':
+                {
+                    filterTags: 'soup, meals',
+                    categoryTheming: ''
+                },
+            'indian drinks':
+                {
+                    filterTags: 'drinks',
+                    categoryTheming: 'site-card__tertiary'
+                },
+            'veg tandoori specialities':
+                {
+                    filterTags: 'tandoor, meals, vegetarian',
+                    categoryTheming: 'site-card__tertiary'
+                },
+            'non veg tandoori specialities':
+                {
+                    filterTags: 'tandoor, meals, non-vegetarian',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'main course non-vegetarian':
+                {
+                    filterTags: 'meals, non-vegetarian',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'main course vegetarian':
+                {
+                    filterTags: 'meals, vegetarian',
+                    categoryTheming: 'site-card__tertiary'
+                },
+            'rice specialities':
+                {
+                    filterTags: 'side dish, vegetarian, rice',
+                    categoryTheming: ''
+                },
+            'indian bread':
+                {
+                    filterTags: 'side dish, vegetarian, bread',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'salad':
+                {
+                    filterTags: 'starters, vegetarian, salad',
+                    categoryTheming: 'site-card__tertiary'
+                },
+            'indian chutneys':
+                {
+                    filterTags: 'side dish, vegetarian',
+                    categoryTheming: ''
+                },
+            'desserts':
+                {
+                    filterTags: 'desserts',
+                    categoryTheming: 'site-card__secondary'
+                }
+        };
+
         this.menu = this.getMenu(this.URL,()=>{
             let html = this.buildMenu(this.menu,'en');
-            console.log(html);
+            // console.log(html);
             $('#mainGrid').append(html);
+            setTimeout(()=>{
+                let navigation = new Navigation();
+                console.log(navigation);
+                navigation.updateGrid();
+            },1000)
         });
     }
 
@@ -90,14 +163,19 @@ class Menu {
     }
 
     buildMenu(menu, lang) {
+        let randomStyle;
+        randomStyle ==='site-card' ? randomStyle ='' : randomStyle = randomStyle;
+        console.log(randomStyle);
         menu = menu || [];
         lang = (lang || '').trim();
         lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
         let html = '';
         for (let i=0; i<menu.length; i++) {
+            randomStyle = 'site-card' + this.cardClass[Math.floor(Math.random() * 3)]; 
+            randomStyle ==='site-card' ? randomStyle ='' : randomStyle = randomStyle;
             let categoryName = menu[i][lang + '_category'];
             html += '<div data-menu="menu" class="grid-layout__item grid-layout__item--menu">';
-            html += '<div class="site-card site-card__tertiary">';
+            html += '<div class="site-card ' + randomStyle + '">';
             html += '<h3 class="site-card__title">' + categoryName + '</h3>';
             for (let x=0; x<menu[i].category.length; x++) {
                 html += this.buildMenuItem(menu[i].category[x], lang);
@@ -108,11 +186,18 @@ class Menu {
     }
 
     buildMenuItem(menuItem,lang) {
+        let str = '';
+        let imageHtml = '';
         menuItem = menuItem || {cz_itemname:'',en_itemname:'',cz_itemdesc:'',en_itemdesc:'',price:0,allergenes:''};
         let name = menuItem[lang + '_itemname'];
         let description = menuItem[lang + '_itemdesc'];
-        let str = '';
+        if (menuItem.image.toLowerCase().trim() !== '') {
+            imageHtml += '<div class="site-card__image">';
+            imageHtml +='<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
+            imageHtml +='</div>';
+        }
         str +='<div class="site-card__menu-item"><div class="row align-items-center">';
+        str += imageHtml;
         str +='<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
         str +='<div class="col-4"><div class="site-card__price-tag">';
         str +='<h3 class="site-card__subtitle site-card__price">' + menuItem.price + '<sup class="site-card__currency">Kč</sup></h3>';
@@ -124,17 +209,23 @@ class Menu {
     }
 
     buildAllergenes(allergenes){
-        typeof allergenes ==='string' ? allergenes = allergenes : allergenes = '';
         let txt = '';
+        let allergArr = [];
+        if (allergenes.trim() === '') {
+            return txt;
+        }
+        typeof allergenes ==='string' ? allergenes = allergenes : allergenes = '';
         let temp = new Array();
         temp = allergenes.split(',');
         for (let i in temp) {
-            temp[i] = parseInt(temp[i],10)
+            if (temp[i] !== '' && temp[i] !== undefined && temp[i] !== NaN ){
+                allergArr.push(parseInt(temp[i],10));
+            }
         }
         txt = '<div class="allergenes__group">';
-        for (let a;a<temp.length;a++) {
+        for (let a=0;a<allergArr.length;a++) {
             txt+= '<div class="allergenes__item">';
-            txt+= '<img src="' + this.imagePath + this.allergenesList[a+1].imageFileName + ' alt=' + this.allergenesList[a+1].alt + '>';
+            txt+= '<img src="' + this.imagePath + this.allergenesList[allergArr[a]-1].imageFileName + '" alt="' + this.allergenesList[allergArr[a]-1].alt + '">';
             txt+= '</div>';
         }
         txt += '</div>';
