@@ -188,7 +188,7 @@ class Menu {
     buildMenuItem(menuItem,lang) {
         let str = '';
         let imageHtml = '';
-        menuItem = menuItem || {cz_itemname:'',en_itemname:'',cz_itemdesc:'',en_itemdesc:'',price:0,allergenes:''};
+        menuItem = menuItem || {image:'', cz_itemname:'',en_itemname:'',cz_itemdesc:'',en_itemdesc:'',price:0,allergenes:''};
         let name = menuItem[lang + '_itemname'];
         let description = menuItem[lang + '_itemdesc'];
         if (menuItem.image.toLowerCase().trim() !== '') {
