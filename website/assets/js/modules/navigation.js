@@ -90,6 +90,26 @@ class Navigation {
             }
         });
 
+        $('#menucategories-filter a.btn-site'). on('click', (e) => {
+            e.preventDefault();
+            let filVal = $(e.target).data('filter').toLowerCase().trim();
+            $('#menucategories-filter a.btn-site').removeClass('btn-site--active');
+            $(e.target).addClass('btn-site--active');
+            grid.arrange({
+                filter: function(item){
+                    let found = false;
+                    let itemData = $(item).data("menu").toLowerCase().trim();
+                    let valuesArr = itemData.split(',');
+                    for (let i = 0;i<valuesArr.length; i++) {
+                        if (valuesArr[i].trim()===filVal) {
+                            found = true;
+                        }
+                    }
+                    return found;
+                }
+            });
+        });
+
         var showAllergenes = function(modalEl){
             modalEl = modalEl || '';
             $(modalEl).modal('show');

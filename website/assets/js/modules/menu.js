@@ -9,7 +9,6 @@ class Menu {
         this.URL = './assets/data/menu_data.json';
         this.imagePath = './assets/images/allergenes/';
         this.menuImagePath = './assets/images/menu/';
-        this.cardClass = ['','__secondary','__tertiary'];
         this.allergenesList = [
             {
                 imageFileName: '1-wheat.png',
@@ -141,6 +140,23 @@ class Menu {
                 navigation.updateGrid();
             },1000)
         });
+        this.buildFilterBtns(this.categoryConfig);
+    }
+
+    buildFilterBtns(catConfig) {
+        let bntArr = [];
+        let temp = [];
+        const keys = Object.keys(catConfig);
+        for (const key of keys) {
+            temp = (this.categoryConfig[key].filterTags).split(',');
+            console.log(temp);
+            for (let i=0; i>temp.length; i++) {
+                if (btnArr[x]!==temp[i]) {
+                    
+                }
+            }
+            //bntArr.push();
+        }
     }
 
     getMenu(url, fallbackFn) {
@@ -163,25 +179,29 @@ class Menu {
     }
 
     buildMenu(menu, lang) {
-        let randomStyle;
-        randomStyle ==='site-card' ? randomStyle ='' : randomStyle = randomStyle;
-        console.log(randomStyle);
+        let styleClass;
+        let filTags;
         menu = menu || [];
         lang = (lang || '').trim();
         lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
         let html = '';
+        html += '<div class="site-card__menu-item">';
         for (let i=0; i<menu.length; i++) {
-            randomStyle = 'site-card' + this.cardClass[Math.floor(Math.random() * 3)]; 
-            randomStyle ==='site-card' ? randomStyle ='' : randomStyle = randomStyle;
             let categoryName = menu[i][lang + '_category'];
-            html += '<div data-menu="menu" class="grid-layout__item grid-layout__item--menu">';
-            html += '<div class="site-card ' + randomStyle + '">';
+            styleClass = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['categoryTheming'];
+            filTags = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['filterTags'];
+            html += '<div data-menu="menu, ' + filTags + '" class="grid-layout__item grid-layout__item--menu">';
+            html += '<div class="site-card ' + styleClass + '">';
             html += '<h3 class="site-card__title">' + categoryName + '</h3>';
             for (let x=0; x<menu[i].category.length; x++) {
                 html += this.buildMenuItem(menu[i].category[x], lang);
+                if (x<menu[i].category.length-1) {
+                    html +='<div class="site-card__menu-item__divider"></div>';
+                }
             }
             html +='</div></div>';
         }
+        html +='</div>';
         return html;
     }
 
@@ -196,7 +216,7 @@ class Menu {
             imageHtml +='<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
             imageHtml +='</div>';
         }
-        str +='<div class="site-card__menu-item"><div class="row align-items-center">';
+        str +='<div class="row align-items-center">';
         str += imageHtml;
         str +='<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
         str +='<div class="col-4"><div class="site-card__price-tag">';
@@ -204,7 +224,6 @@ class Menu {
         str +='</div></div></div>';
         str += this.buildAllergenes(menuItem.allergenes);
         str +='<p class="site-card__text">' + description + '</p>';
-        str +='<div class="site-card__menu-item__divider"></div></div>';
         return str;
     }
 

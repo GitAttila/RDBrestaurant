@@ -20337,6 +20337,14 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _getIterator2 = __webpack_require__(103);
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _keys = __webpack_require__(108);
+
+var _keys2 = _interopRequireDefault(_keys);
+
 var _classCallCheck2 = __webpack_require__(91);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -20349,7 +20357,7 @@ var _jquery = __webpack_require__(2);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _navigation = __webpack_require__(103);
+var _navigation = __webpack_require__(112);
 
 var _navigation2 = _interopRequireDefault(_navigation);
 
@@ -20364,7 +20372,6 @@ var Menu = function () {
         this.URL = './assets/data/menu_data.json';
         this.imagePath = './assets/images/allergenes/';
         this.menuImagePath = './assets/images/menu/';
-        this.cardClass = ['', '__secondary', '__tertiary'];
         this.allergenesList = [{
             imageFileName: '1-wheat.png',
             alt: 'wheat allergenes icon'
@@ -20469,9 +20476,46 @@ var Menu = function () {
                 navigation.updateGrid();
             }, 1000);
         });
+        this.buildFilterBtns(this.categoryConfig);
     }
 
     (0, _createClass3.default)(Menu, [{
+        key: 'buildFilterBtns',
+        value: function buildFilterBtns(catConfig) {
+            var bntArr = [];
+            var temp = [];
+            var keys = (0, _keys2.default)(catConfig);
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = (0, _getIterator3.default)(keys), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var key = _step.value;
+
+                    temp = this.categoryConfig[key].filterTags.split(',');
+                    console.log(temp);
+                    for (var i = 0; i > temp.length; i++) {
+                        if (btnArr[x] !== temp[i]) {}
+                    }
+                    //bntArr.push();
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+        }
+    }, {
         key: 'getMenu',
         value: function getMenu(url, fallbackFn) {
             var _self = this;
@@ -20490,25 +20534,29 @@ var Menu = function () {
     }, {
         key: 'buildMenu',
         value: function buildMenu(menu, lang) {
-            var randomStyle = void 0;
-            randomStyle === 'site-card' ? randomStyle = '' : randomStyle = randomStyle;
-            console.log(randomStyle);
+            var styleClass = void 0;
+            var filTags = void 0;
             menu = menu || [];
             lang = (lang || '').trim();
             lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
             var html = '';
+            html += '<div class="site-card__menu-item">';
             for (var i = 0; i < menu.length; i++) {
-                randomStyle = 'site-card' + this.cardClass[Math.floor(Math.random() * 3)];
-                randomStyle === 'site-card' ? randomStyle = '' : randomStyle = randomStyle;
                 var categoryName = menu[i][lang + '_category'];
-                html += '<div data-menu="menu" class="grid-layout__item grid-layout__item--menu">';
-                html += '<div class="site-card ' + randomStyle + '">';
+                styleClass = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['categoryTheming'];
+                filTags = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['filterTags'];
+                html += '<div data-menu="menu, ' + filTags + '" class="grid-layout__item grid-layout__item--menu">';
+                html += '<div class="site-card ' + styleClass + '">';
                 html += '<h3 class="site-card__title">' + categoryName + '</h3>';
-                for (var x = 0; x < menu[i].category.length; x++) {
-                    html += this.buildMenuItem(menu[i].category[x], lang);
+                for (var _x = 0; _x < menu[i].category.length; _x++) {
+                    html += this.buildMenuItem(menu[i].category[_x], lang);
+                    if (_x < menu[i].category.length - 1) {
+                        html += '<div class="site-card__menu-item__divider"></div>';
+                    }
                 }
                 html += '</div></div>';
             }
+            html += '</div>';
             return html;
         }
     }, {
@@ -20516,7 +20564,7 @@ var Menu = function () {
         value: function buildMenuItem(menuItem, lang) {
             var str = '';
             var imageHtml = '';
-            menuItem = menuItem || { cz_itemname: '', en_itemname: '', cz_itemdesc: '', en_itemdesc: '', price: 0, allergenes: '' };
+            menuItem = menuItem || { image: '', cz_itemname: '', en_itemname: '', cz_itemdesc: '', en_itemdesc: '', price: 0, allergenes: '' };
             var name = menuItem[lang + '_itemname'];
             var description = menuItem[lang + '_itemdesc'];
             if (menuItem.image.toLowerCase().trim() !== '') {
@@ -20524,7 +20572,7 @@ var Menu = function () {
                 imageHtml += '<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
                 imageHtml += '</div>';
             }
-            str += '<div class="site-card__menu-item"><div class="row align-items-center">';
+            str += '<div class="row align-items-center">';
             str += imageHtml;
             str += '<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
             str += '<div class="col-4"><div class="site-card__price-tag">';
@@ -20532,7 +20580,6 @@ var Menu = function () {
             str += '</div></div></div>';
             str += this.buildAllergenes(menuItem.allergenes);
             str += '<p class="site-card__text">' + description + '</p>';
-            str += '<div class="site-card__menu-item__divider"></div></div>';
             return str;
         }
     }, {
@@ -20570,6 +20617,122 @@ exports.default = Menu;
 /* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = { "default": __webpack_require__(104), __esModule: true };
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(66);
+__webpack_require__(22);
+module.exports = __webpack_require__(105);
+
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__(35);
+var get = __webpack_require__(106);
+module.exports = __webpack_require__(30).getIterator = function (it) {
+  var iterFn = get(it);
+  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
+  return anObject(iterFn.call(it));
+};
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__(107);
+var ITERATOR = __webpack_require__(63)('iterator');
+var Iterators = __webpack_require__(45);
+module.exports = __webpack_require__(30).getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR]
+    || it['@@iterator']
+    || Iterators[classof(it)];
+};
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// getting tag from 19.1.3.6 Object.prototype.toString()
+var cof = __webpack_require__(53);
+var TAG = __webpack_require__(63)('toStringTag');
+// ES3 wrong here
+var ARG = cof(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (e) { /* empty */ }
+};
+
+module.exports = function (it) {
+  var O, T, B;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+    // builtinTag case
+    : ARG ? cof(O)
+    // ES3 arguments fallback
+    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+};
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(109), __esModule: true };
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(110);
+module.exports = __webpack_require__(30).Object.keys;
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(65);
+var $keys = __webpack_require__(49);
+
+__webpack_require__(111)('keys', function () {
+  return function keys(it) {
+    return $keys(toObject(it));
+  };
+});
+
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(28);
+var core = __webpack_require__(30);
+var fails = __webpack_require__(39);
+module.exports = function (KEY, exec) {
+  var fn = (core.Object || {})[KEY] || Object[KEY];
+  var exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -20595,11 +20758,11 @@ var _isotopeLayout2 = _interopRequireDefault(_isotopeLayout);
 
 __webpack_require__(15);
 
-__webpack_require__(104);
+__webpack_require__(113);
 
 __webpack_require__(18);
 
-var _scrolling_actions = __webpack_require__(105);
+var _scrolling_actions = __webpack_require__(114);
 
 var _scrolling_actions2 = _interopRequireDefault(_scrolling_actions);
 
@@ -20697,6 +20860,26 @@ var Navigation = function () {
                 }
             });
 
+            (0, _jquery2.default)('#menucategories-filter a.btn-site').on('click', function (e) {
+                e.preventDefault();
+                var filVal = (0, _jquery2.default)(e.target).data('filter').toLowerCase().trim();
+                (0, _jquery2.default)('#menucategories-filter a.btn-site').removeClass('btn-site--active');
+                (0, _jquery2.default)(e.target).addClass('btn-site--active');
+                grid.arrange({
+                    filter: function filter(item) {
+                        var found = false;
+                        var itemData = (0, _jquery2.default)(item).data("menu").toLowerCase().trim();
+                        var valuesArr = itemData.split(',');
+                        for (var i = 0; i < valuesArr.length; i++) {
+                            if (valuesArr[i].trim() === filVal) {
+                                found = true;
+                            }
+                        }
+                        return found;
+                    }
+                });
+            });
+
             var showAllergenes = function showAllergenes(modalEl) {
                 modalEl = modalEl || '';
                 (0, _jquery2.default)(modalEl).modal('show');
@@ -20715,7 +20898,7 @@ var Navigation = function () {
 exports.default = Navigation;
 
 /***/ }),
-/* 104 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function (global, factory) {
@@ -21354,7 +21537,7 @@ exports.default = Navigation;
 
 
 /***/ }),
-/* 105 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21376,7 +21559,7 @@ var _jquery = __webpack_require__(2);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _noframework = __webpack_require__(106);
+var _noframework = __webpack_require__(115);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21418,7 +21601,7 @@ var ScrollingActions = function () {
 exports.default = ScrollingActions;
 
 /***/ }),
-/* 106 */
+/* 115 */
 /***/ (function(module, exports) {
 
 /*!

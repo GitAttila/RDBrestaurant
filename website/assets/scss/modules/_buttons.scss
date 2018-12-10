@@ -10,10 +10,20 @@
     text-align: center;
     cursor: pointer;
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    &--active {
+        color: $highlight-background-color;
+        background-color: $primary-text-color;
+        &:active, &:focus {
+            color: $highlight-background-color;
+        }
+    }
     &:hover {
         color: $highlight-background-color;
         background-color: $secondary-text-color;
         text-decoration: none;
+    }
+    &--divider {
+        margin-right: 1rem;
     }
     &--rounded{
         border-radius: 3rem;
@@ -43,6 +53,12 @@
         }
         .btn-site{
             margin-right: 1rem;
+        }
+        &--list {
+            list-style-type: none;
+            margin: 0;
+            margin-bottom: 1rem;
+            padding: 0;
         }
     }
     &--small {
