@@ -4,7 +4,7 @@
     "en_category": "Starters",
     "category": [
       {
-        "image": "",
+        "image": "samosas.png",
         "cz_itemname": "Samosa 2ks",
         "en_itemname": "Samosa 2ks",
         "cz_itemdesc": "Smažená taštička plněná směsí brambor, hrášku, kešu oříšků, indické koření",
@@ -128,7 +128,7 @@
     "en_category": "Soup",
     "category": [
       {
-        "image": "",
+        "image": "tomato_soup.png",
         "cz_itemname": "Tomato shorba",
         "en_itemname": "Tomato shorba",
         "cz_itemdesc": "Polévka z čerstvých rajčat s česnekem, s čerstvým zázvorem a koriandrem",
@@ -161,7 +161,7 @@
     "en_category": "Indian drinks",
     "category": [
       {
-        "image": "",
+        "image": "mango_lassi.png",
         "cz_itemname": "Mango Lassi",
         "en_itemname": "Mango Lassi",
         "cz_itemdesc": "Jogurt, pyré z manga",
@@ -204,7 +204,7 @@
     "en_category": "Veg tandoori specialities",
     "category": [
       {
-        "image": "",
+        "image": "paneer_shashlik.png",
         "cz_itemname": "Paneer Shaslik",
         "en_itemname": "Paneer Shaslik",
         "cz_itemdesc": "Marinovaný domácí indický sýr pečený v tandůru s paprikou a cibulí",
@@ -458,7 +458,7 @@
     "en_category": "Main Course Vegetarian",
     "category": [
       {
-        "image": "",
+        "image": "dal_makhani.png",
         "cz_itemname": "Dal Makhani",
         "en_itemname": "Dal Makhani",
         "cz_itemdesc": "Černá čočka vařená celou noc v tandůru s máslem a smetanou",
@@ -608,7 +608,7 @@
         "allergenes": " "
       },
       {
-        "image": "",
+        "image": "lemon_rice.png",
         "cz_itemname": "Citronová rýže",
         "en_itemname": "Lemon rice",
         "cz_itemdesc": " ",
@@ -813,7 +813,7 @@
         "allergenes": "7,8"
       },
       {
-        "image": "",
+        "image": "gulab.png",
         "cz_itemname": "Gulabjamun  2pcs/2 ks ",
         "en_itemname": "Gulabjamun  2pcs/2 ks ",
         "cz_itemdesc": "Smažené tvarohové knedlíčky s cukrovým sirupem",
@@ -822,7 +822,7 @@
         "allergenes": "1,7,8"
       },
       {
-        "image": "",
+        "image": "icecream.png",
         "cz_itemname": "Mango Kulfi",
         "en_itemname": "Mango Kulfi",
         "cz_itemdesc": "Indická zmrzlina z manga, servírovaná v keramické dóze",
@@ -838,6 +838,785 @@
         "en_itemdesc": "Indian ice cream flavoured pistachio, served in clay pot",
         "price": "120",
         "allergenes": "1,7,8"
+      }
+    ]
+  },
+  {
+    "cz_category": "Teplé nápoje",
+    "en_category": "Hot beverages",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Čaj",
+        "en_itemname": "Tea",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "45",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Espresso",
+        "en_itemname": "Espresso",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "40",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Cappuccino",
+        "en_itemname": "Cappuccino",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "49",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Caffe Latte",
+        "en_itemname": "Caffe Latte",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "59",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Irská káva",
+        "en_itemname": "Irish coffee",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "90",
+        "allergenes": "7"
+      }
+    ]
+  },
+  {
+    "cz_category": "Nealkoholické nápoje",
+    "en_category": "Non-alcoholic beverages",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Coca-Cola 0.33l",
+        "en_itemname": "Coca-Cola 0.33l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Coca-Cola light, zero 0.33l",
+        "en_itemname": "Coca-Cola light, zero 0.33l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Fanta 0.33l",
+        "en_itemname": "Fantav 0.33l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Sprite 0.33l",
+        "en_itemname": "Sprite 0.33l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Tonic 0.25l",
+        "en_itemname": "Tonic 0.25l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Bonaqua perlivá, neperlivá 0.25l",
+        "en_itemname": "Bonaqua sparkling, still, 0.25l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Romerquelle perlivá, neperlivá 0.75l",
+        "en_itemname": "Romerquele perlivá, neperlivá 0.75l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "ž5",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Ice tea citrón, broskev 0.25l",
+        "en_itemname": "Ice tea lemon, peach 0.25l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Cappy juice 0.25l",
+        "en_itemname": "Cappy juice 0.25l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Čepovaná limonáda 0.5l",
+        "en_itemname": "Tapped lemonade 0.5l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Čepovaná limonáda 0.3l",
+        "en_itemname": "Tapped lemonade 0.3l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "25",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Pivo",
+    "en_category": "Beer",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Pilsner Urquell (12) 0.5l",
+        "en_itemname": "Pilsner Urquell (12) 0.5l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "45",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Pilsner Urquell (12) 0.3l",
+        "en_itemname": "Pilsner Urquell (12) 0.3l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Kozel (11) 0.5l",
+        "en_itemname": "Kozel (11) 0.5l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Kozel (11) 0.3l",
+        "en_itemname": "Kozel (11) 0.3l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "25",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Indické pivo 0.3l",
+        "en_itemname": "IIndian beer 0.3l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Birell nealkoholické 0.33l",
+        "en_itemname": "Birell non-alcoholic 0.33l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "35",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Importované bílé víno",
+    "en_category": "Imported white wine",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Chablis AOC 0.75l",
+        "en_itemname": "Chablis AOC 0.75l",
+        "cz_itemdesc": "francouzské",
+        "en_itemdesc": "french",
+        "price": "799",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Pinot Grigio 0.75l",
+        "en_itemname": "Pinot Grigio 0.75l",
+        "cz_itemdesc": "italské",
+        "en_itemdesc": "italian",
+        "price": "699",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Chardonnay 0.75l",
+        "en_itemname": "Chardonnay 0.75l",
+        "cz_itemdesc": "čilské",
+        "en_itemdesc": "chilean",
+        "price": "699",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Gladiator - Chardonnay 0.75l",
+        "en_itemname": "Gladiator - Chardonnay 0.75l",
+        "cz_itemdesc": "USA",
+        "en_itemdesc": "USA",
+        "price": "999",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Indian 0.75l",
+        "en_itemname": "Indian 0.75l",
+        "cz_itemdesc": "indické",
+        "en_itemdesc": "indian",
+        "price": "600",
+        "allergenes": "12"
+      }
+    ]
+  },
+  {
+    "cz_category": "Importované červené víno",
+    "en_category": "Imported red wine",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Bordeaux rouge 0.75l",
+        "en_itemname": "Bordeaux rouge 0.75l",
+        "cz_itemdesc": "francouzské",
+        "en_itemdesc": "french",
+        "price": "799",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Chianti riserva 0.75l",
+        "en_itemname": "Chianti riserva 0.75l",
+        "cz_itemdesc": "italské",
+        "en_itemdesc": "italian",
+        "price": "799",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Merlot 0.75l",
+        "en_itemname": "Merlot 0.75l",
+        "cz_itemdesc": "čilské",
+        "en_itemdesc": "chilean",
+        "price": "749",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Malbec reserva 0.75l",
+        "en_itemname": "Malbec reserva 0.75l",
+        "cz_itemdesc": "argentinské",
+        "en_itemdesc": "argentinean",
+        "price": "799",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Indian 0.75l",
+        "en_itemname": "Indian 0.75l",
+        "cz_itemdesc": "indické",
+        "en_itemdesc": "indian",
+        "price": "600",
+        "allergenes": "12"
+      }
+    ]
+  },
+  {
+    "cz_category": "Rozlévané víno",
+    "en_category": "House wine",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Červené 0.75l",
+        "en_itemname": "Red 0.75l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "300",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Bílé 0.75l",
+        "en_itemname": "White 0.75l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "300",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Rose 0.75l",
+        "en_itemname": "Rose 0.75l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "300",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Sklenka rozlévaného vína 0.15l",
+        "en_itemname": "A glass of house wine 0.15l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": "12"
+      }
+    ]
+  },
+  {
+    "cz_category": "Šampaňské",
+    "en_category": "Champagne",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Bohemia sekt 0.75l",
+        "en_itemname": "Bohemia sekt 0.75l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "400",
+        "allergenes": "12"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Moet Chandon Brut Imperial 0.75l",
+        "en_itemname": "Moet Chandon Brut Imperial 0.75l",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "1500",
+        "allergenes": "12"
+      }
+    ]
+  },
+  {
+    "cz_category": "Koktejly",
+    "en_category": "Cocktails",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "White russian",
+        "en_itemname": "White russian",
+        "cz_itemdesc": "vodka, kávový likér, smetana",
+        "en_itemdesc": "vodka, coffee liquor and cream",
+        "price": "79",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Piňa Colada",
+        "en_itemname": "Piňa Colada",
+        "cz_itemdesc": "malibu, ananasový džus, kokosové mléko, drcený led",
+        "en_itemdesc": "malibu, pineapple juice, coconut milk and crushed ice",
+        "price": "79",
+        "allergenes": "7"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Long Island Iced Tea",
+        "en_itemname": "Long Island Iced Tea",
+        "cz_itemdesc": "vodka, cointreau, tequila, bílý rum, gin, cola, citron, čerstvý mentolový lístek",
+        "en_itemdesc": "vodka, cointreau, tequila, white rum, gin, coke, lemon, fresh mint",
+        "price": "119",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Daiquiri",
+        "en_itemname": "Daiquiri",
+        "cz_itemdesc": "bílý rum, cointreau, citronový džus",
+        "en_itemdesc": "white rum, cointreau, lemon juice",
+        "price": "89",
+        "allergenes": ""
+      },{
+        "image": "",
+        "cz_itemname": "Tequila sunrise",
+        "en_itemname": "Tequila sunrise",
+        "cz_itemdesc": "tequila, pomerančový džus, grenadina",
+        "en_itemdesc": "tequila, orange juice, grenadina",
+        "price": "99",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Mojito",
+        "en_itemname": "Mojito",
+        "cz_itemdesc": "bílý rum, citronový džus, cukr, čerstvý mentolový lístek a soda",
+        "en_itemdesc": "white rum, lemon juice, sugar, fresh mint and soda",
+        "price": "99",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Margarita",
+        "en_itemname": "Margarita",
+        "cz_itemdesc": "tequila, cointreau a citronový džus",
+        "en_itemdesc": "tequila, cointreau and lemon juice",
+        "price": "89",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Modrá laguna",
+        "en_itemname": "Blue lagoon",
+        "cz_itemdesc": "vodka, blue curacao a Sprite",
+        "en_itemdesc": "vodka, blue curacao and Sprite",
+        "price": "99",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Rum",
+    "en_category": "Rum",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Bacardi 4cl",
+        "en_itemname": "Bacardi 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": "1"
+      },
+      {
+        "image": "",
+        "cz_itemname": "Malibu 4cl",
+        "en_itemname": "Malibu 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "60",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Captain Morgan 4cl",
+        "en_itemname": "Captain Morgan 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "70",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Old Munk 4cl",
+        "en_itemname": "Old Munk 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "80",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Likéry",
+    "en_category": "Liquors",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Campari 8cl",
+        "en_itemname": "Campari 8cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "80",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Martini dry, roso, bianco 8cl",
+        "en_itemname": "Martini dry, roso, bianco 8cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "70",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Portské 8cl",
+        "en_itemname": "Port 8cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "70",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Fernet 4cl",
+        "en_itemname": "Fernet 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "50",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Becherovka 4cl",
+        "en_itemname": "Becherovka 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "50",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Jägermeister 4cl",
+        "en_itemname": "Jägermeister 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "50",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Grappa 4cl",
+        "en_itemname": "Grappa 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "55",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Baileys 4cl",
+        "en_itemname": "Baileys 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Jägermeister 4cl",
+        "en_itemname": "Jägermeister 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "50",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Cointreau/triplesec 4cl",
+        "en_itemname": "Cointreau/triplesec 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Galiano 4cl",
+        "en_itemname": "Galiano 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Creme de menthe 4cl",
+        "en_itemname": "Creme de menthe 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Absinth 4cl",
+        "en_itemname": "Absinth 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Whisky",
+    "en_category": "Whisky",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Chivas regal 4cl",
+        "en_itemname": "Chivas regal 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "100",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "JW Black label 4cl",
+        "en_itemname": "JW Black label 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "95",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "JW Red label 4cl",
+        "en_itemname": "JW Red label 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "55",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Ballantine’s 4cl",
+        "en_itemname": "Ballantine’s  4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "65",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Glenfiddich 4cl",
+        "en_itemname": "Glenfiddich 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "105",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Jack Daniel’s 4cl",
+        "en_itemname": "Jack Daniel’s 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "80",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Jim Beam 4cl",
+        "en_itemname": "Jim Beam 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "75",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Jameson’s 4cl",
+        "en_itemname": "Jameson’s 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "75",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Tullamore dew 4cl",
+        "en_itemname": "Tullamore dew 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "80",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Bushmill's 4cl",
+        "en_itemname": "Bushmill’s 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "80",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Tequila",
+    "en_category": "Tequila",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Jose cuervo silver 4cl",
+        "en_itemname": "Jose cuervo silver 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "75",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Jose cuervo gold 4cl",
+        "en_itemname": "Jose cuervo gold 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "85",
+        "allergenes": ""
+      }
+    ]
+  },
+  {
+    "cz_category": "Brandy",
+    "en_category": "Brandy",
+    "category": [
+      {
+        "image": "",
+        "cz_itemname": "Martell V.S. 4cl",
+        "en_itemname": "BMartell V.S. 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "100",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Martell V.S.O.P. 4cl",
+        "en_itemname": "Martell V.S.O.P. 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "140",
+        "allergenes": ""
+      },
+      {
+        "image": "",
+        "cz_itemname": "Metaxa 4cl",
+        "en_itemname": "Metaxa 4cl",
+        "cz_itemdesc": "",
+        "en_itemdesc": "",
+        "price": "60",
+        "allergenes": ""
       }
     ]
   }

@@ -2,7 +2,6 @@ import $ from 'jquery';
 
 import Navigation from './navigation';
 
-
 class Menu {
 
     constructor() {
@@ -12,156 +11,291 @@ class Menu {
         this.allergenesList = [
             {
                 imageFileName: '1-wheat.png',
-                alt: 'wheat allergenes icon'
+                alt: 'wheat allergenes icon',
+                tooltipContent: 'Wheat'
             },
             {
                 imageFileName: '2-crustaceans.png',
-                alt: 'crustaceans allergenes icon'
+                alt: 'crustaceans allergenes icon',
+                tooltipContent: 'Crustaceans'
             },
             {
                 imageFileName: '3-eggs.png',
-                alt: 'eggs allergenes icon'
+                alt: 'eggs allergenes icon',
+                tooltipContent: 'Eggs'
             },
             {
                 imageFileName: '4-fish.png',
-                alt: 'fish allergenes icon'
+                alt: 'fish allergenes icon',
+                tooltipContent: 'Fish'
             },
             {
                 imageFileName: '5-peanuts.png',
-                alt: 'peanuts allergenes icon'
+                alt: 'peanuts allergenes icon',
+                tooltipContent: 'Peanuts'
             },
             {
                 imageFileName: '6-soya.png',
-                alt: 'soya allergenes icon'
+                alt: 'soya allergenes icon',
+                tooltipContent: 'Soya'
             },
             {
                 imageFileName: '7-milk.png',
-                alt: 'milk allergenes icon'
+                alt: 'milk allergenes icon',
+                tooltipContent: 'Milk'
             },
             {
                 imageFileName: '8-nuts.png',
-                alt: 'nuts allergenes icon'
+                alt: 'nuts allergenes icon',
+                tooltipContent: 'Nuts'
             },
             {
                 imageFileName: '9-celery.png',
-                alt: 'celery allergenes icon'
+                alt: 'celery allergenes icon',
+                tooltipContent: 'Celery'
             },
             {
                 imageFileName: '10-mustard.png',
-                alt: 'mustard allergenes icon'
+                alt: 'mustard allergenes icon',
+                tooltipContent: 'Mustard'
             },
             {
                 imageFileName: '11-sesame.png',
-                alt: 'sesame allergenes icon'
+                alt: 'sesame allergenes icon',
+                tooltipContent: 'Sesame'
             },
             {
                 imageFileName: '12-sulphites.png',
-                alt: 'sulphites allergenes icon'
+                alt: 'sulphites allergenes icon',
+                tooltipContent: 'Sulphite'
             },
             {
                 imageFileName: '13-lupin.png',
-                alt: 'lupin allergenes icon'
+                alt: 'lupin allergenes icon',
+                tooltipContent: 'Lupin'
             },
             {
                 imageFileName: '14-molluscs.png',
-                alt: 'molluscs allergenes icon'
+                alt: 'molluscs allergenes icon',
+                tooltipContent: 'Molluscs'
             }
         ];
         this.categoryConfig = {
             'starters':
                 {
-                    filterTags: 'starters, meals',
-                    categoryThemingClass: 'site-card__secondary'
+                    filterTags: 'all meals, starters',
+                    categoryThemingClass: 'site-card__secondary',
                 },
             'soup':
                 {
-                    filterTags: 'soup, meals',
+                    filterTags: 'all meals, soup',
                     categoryTheming: ''
                 },
             'indian drinks':
                 {
-                    filterTags: 'drinks',
-                    categoryTheming: 'site-card__tertiary'
+                    filterTags: 'all drinks, non-alcoholic drinks',
+                    categoryTheming: 'site-card__secondary'
                 },
             'veg tandoori specialities':
                 {
-                    filterTags: 'tandoor, meals, vegetarian',
+                    filterTags: 'all meals, tandoor, vegetarian',
                     categoryTheming: 'site-card__tertiary'
                 },
             'non veg tandoori specialities':
                 {
-                    filterTags: 'tandoor, meals, non-vegetarian',
+                    filterTags: 'all meals, tandoor, non-vegetarian',
                     categoryTheming: 'site-card__secondary'
                 },
             'main course non-vegetarian':
                 {
-                    filterTags: 'meals, non-vegetarian',
+                    filterTags: 'all meals, non-vegetarian',
                     categoryTheming: 'site-card__secondary'
                 },
             'main course vegetarian':
                 {
-                    filterTags: 'meals, vegetarian',
+                    filterTags: 'all meals, vegetarian',
                     categoryTheming: 'site-card__tertiary'
                 },
             'rice specialities':
                 {
-                    filterTags: 'side dish, vegetarian, rice',
+                    filterTags: 'all meals, side dish, vegetarian, rice',
                     categoryTheming: ''
                 },
             'indian bread':
                 {
-                    filterTags: 'side dish, vegetarian, bread',
+                    filterTags: 'all meals, side dish, vegetarian, bread',
                     categoryTheming: 'site-card__secondary'
                 },
             'salad':
                 {
-                    filterTags: 'starters, vegetarian, salad',
+                    filterTags: 'all meals, starters, vegetarian, salad',
                     categoryTheming: 'site-card__tertiary'
                 },
             'indian chutneys':
                 {
-                    filterTags: 'side dish, vegetarian',
+                    filterTags: 'all meals, side dish, vegetarian',
                     categoryTheming: ''
                 },
             'desserts':
                 {
-                    filterTags: 'desserts',
+                    filterTags: ' all meals, desserts',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'hot beverages':
+                {
+                    filterTags: 'all drinks, hot beverages, non-alcoholic drinks',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'non-alcoholic beverages':
+                {
+                    filterTags: 'all drinks, non-alcoholic drinks',
+                    categoryTheming: 'site-card'
+                },
+            'beer':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
+                    categoryTheming: 'site-card__tertiary'
+                },
+            'imported white wine':
+                {
+                    filterTags: 'all drinks, alcoholic drinks, wine',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'imported red wine':
+                {
+                    filterTags: 'all drinks, alcoholic drinks, wine',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'house wine':
+                {
+                    filterTags: 'all drinks, alcoholic drinks, wine',
+                    categoryTheming: 'site-card'
+                },
+            'champagne':
+                {
+                    filterTags: 'all drinks, alcoholic drinks, wine',
+                    categoryTheming: 'site-card_tertiary'
+                },
+            'cocktails':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
+                    categoryTheming: 'site-card'
+                },
+            'rum':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'liquors':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
+                    categoryTheming: 'site-card__secondary'
+                },
+            'whisky':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
+                    categoryTheming: 'site-card'
+                },
+            'tequila':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
+                    categoryTheming: 'site-card__tertiary'
+                },
+            'brandy':
+                {
+                    filterTags: 'all drinks, alcoholic drinks',
                     categoryTheming: 'site-card__secondary'
                 }
         };
 
+        this.predefinedFilterButtons = [
+            {
+                txt: 'all',
+                class: 'btn-site btn-site--active btn-site--small btn-site--rounded',
+                filter: 'menu',
+                clickFn: function(){$(this).addClass("btn-site--active").parent().siblings().children().removeClass("btn-site--active");}
+            },
+            {
+                txt: 'all meals',
+                class: 'btn-site btn-site--small btn-site--rounded',
+                filter: 'all meals',
+                clickFn: function(){$(this).addClass("btn-site--active").parent().siblings().children().removeClass("btn-site--active");}
+            },
+            {
+                txt: 'all drinks',
+                class: 'btn-site btn-site--small btn-site--rounded',
+                filter: 'all drinks',
+                clickFn: function(){$(this).addClass("btn-site--active").parent().siblings().children().removeClass("btn-site--active");}
+            }
+        ];
+
         this.menu = this.getMenu(this.URL,()=>{
             let html = this.buildMenu(this.menu,'en');
-            // console.log(html);
             $('#mainGrid').append(html);
+            this.buildMenuCategories();
             setTimeout(()=>{
                 let navigation = new Navigation();
-                console.log(navigation);
                 navigation.updateGrid();
+                // init filtering to shoe 'about' grid initially
+                navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
             },1000)
         });
-        this.buildFilterBtns(this.categoryConfig);
     }
 
-    buildFilterBtns(catConfig) {
-        let bntArr = [];
-        let temp = [];
-        const keys = Object.keys(catConfig);
-        for (const key of keys) {
-            temp = (this.categoryConfig[key].filterTags).split(',');
-            console.log(temp);
-            for (let i=0; i>temp.length; i++) {
-                if (btnArr[x]!==temp[i]) {
-                    
-                }
+    buildMenuCategories() {
+
+        let $menuContainers = $('#mainGrid .grid-layout__item--menu');
+        let $buttons = $('#menucategories-filter');
+		let tagged = {};
+
+		$menuContainers.each(function(){
+			var menuContainer=this;
+			var tags = $(this).data('menu');
+
+			if (tags) {
+				tags.split(",").forEach(function(tagName){
+                    tagName = tagName.trim();
+                    if (tagName!=='menu') {
+                        if (tagged[tagName]==null) {
+                            tagged[tagName]=[];
+                        }
+                    tagged[tagName].push(menuContainer);
+                    }
+				});
+			}
+		})
+
+        $buttons.addClass("btn-site__group btn-site__group--list");
+        
+        $.each(this.predefinedFilterButtons, function(index, val) {
+            $("<li/>").appendTo($buttons);
+            $("<a/>", {
+                text: val.txt,
+                class: val.class,
+                click: val.clickFn
+            }).appendTo($buttons.children().eq(index)).attr('data-filter',val.filter);
+        });
+        
+		$("<li><a class='btn-site--divider'>&#124;</a></li>").appendTo($buttons);
+
+		$.each(tagged, function(tagName) {
+            if (tagName.toLowerCase().trim()!=='all meals' && tagName.toLowerCase().trim()!=='all drinks') {
+                $("<li/>").appendTo($buttons);
+                $("<a/>", {
+                    text: tagName,
+                    class: "btn-site btn-site--small btn-site--rounded",
+                    click: function(){
+                        $(this).addClass("btn-site--active").parent().siblings().children().removeClass("btn-site--active");
+                    }
+                }).appendTo($buttons.children().last()).attr('data-filter',tagName);
             }
-            //bntArr.push();
-        }
-    }
+        });
 
-    getMenu(url, fallbackFn) {
+    };
+    
+    getMenu(url, callbackFn) {
         var _self = this;
-        fallbackFn = fallbackFn || function() {};
+        callbackFn = callbackFn || function() {};
         $.getJSON( url, function() {
             })
             .done(function(data) {
@@ -174,7 +308,7 @@ class Menu {
                 _self.menu = [];
             })
             .always(function() {
-                fallbackFn();
+                callbackFn();
             });
     }
 
@@ -185,8 +319,8 @@ class Menu {
         lang = (lang || '').trim();
         lang !== 'cz' && lang !== 'en' ? lang = 'en' : lang = lang.toLowerCase();
         let html = '';
-        html += '<div class="site-card__menu-item">';
         for (let i=0; i<menu.length; i++) {
+            
             let categoryName = menu[i][lang + '_category'];
             styleClass = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['categoryTheming'];
             filTags = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['filterTags'];
@@ -194,14 +328,17 @@ class Menu {
             html += '<div class="site-card ' + styleClass + '">';
             html += '<h3 class="site-card__title">' + categoryName + '</h3>';
             for (let x=0; x<menu[i].category.length; x++) {
+                html += '<div class="site-card__menu-item">';
                 html += this.buildMenuItem(menu[i].category[x], lang);
                 if (x<menu[i].category.length-1) {
                     html +='<div class="site-card__menu-item__divider"></div>';
                 }
+                html +='</div>';
             }
             html +='</div></div>';
+            
         }
-        html +='</div>';
+        
         return html;
     }
 
@@ -212,7 +349,7 @@ class Menu {
         let name = menuItem[lang + '_itemname'];
         let description = menuItem[lang + '_itemdesc'];
         if (menuItem.image.toLowerCase().trim() !== '') {
-            imageHtml += '<div class="site-card__image">';
+            imageHtml += '<div class="site-card__image site-card__image--menu">';
             imageHtml +='<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
             imageHtml +='</div>';
         }
@@ -243,7 +380,7 @@ class Menu {
         }
         txt = '<div class="allergenes__group">';
         for (let a=0;a<allergArr.length;a++) {
-            txt+= '<div class="allergenes__item">';
+            txt+= '<div class="allergenes__item" data-toggle="tooltip" data-placement="top" title="' + this.allergenesList[allergArr[a]-1].tooltipContent + '">';
             txt+= '<img src="' + this.imagePath + this.allergenesList[allergArr[a]-1].imageFileName + '" alt="' + this.allergenesList[allergArr[a]-1].alt + '">';
             txt+= '</div>';
         }

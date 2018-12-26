@@ -28,7 +28,7 @@ class OpeningHours {
         let msg = "";
         let oh = [
             {
-                openingHr: 11,
+                openingHr: 12,  //Sunday
                 openingMin: 0,
                 closingHr: 22,
                 closingMin: 0
@@ -64,7 +64,7 @@ class OpeningHours {
                 closingMin: 0
             },
             {
-                openingHr: 11,
+                openingHr: 12,  //Saturday
                 openingMin: 0,
                 closingHr: 22,
                 closingMin: 0
@@ -87,7 +87,7 @@ class OpeningHours {
             this.curCountdownHrs = hrs;
             this.curCountdownMins = mins;
         }
-        console.log(msg,hrs,mins,this.curCountdownHrs,this.curCountdownMins);
+        // console.log(msg,hrs,mins,this.curCountdownHrs,this.curCountdownMins);
     }
 
     countTimeDiff(fromTime, toTime){
@@ -171,14 +171,12 @@ class OpeningHours {
                 this.clockInterval(function(){
                     now = _self.getNowDate();
                     msg = _self.compileMsg(ohData[now.getDay()], now, 'opening');
-                    console.log(msg);
                     _self.updateTimeMsg(msg.msg,msg.hours, msg.minutes);
                 });
             } else {
                 _self.updateTimeMsg(msg);
             }
         }
-        console.log(msg);
         return msg;
         
     }

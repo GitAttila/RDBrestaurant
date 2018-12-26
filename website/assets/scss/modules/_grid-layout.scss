@@ -18,31 +18,55 @@
                 width: 66%;
             }
         }
+        &--menu {
+            &.grid-layout__item--width2 {
+                .site-card {
+                    column-count: 1;
+                    column-gap: 0rem;
+                    -webkit-column-break-inside: avoid;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                    @include atMedium{
+                        column-count: 2;
+                        column-gap: 1rem;
+                    }
+                    &__title{
+                        column-span: all;
+                    }
+                    &__subtitle{
+                        column-span: all;
+                    }
+                }
+            }
+            @include atLarge{
+                width: 50%;
+            }
+        }
         &--width-full{
+            &.grid-layout__item--menu {
+                .site-card {
+                    column-count: 1;
+                    column-gap: 0rem;
+                    -webkit-column-break-inside: avoid;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                    @include atMedium{
+                        column-count: 2;
+                        column-gap: 2rem;
+                    }
+                    &__title{
+                        column-span: all;
+                    }
+                    &__subtitle{
+                        column-span: all;
+                    }
+                }
+            }
             @include atMedium{
                 width: 100%;
             }
             @include atLarge{
                 width: 100%;
-            }
-        }
-        &--menu.grid-layout__item--width2 {
-            .site-card {
-                column-count: 1;
-                column-gap: 0rem;
-                -webkit-column-break-inside: avoid;
-                page-break-inside: avoid;
-                break-inside: avoid;
-                @include atMedium{
-                    column-count: 2;
-                    column-gap: 1rem;
-                }
-                &__title{
-                    column-span: all;
-                }
-                &__subtitle{
-                    column-span: all;
-                }
             }
         }
     }

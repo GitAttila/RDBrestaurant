@@ -14,22 +14,42 @@ class ScrollingActions {
         new Waypoint({
             element: elem,
             handler: function(){
-                console.log('navbar waypoint triggered!');
-                $("#site-header").toggleClass('site-header--transparent');
+                // console.log('semi-transparent triggered!');
+                $("#site-header").toggleClass('site-header--semi-transparent');
+                $("#site-header").toggleClass('site-header--shadowed');
             },
-            offset: '10%'
+            offset: '75%'
+        });
+        new Waypoint({
+            element: elem,
+            handler: function(){
+                // console.log('filled triggered!');
+                $("#site-header").toggleClass('site-header--filled');
+            },
+            offset: '5%'
+        });
+        new Waypoint({
+            element: elem,
+            handler: function(){
+                console.log('jumpbuttons show/hide trigerred...')
+                $('#jump-up').toggle();
+                $('#jump-down').toggle();
+            },
+            offset: '20%'
         });
     }
 
-    scrollTo(elem,scrollToPos) {
-        $(elem).animate(
+    scrollTo(elem,scrollToPos, callBackFunc) {
+        if (typeof callBackFunc!=='function') {callBackFunc = function(){}}
+        $(elem).stop().animate(
             {
                 scrollTop: scrollToPos
             }, 
             700,
             'swing', 
             function() { 
-                console.log("Finished scrolling");
+                //console.log("Finished scrolling");
+                callBackFunc();
             }
         );
     };

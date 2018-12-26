@@ -1,10 +1,14 @@
 /*jshint esversion: 6 */
 import $ from 'jquery';
 import Isotope from "isotope-layout";
+import Tooltips from './tooltips';
+import ScrollingActions from './scrolling_actions';
 import "isotope-layout/js/layout-modes/fit-rows";
 import "bootstrap/js/dist/modal";
 import '../vendors/picker';
-import ScrollingActions from './scrolling_actions';
+import './animatecss';
+
+
 class Navigation {
     
     constructor() {
@@ -13,7 +17,7 @@ class Navigation {
         this.Grid = new Isotope( this.mainGrid[0], {
             percentPosition : true,
             itemSelector: '.grid-layout__item',
-            stagger:30,
+            stagger:50,
             masonry: {
                 columnWidth: '.grid-layout--sizer'
             }
@@ -27,6 +31,7 @@ class Navigation {
     }
 
     events(grid) {  
+        let actualMenuCat;
         self = this;
         grid = grid || this.Grid;
         $("#menuContent [data-filter]").on('click', function(e){
@@ -34,7 +39,24 @@ class Navigation {
             let filterValue = $(this).data('filter').toLowerCase().trim();
             let menuSectionCaption = $(this).text().toLowerCase().trim() || "";
             if (filterValue==='home') {menuSectionCaption = filterValue;}
+            actualMenuCat = $('#menucategories-filter .btn-site.btn-site--active').text().toLocaleUpperCase();
+            // console.log(filterValue);
+            if (filterValue==='menu') {
+                let tooltips = new Tooltips();
+                tooltips.initTooltips();
+                $(".menu-categories-wrapper ").slideDown();
+                $('#menucategories-filter .btn-site').removeClass('btn-site--active');
+                $('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
+                $('#allergenes-icon').animateCss('bounceIn').show();
+            }  else {
+                $(".menu-categories-wrapper ").slideUp();
+                $('#allergenes-icon').animateCss('bounceOut','',function(){
+                    $('#allergenes-icon').hide();
+                });
+            }
+
             $("#main-section-title").text(menuSectionCaption);
+            $("#main-section-title").animateCss('fadeIn');
             $("#menuContent .primary-nav__link").removeClass("primary-nav__link--active");
             $(this).addClass("primary-nav__link--active");
             
@@ -48,25 +70,41 @@ class Navigation {
                             found = true;
                         }
                     }
-                    if (filterValue === 'home') {found = true;} 
                     return found;
                 }
             });
 
             grid.once( 'arrangeComplete', function( filteredItems ) {
-                console.log( filteredItems );
+                // console.log( filteredItems );
+                let delayed = 0;
                 var pos = $('#main-section')[0].offsetTop;
+                $(filteredItems).each(function(key,val){
+                    // console.log(val.element, delayed);
+                    $(val.element).animateCss('pulse', delayed);
+                    delayed = delayed + 150;
+                });
                 self.scrollActions.scrollTo('html, body',pos);
+                grid.layout();
             });
-            
+
         });
 
         $('.site-card__expand-icon').on( 'click', function() {
-            console.log('expand icon clicked!');
             let $parElem = $(this).parent().parent();
             $(this).toggleClass('site-card__expand-icon--selected');
             $($parElem).toggleClass("grid-layout__item--width-full");
             grid.layout();
+        });
+
+        $('#jump-up').on( 'click', function() {
+            self.scrollActions.scrollTo('html, body', 0, function(){
+            });
+        });
+
+        $('#jump-down').on( 'click', function() {
+            let pos = $('#main-section')[0].offsetTop;
+            self.scrollActions.scrollTo('html, body', pos, function(){
+            });
         });
 
         let minDate = new Date();
@@ -100,7 +138,7 @@ class Navigation {
                     let found = false;
                     let itemData = $(item).data("menu").toLowerCase().trim();
                     let valuesArr = itemData.split(',');
-                    for (let i = 0;i<valuesArr.length; i++) {
+                    for (let i = 0;i<valuesArr.length; i++) {               
                         if (valuesArr[i].trim()===filVal) {
                             found = true;
                         }
@@ -108,6 +146,16 @@ class Navigation {
                     return found;
                 }
             });
+            // if only one gri item is rpesent after filtereing, spread it across the screen
+            if (grid.filteredItems.length===1) {
+                $(grid.filteredItems[0].element).addClass('grid-layout__item--width-full');
+            // otherwise take the 100% width class away if there are more than one grid items after filter has been applied
+            } else {
+                $(grid.filteredItems).each(function(key,val){
+                    $(val.element).removeClass('grid-layout__item--width-full');
+                });
+            }
+            grid.layout();
         });
 
         var showAllergenes = function(modalEl){
@@ -116,10 +164,8 @@ class Navigation {
         };
 
         $('#allergenes-list').on('shown.bs.modal', function () {
-            
-        });
 
-        
+        });
 
         return {
             showAllergenes:showAllergenes

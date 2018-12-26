@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 import './modules/map';
+import './modules/recaptcha';
 import './vendors/picker';
 import './vendors/picker.time';
 import './vendors/picker.date';
@@ -15,9 +16,3 @@ var carousels = new Carousels();
 // var navigation = new Navigation();
 var openinghours = new OpeningHours();
 var menu = new Menu();
-
-// setTimeout(()=>{
-//     navigation.updateGrid();
-// },1000)
-
-console.log(menu);

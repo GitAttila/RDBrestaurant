@@ -1,7 +1,9 @@
 import $ from 'jquery';
 
 $.fn.extend({
-    animateCss: function(animationName, callback) {
+    animateCss: function(animationName, delay, callback) {
+        var self = this;
+        if (typeof delay !=='number') {delay =0;}
         var animationEnd = (function(el) {
         var animations = {
             animation: 'animationend',
@@ -15,17 +17,16 @@ $.fn.extend({
                 return animations[t];
             }
         }
+        })(document.createElement('div'));
 
-    })(document.createElement('div'));
-
-    this.addClass('animated ' + animationName).one(animationEnd, function() {
-        $(this).removeClass('animated ' + animationName);
-        if (typeof callback === 'function') {
-            callback();
-        }
-    });
-
-    return this;
-    
+    setTimeout(function(){
+        self.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+            if (typeof callback === 'function') {
+                callback();
+            }
+        });
+    }, delay);
+    return self;
     }
 });
