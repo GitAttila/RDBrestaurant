@@ -22,16 +22,20 @@ gulp.task('deleteDistFolder', function(){
 	return del("./dist");
 });
 
-gulp.task('copyGeneralFiles',['deleteDistFolder'], function(){
+gulp.task('copyHTMLFiles', ['deleteDistFolder'], function(){
+	return gulp.src('./website/*.html')
+		.pipe(gulp.dest('./dist'));
+});
+
+gulp.task('copyGeneralFiles', ['copyHTMLFiles'], function(){
 	var pathsToCopy = [
-		'./website/*.html',
 		'./website/assets/**/*',
 		'!./website/assets/images',
 		'!./website/assets/images/**',
 		'!./website/assets/js',
 		'!./website/assets/js/**',
-		'!./website/assets/styles',
-		'!./website/assets/styles/**',
+		'!./website/assets/css',
+		'!./website/assets/css/**',
 		'!./website/assets/scss',
 		'!./website/assets/scss/**',
 		'./website/temp/**/*',
@@ -42,7 +46,7 @@ gulp.task('copyGeneralFiles',['deleteDistFolder'], function(){
 	];
 
 	return gulp.src(pathsToCopy)
-		.pipe(gulp.dest('./dist'));
+		.pipe(gulp.dest('./dist/assets'));
 });
 
 gulp.task('images',['deleteDistFolder'], function(){
@@ -81,6 +85,6 @@ gulp.task('usemin',['deleteDistFolder','styles','scripts'],function(){
 
 gulp.task('build',['deleteDistFolder','usemin','images', 'fonts', 'copyGeneralFiles']);
 
-gulp.task('quickbuild',['deleteDistFolder','usemin', 'fonts', 'copyGeneralFiles']);
+gulp.task('quickbuild',['deleteDistFolder','usemin', 'fonts', 'copyGeneralFiles']); // needs a seperate delete task not to delete images
 
 gulp.task('default',['build']);

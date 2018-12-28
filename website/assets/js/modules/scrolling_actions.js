@@ -31,7 +31,7 @@ class ScrollingActions {
         new Waypoint({
             element: elem,
             handler: function(){
-                console.log('jumpbuttons show/hide trigerred...')
+                // console.log('jumpbuttons show/hide trigerred...')
                 $('#jump-up').toggle();
                 $('#jump-down').toggle();
             },

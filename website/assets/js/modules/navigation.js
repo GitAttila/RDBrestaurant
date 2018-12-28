@@ -47,12 +47,10 @@ class Navigation {
                 $(".menu-categories-wrapper ").slideDown();
                 $('#menucategories-filter .btn-site').removeClass('btn-site--active');
                 $('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
-                $('#allergenes-icon').animateCss('bounceIn').show();
+                $('#allergenes-icon').show();
             }  else {
                 $(".menu-categories-wrapper ").slideUp();
-                $('#allergenes-icon').animateCss('bounceOut','',function(){
-                    $('#allergenes-icon').hide();
-                });
+                $('#allergenes-icon').hide();
             }
 
             $("#main-section-title").text(menuSectionCaption);
@@ -80,7 +78,7 @@ class Navigation {
                 var pos = $('#main-section')[0].offsetTop;
                 $(filteredItems).each(function(key,val){
                     // console.log(val.element, delayed);
-                    $(val.element).animateCss('pulse', delayed);
+                    $(val.element).stop().animateCss('pulse', delayed);
                     delayed = delayed + 150;
                 });
                 self.scrollActions.scrollTo('html, body',pos);

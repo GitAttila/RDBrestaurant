@@ -20813,12 +20813,10 @@ var Navigation = function () {
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideDown();
                     (0, _jquery2.default)('#menucategories-filter .btn-site').removeClass('btn-site--active');
                     (0, _jquery2.default)('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
-                    (0, _jquery2.default)('#allergenes-icon').animateCss('bounceIn').show();
+                    (0, _jquery2.default)('#allergenes-icon').show();
                 } else {
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideUp();
-                    (0, _jquery2.default)('#allergenes-icon').animateCss('bounceOut', '', function () {
-                        (0, _jquery2.default)('#allergenes-icon').hide();
-                    });
+                    (0, _jquery2.default)('#allergenes-icon').hide();
                 }
 
                 (0, _jquery2.default)("#main-section-title").text(menuSectionCaption);
@@ -20846,7 +20844,7 @@ var Navigation = function () {
                     var pos = (0, _jquery2.default)('#main-section')[0].offsetTop;
                     (0, _jquery2.default)(filteredItems).each(function (key, val) {
                         // console.log(val.element, delayed);
-                        (0, _jquery2.default)(val.element).animateCss('pulse', delayed);
+                        (0, _jquery2.default)(val.element).stop().animateCss('pulse', delayed);
                         delayed = delayed + 150;
                     });
                     self.scrollActions.scrollTo('html, body', pos);
@@ -26897,7 +26895,7 @@ var ScrollingActions = function () {
             new Waypoint({
                 element: elem,
                 handler: function handler() {
-                    console.log('jumpbuttons show/hide trigerred...');
+                    // console.log('jumpbuttons show/hide trigerred...')
                     (0, _jquery2.default)('#jump-up').toggle();
                     (0, _jquery2.default)('#jump-down').toggle();
                 },
