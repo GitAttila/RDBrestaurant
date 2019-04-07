@@ -14,7 +14,7 @@ gulp.task('styles',['css-styles'], function(){
 		.pipe(sourcemaps.init())
 		.pipe(
 			sass({
-				outputStyle: 'normal'  //compressed
+				outputStyle: 'compressed'  //compressed
 			}).on('error', sass.logError)
 		)
         .pipe(autoprefixer({
