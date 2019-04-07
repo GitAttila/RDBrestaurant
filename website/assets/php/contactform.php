@@ -24,7 +24,7 @@ if (strlen($_POST["message"]) > 1000) {
     $result["errors"]["contact-message"] = "Your message has exceeded maximum allowed number of 1000 characters.";
 }
 
-$siteSecret = '6Lee64QUAAAAAF_63x1saE5nryLtMx0wCYLiGJIN';
+$siteSecret = 'fill your site secret here';
 if (strlen($_POST["g-recaptcha-response"]) == 0) {
     $result["errors"]["contact-recaptcha"] = "Recaptcha must be selected.";
 } else {
