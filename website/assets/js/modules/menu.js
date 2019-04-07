@@ -235,8 +235,8 @@ class Menu {
             this.buildMenuCategories();
             setTimeout(()=>{
                 let navigation = new Navigation();
-                navigation.updateGrid();
-                // init filtering to shoe 'about' grid initially
+                // navigation.updateGrid();
+                // init filtering to show 'about' grid initially
                 navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
             },1000)
         });

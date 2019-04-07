@@ -26,5 +26,11 @@
         &--active {
             color: $highlight-text-color;
         }
+        &--disabled {
+            color: $disabled-text-color;
+            &:hover, &:focus {
+                color: $disabled-text-color;
+            }
+        }
     }
 }

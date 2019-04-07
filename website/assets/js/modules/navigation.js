@@ -8,7 +8,6 @@ import "bootstrap/js/dist/modal";
 import '../vendors/picker';
 import './animatecss';
 
-
 class Navigation {
     
     constructor() {
@@ -32,18 +31,27 @@ class Navigation {
 
     events(grid) {  
         let actualMenuCat;
+        let lastNavMenuClicked='about';
+        let lastMenuCategoryClicked='all';
         self = this;
         grid = grid || this.Grid;
         $("#menuContent [data-filter]").on('click', function(e){
+            let isNavItemDisabled = $(this).hasClass('primary-nav__link--disabled');
             e.preventDefault();
             let filterValue = $(this).data('filter').toLowerCase().trim();
+            if ((lastNavMenuClicked === filterValue) || isNavItemDisabled) {
+                // console.log('returning from the function...');
+                return;
+            }
+            lastNavMenuClicked = filterValue;
+            $('#menuContent .primary-nav__link').addClass('primary-nav__link--disabled');
             let menuSectionCaption = $(this).text().toLowerCase().trim() || "";
             if (filterValue==='home') {menuSectionCaption = filterValue;}
             actualMenuCat = $('#menucategories-filter .btn-site.btn-site--active').text().toLocaleUpperCase();
             // console.log(filterValue);
             if (filterValue==='menu') {
                 let tooltips = new Tooltips();
-                tooltips.initTooltips();
+                // tooltips.initTooltips();
                 $(".menu-categories-wrapper ").slideDown();
                 $('#menucategories-filter .btn-site').removeClass('btn-site--active');
                 $('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
@@ -73,16 +81,19 @@ class Navigation {
             });
 
             grid.once( 'arrangeComplete', function( filteredItems ) {
-                // console.log( filteredItems );
-                let delayed = 0;
+                let delayed = 300;
                 var pos = $('#main-section')[0].offsetTop;
-                $(filteredItems).each(function(key,val){
-                    // console.log(val.element, delayed);
-                    $(val.element).stop().animateCss('pulse', delayed);
-                    delayed = delayed + 150;
-                });
                 self.scrollActions.scrollTo('html, body',pos);
                 grid.layout();
+                $(filteredItems).each(function(key,val){
+                    $(val.element).stop().animateCss('pulse', delayed, ()=>{
+                        if (key === (filteredItems.length-1)) {
+                            console.log('animation completed...');
+                            $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
+                            $('#menuContent .primary-nav__link').blur();
+                        }
+                    });
+                });
             });
 
         });
@@ -129,6 +140,7 @@ class Navigation {
         $('#menucategories-filter a.btn-site'). on('click', (e) => {
             e.preventDefault();
             let filVal = $(e.target).data('filter').toLowerCase().trim();
+            lastMenuCategoryClicked = filVal;
             $('#menucategories-filter a.btn-site').removeClass('btn-site--active');
             $(e.target).addClass('btn-site--active');
             grid.arrange({

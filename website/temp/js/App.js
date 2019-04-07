@@ -18565,15 +18565,26 @@ var _menu = __webpack_require__(103);
 
 var _menu2 = _interopRequireDefault(_menu);
 
+var _contactform = __webpack_require__(113);
+
+var _contactform2 = _interopRequireDefault(_contactform);
+
+var _reservationform = __webpack_require__(120);
+
+var _reservationform2 = _interopRequireDefault(_reservationform);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import Navigation from './modules/navigation';
 var mobileMenu = new _MobileMenu2.default(); /*jshint esversion: 6 */
 
 var carousels = new _carousels2.default();
-// var navigation = new Navigation();
-var openinghours = new _openinghours2.default();
 var menu = new _menu2.default();
+var contactform = new _contactform2.default();
+var reservationform = new _reservationform2.default();
+var openinghours = new _openinghours2.default();
+
+contactform.initContactForm();
+reservationform.initReservationForm();
 
 /***/ }),
 /* 89 */
@@ -18748,7 +18759,8 @@ window.initMap = initMap;
 function onloadCallback() {
     grecaptcha.render('grecaptcha-contact', {
         'sitekey': '6Lee64QUAAAAAAqlv_ezP2gWpkP2EG204Vp4H7VF',
-        'theme': 'dark'
+        'theme': 'dark',
+        'size': 'compact'
     });
 };
 
@@ -18788,7 +18800,7 @@ var MobileMenu = function () {
 
         this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
         this.menuContent = (0, _jquery2.default)("#menuContent");
-        this.menuHeader = (0, _jquery2.default)(".site-header");
+        this.menuHeader = (0, _jquery2.default)("#site-header");
         this.events();
     }
 
@@ -18798,10 +18810,11 @@ var MobileMenu = function () {
             var self = this;
             (0, _jquery2.default)(this.menuContent).on("show.bs.collapse", function () {
                 self.toggleTheIcon();
-            });
-            (0, _jquery2.default)(this.menuContent).on("shown.bs.collapse", function () {
                 self.toggleTheMenu();
             });
+            // $(this.menuContent).on("shown.bs.collapse", function(){
+            //     self.toggleTheMenu();
+            // });
             (0, _jquery2.default)(this.menuContent).on("hide.bs.collapse", function () {
                 self.toggleTheMenu();
                 self.toggleTheIcon();
@@ -20566,8 +20579,8 @@ var Menu = function () {
             _this.buildMenuCategories();
             setTimeout(function () {
                 var navigation = new _navigation2.default();
-                navigation.updateGrid();
-                // init filtering to shoe 'about' grid initially
+                // navigation.updateGrid();
+                // init filtering to show 'about' grid initially
                 navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
             }, 1000);
         });
@@ -20796,11 +20809,20 @@ var Navigation = function () {
         key: 'events',
         value: function events(grid) {
             var actualMenuCat = void 0;
+            var lastNavMenuClicked = 'about';
+            var lastMenuCategoryClicked = 'all';
             self = this;
             grid = grid || this.Grid;
             (0, _jquery2.default)("#menuContent [data-filter]").on('click', function (e) {
+                var isNavItemDisabled = (0, _jquery2.default)(this).hasClass('primary-nav__link--disabled');
                 e.preventDefault();
                 var filterValue = (0, _jquery2.default)(this).data('filter').toLowerCase().trim();
+                if (lastNavMenuClicked === filterValue || isNavItemDisabled) {
+                    // console.log('returning from the function...');
+                    return;
+                }
+                lastNavMenuClicked = filterValue;
+                (0, _jquery2.default)('#menuContent .primary-nav__link').addClass('primary-nav__link--disabled');
                 var menuSectionCaption = (0, _jquery2.default)(this).text().toLowerCase().trim() || "";
                 if (filterValue === 'home') {
                     menuSectionCaption = filterValue;
@@ -20809,7 +20831,7 @@ var Navigation = function () {
                 // console.log(filterValue);
                 if (filterValue === 'menu') {
                     var tooltips = new _tooltips2.default();
-                    tooltips.initTooltips();
+                    // tooltips.initTooltips();
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideDown();
                     (0, _jquery2.default)('#menucategories-filter .btn-site').removeClass('btn-site--active');
                     (0, _jquery2.default)('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
@@ -20839,16 +20861,19 @@ var Navigation = function () {
                 });
 
                 grid.once('arrangeComplete', function (filteredItems) {
-                    // console.log( filteredItems );
-                    var delayed = 0;
+                    var delayed = 300;
                     var pos = (0, _jquery2.default)('#main-section')[0].offsetTop;
-                    (0, _jquery2.default)(filteredItems).each(function (key, val) {
-                        // console.log(val.element, delayed);
-                        (0, _jquery2.default)(val.element).stop().animateCss('pulse', delayed);
-                        delayed = delayed + 150;
-                    });
                     self.scrollActions.scrollTo('html, body', pos);
                     grid.layout();
+                    (0, _jquery2.default)(filteredItems).each(function (key, val) {
+                        (0, _jquery2.default)(val.element).stop().animateCss('pulse', delayed, function () {
+                            if (key === filteredItems.length - 1) {
+                                console.log('animation completed...');
+                                (0, _jquery2.default)('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
+                                (0, _jquery2.default)('#menuContent .primary-nav__link').blur();
+                            }
+                        });
+                    });
                 });
             });
 
@@ -20892,6 +20917,7 @@ var Navigation = function () {
             (0, _jquery2.default)('#menucategories-filter a.btn-site').on('click', function (e) {
                 e.preventDefault();
                 var filVal = (0, _jquery2.default)(e.target).data('filter').toLowerCase().trim();
+                lastMenuCategoryClicked = filVal;
                 (0, _jquery2.default)('#menucategories-filter a.btn-site').removeClass('btn-site--active');
                 (0, _jquery2.default)(e.target).addClass('btn-site--active');
                 grid.arrange({
@@ -28322,6 +28348,316 @@ https://github.com/imakewebthings/waypoints/blob/master/licenses.txt
 })));
 //# sourceMappingURL=modal.js.map
 
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _keys = __webpack_require__(114);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _stringify = __webpack_require__(118);
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _classCallCheck2 = __webpack_require__(92);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(93);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ContactForm = function () {
+    function ContactForm() {
+        (0, _classCallCheck3.default)(this, ContactForm);
+    }
+
+    (0, _createClass3.default)(ContactForm, [{
+        key: 'initContactForm',
+        value: function initContactForm() {
+
+            (0, _jquery2.default)('#contact-submit').on("click", function (e) {
+                e.preventDefault();
+                (0, _jquery2.default)("#contact-form").submit();
+            });
+
+            (0, _jquery2.default)("#contact-form").submit(function (e) {
+                e.preventDefault();
+
+                (0, _jquery2.default)('#contact-submit .btn-caption').hide();
+                (0, _jquery2.default)('#contact-submit .spinner').show();
+
+                var inputElements = (0, _jquery2.default)("#contact-form").find('input, textarea, select');
+                var formValues = {};
+
+                inputElements.each(function () {
+                    if (this.name) {
+                        if (this.type == "checkbox" || this.type == "radio") {
+                            if (this.checked) {
+                                formValues[this.name] = this.value;
+                            }
+                        } else {
+                            formValues[this.name] = this.value;
+                        }
+                    }
+                });
+
+                console.log("formValues : " + (0, _stringify2.default)(formValues));
+
+                _jquery2.default.ajax({
+                    url: "./assets/php/contactform.php",
+                    method: "POST",
+                    data: formValues,
+                    success: function success(result) {
+                        console.log("AJAX post result result : " + (0, _stringify2.default)(result));
+                        (0, _jquery2.default)('div[data-error-id]').text("");
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').text("");
+
+                        if ((0, _keys2.default)(result.errors).length > 0) {
+                            for (var inputName in result.errors) {
+                                console.log("error in " + inputName + ": " + result.errors[inputName]);
+                                (0, _jquery2.default)('div[data-error-id="' + inputName + '"]').text(result.errors[inputName]).hide().slideDown();
+                            }
+                            grecaptcha.reset();
+                        } else {
+                            // console.log("Success");
+                            (0, _jquery2.default)('div[data-error-id="contact-result"]').text("Thank you. Your message has been sent.");
+                            (0, _jquery2.default)('div[data-error-id="contact-result"]').removeClass('site-form--danger').addClass('site-form--success');
+
+                            (0, _jquery2.default)('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp().promise().done(function () {
+                                console.log('resetting...');
+                                (0, _jquery2.default)('#contact-form input').val("");
+                                (0, _jquery2.default)('#contact-form textarea').val("");
+                                grecaptcha.reset();
+                                (0, _jquery2.default)('#contact-form label').removeClass('site-form__label--activated');
+                            });
+                        }
+                        (0, _jquery2.default)('#contact-submit .btn-caption').show();
+                        (0, _jquery2.default)('#contact-submit .spinner').hide();
+                    },
+                    error: function error(jqXHR, textStatus) {
+                        console.log(jqXHR);
+                        console.log("Request failed: " + textStatus);
+                        grecaptcha.reset();
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').removeClass('alert-success');
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').addClass('alert-danger');
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').text("Sorry... Your message could not have been delivered.");
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp();
+                        (0, _jquery2.default)('#contact-submit .btn-caption').show();
+                        (0, _jquery2.default)('#contact-submit .spinner').hide();
+                    }
+
+                }); // the end of ajax call to post formValues
+            }); // the end of form submit function
+        }
+    }]);
+    return ContactForm;
+}();
+
+;
+
+exports.default = ContactForm;
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(115), __esModule: true };
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(116);
+module.exports = __webpack_require__(30).Object.keys;
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__(65);
+var $keys = __webpack_require__(49);
+
+__webpack_require__(117)('keys', function () {
+  return function keys(it) {
+    return $keys(toObject(it));
+  };
+});
+
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__(28);
+var core = __webpack_require__(30);
+var fails = __webpack_require__(39);
+module.exports = function (KEY, exec) {
+  var fn = (core.Object || {})[KEY] || Object[KEY];
+  var exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(119), __esModule: true };
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__(30);
+var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
+module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
+  return $JSON.stringify.apply($JSON, arguments);
+};
+
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _keys = __webpack_require__(114);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _stringify = __webpack_require__(118);
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _classCallCheck2 = __webpack_require__(92);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(93);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ReservationForm = function () {
+    function ReservationForm() {
+        (0, _classCallCheck3.default)(this, ReservationForm);
+    }
+
+    (0, _createClass3.default)(ReservationForm, [{
+        key: 'initReservationForm',
+        value: function initReservationForm() {
+
+            (0, _jquery2.default)('#reservation-submit').on("click", function (e) {
+                e.preventDefault();
+                (0, _jquery2.default)("#reservation-form").submit();
+            });
+
+            (0, _jquery2.default)("#reservation-form").submit(function (e) {
+                e.preventDefault();
+
+                (0, _jquery2.default)('#reservation-submit .btn-caption').hide();
+                (0, _jquery2.default)('#reservation-submit .spinner').show();
+
+                var inputElements = (0, _jquery2.default)("#reservation-form").find('input, textarea, select');
+                var formValues = {};
+
+                inputElements.each(function () {
+                    if (this.name) {
+                        if (this.type == "checkbox" || this.type == "radio") {
+                            if (this.checked) {
+                                formValues[this.name] = this.value;
+                            }
+                        } else {
+                            formValues[this.name] = this.value;
+                        }
+                    }
+                });
+
+                console.log("formValues : " + (0, _stringify2.default)(formValues));
+
+                _jquery2.default.ajax({
+                    url: "./assets/php/reservationform.php",
+                    method: "POST",
+                    data: formValues,
+                    success: function success(result) {
+                        console.log("AJAX post result result : " + (0, _stringify2.default)(result));
+                        (0, _jquery2.default)('#reservation-form div[data-error-id]').text("");
+                        (0, _jquery2.default)('div[data-error-id="reservation-result"]').text("");
+
+                        if ((0, _keys2.default)(result.errors).length > 0) {
+                            for (var inputName in result.errors) {
+                                console.log("error in " + inputName + ": " + result.errors[inputName]);
+                                (0, _jquery2.default)('div[data-error-id="' + inputName + '"]').text(result.errors[inputName]).hide().slideDown();
+                            }
+                            // grecaptcha.reset();
+                        } else {
+                            // console.log("Success");
+                            (0, _jquery2.default)('div[data-error-id="reservation-result"]').text("Thank you. Your message has been sent.");
+                            (0, _jquery2.default)('div[data-error-id="reservation-result"]').removeClass('site-form--danger').addClass('site-form--success');
+
+                            (0, _jquery2.default)('div[data-error-id="reservation-result"]').slideDown().delay(4000).slideUp().promise().done(function () {
+                                console.log('resetting form...');
+                                (0, _jquery2.default)('#reservation-form input').val("");
+                                (0, _jquery2.default)('#reservation-form textarea').val("");
+                                grecaptcha.reset();
+                                (0, _jquery2.default)('#reservation-form label').removeClass('site-form__label--activated');
+                            });
+                        }
+                        (0, _jquery2.default)('#reservation-submit .btn-caption').show();
+                        (0, _jquery2.default)('#reservation-submit .spinner').hide();
+                    },
+                    error: function error(jqXHR, textStatus) {
+                        console.log(jqXHR);
+                        console.log("Request failed: " + textStatus);
+                        // grecaptcha.reset();
+                        (0, _jquery2.default)('div[data-error-id="reservation-result"]').removeClass('alert-success');
+                        (0, _jquery2.default)('div[data-error-id="reservation-result"]').addClass('alert-danger');
+                        (0, _jquery2.default)('div[data-error-id="reservation-result"]').text("Sorry... Your message could not have been delivered.");
+                        (0, _jquery2.default)('div[data-error-id="reservation-result"]').slideDown().delay(4000).slideUp();
+                        (0, _jquery2.default)('#reservation-submit .btn-caption').show();
+                        (0, _jquery2.default)('#reservation-submit .spinner').hide();
+                    }
+
+                }); // the end of ajax call to post formValues
+            }); // the end of form submit function
+        }
+    }]);
+    return ReservationForm;
+}();
+
+;
+
+exports.default = ReservationForm;
 
 /***/ })
 /******/ ]);

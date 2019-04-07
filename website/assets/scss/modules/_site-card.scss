@@ -160,7 +160,7 @@
             border-color: $highlight-text-color;
             &:hover {
                 background-color: $secondary-background-color;
-                color: $highlight-text-color;
+                color: $highlight-text-color!important;
             }
         }
         .site-card__price {

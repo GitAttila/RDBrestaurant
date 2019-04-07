@@ -7,12 +7,18 @@ import './vendors/picker.date';
 
 import MobileMenu from './modules/MobileMenu';
 import Carousels from './modules/carousels';
-// import Navigation from './modules/navigation';
 import OpeningHours from './modules/openinghours';
 import Menu from './modules/menu';
+import ContactForm from './modules/contactform';
+import ReservationForm from './modules/reservationform';
 
 var mobileMenu = new MobileMenu();
 var carousels = new Carousels();
-// var navigation = new Navigation();
-var openinghours = new OpeningHours();
 var menu = new Menu();
+var contactform = new ContactForm();
+var reservationform = new ReservationForm();
+var openinghours = new OpeningHours();
+
+
+contactform.initContactForm();
+reservationform.initReservationForm();
