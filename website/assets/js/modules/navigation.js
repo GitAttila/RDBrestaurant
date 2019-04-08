@@ -32,7 +32,6 @@ class Navigation {
     events(grid) {  
         let actualMenuCat;
         let lastNavMenuClicked='about';
-        let lastMenuCategoryClicked='all';
         self = this;
         grid = grid || this.Grid;
         $("#menuContent [data-filter]").on('click', function(e){
@@ -66,6 +65,15 @@ class Navigation {
             $("#menuContent .primary-nav__link").removeClass("primary-nav__link--active");
             $(this).addClass("primary-nav__link--active");
             
+            // collapse the nav menu on mobile after a menu item has been clicked
+            if ($("#menuContent").hasClass('show')) {
+                $("#menuContent").delay(300).collapse('hide');
+            }
+
+            $.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo", function( data ) {
+                console.log(data);
+            });
+
             grid.arrange({
                 filter: function(item){
                     let found = false;
@@ -140,7 +148,6 @@ class Navigation {
         $('#menucategories-filter a.btn-site'). on('click', (e) => {
             e.preventDefault();
             let filVal = $(e.target).data('filter').toLowerCase().trim();
-            lastMenuCategoryClicked = filVal;
             $('#menucategories-filter a.btn-site').removeClass('btn-site--active');
             $(e.target).addClass('btn-site--active');
             grid.arrange({

@@ -20810,7 +20810,6 @@ var Navigation = function () {
         value: function events(grid) {
             var actualMenuCat = void 0;
             var lastNavMenuClicked = 'about';
-            var lastMenuCategoryClicked = 'all';
             self = this;
             grid = grid || this.Grid;
             (0, _jquery2.default)("#menuContent [data-filter]").on('click', function (e) {
@@ -20845,6 +20844,15 @@ var Navigation = function () {
                 (0, _jquery2.default)("#main-section-title").animateCss('fadeIn');
                 (0, _jquery2.default)("#menuContent .primary-nav__link").removeClass("primary-nav__link--active");
                 (0, _jquery2.default)(this).addClass("primary-nav__link--active");
+
+                // collapse the nav menu on mobile after a menu item has been clicked
+                if ((0, _jquery2.default)("#menuContent").hasClass('show')) {
+                    (0, _jquery2.default)("#menuContent").delay(300).collapse('hide');
+                }
+
+                _jquery2.default.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo", function (data) {
+                    console.log(data);
+                });
 
                 grid.arrange({
                     filter: function filter(item) {
@@ -20917,7 +20925,6 @@ var Navigation = function () {
             (0, _jquery2.default)('#menucategories-filter a.btn-site').on('click', function (e) {
                 e.preventDefault();
                 var filVal = (0, _jquery2.default)(e.target).data('filter').toLowerCase().trim();
-                lastMenuCategoryClicked = filVal;
                 (0, _jquery2.default)('#menucategories-filter a.btn-site').removeClass('btn-site--active');
                 (0, _jquery2.default)(e.target).addClass('btn-site--active');
                 grid.arrange({
