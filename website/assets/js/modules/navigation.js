@@ -70,7 +70,7 @@ class Navigation {
                 $("#menuContent").delay(300).collapse('hide');
             }
 
-            $.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=", function( data ) {
+            $.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo", function( data ) {
                 console.log(data);
             });
 
