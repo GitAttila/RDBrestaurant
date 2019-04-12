@@ -1,0 +1,47 @@
+{
+    "english": 
+        {
+            "en": "English",
+            "cz": "Anglicky"
+        },
+    "czech": 
+        {
+            "en": "Česky",
+            "cz": "Czech"
+        }, 
+    "nav-menu-about":
+        {
+            "en": "about",
+            "cz": "o nás"
+        }, 
+    "nav-menu-daily":
+        {
+        "en": "daily menu",
+        "cz": "polední menu"
+        },
+    "nav-menu-menu":
+        {
+        "en": "menu",
+        "cz": "menu"
+        }, 
+    "nav-menu-reservations":
+        {
+        "en": "reservations",
+        "cz": "rezervace"
+    },
+    "nav-menu-contact":
+    {
+        "en": "contact",
+        "cz": "kontakt"
+    },
+    "hero-headline":
+    {
+        "en": "Indian restaurant in Prague, Dolní Počernice",
+        "cz": "Indická restaurace v Praze, Dolních Počernicích"
+    },
+    "btn-order":
+    {
+        "en": "order a meal",
+        "cz": "objednat jídlo"
+    }
+}

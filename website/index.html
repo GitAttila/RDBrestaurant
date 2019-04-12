@@ -28,6 +28,18 @@
                   ga('create', 'UA-60732153-1', 'auto');
                   ga('send', 'pageview');
             </script>
+            <!-- For IE -->
+            <!--[if IE]>
+            <script type="text/javascript">
+            window.location = "https://www.google.com/chrome/";
+            </script>
+            <![endif]-->
+            <!-- For IE > 9 -->
+            <script type="text/javascript">
+                  if (window.navigator.msPointerEnabled) {
+                  window.location = "https://www.google.com/chrome/";
+                  }
+            </script>
       </head>
       
       <body>
@@ -40,23 +52,25 @@
                   </a>
                   <nav class="primary-nav site-header__nav-wrapper collapse" id="menuContent">
                         <ul class="primary-nav__items-wrapper">
-                              <!-- <li class="primary-nav__item">
-                                    <a data-filter="home" class="primary-nav__link primary-nav__link--active" href="#"><i class="fas fa-home"></i></a>
-                              </li> -->
                               <li class="primary-nav__item">
-                                    <a data-filter="about" class="primary-nav__link primary-nav__link--active" href="#">about us</a>
+                                    <a data-filter="about" class="primary-nav__link primary-nav__link--active" data-lang="nav-menu-about" href="#">about us</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a data-filter="daily-menu"  class="primary-nav__link" href="#">daily menu</a>
+                                    <a data-filter="daily-menu"  class="primary-nav__link" data-lang="nav-menu-daily" href="#">daily menu</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a data-filter="menu" class="primary-nav__link" href="#">menu</a>
+                                    <a data-filter="menu" class="primary-nav__link" data-lang="nav-menu-menu" href="#">menu</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a data-filter="reservations" class="primary-nav__link" href="#">reservations</a>
+                                    <a data-filter="reservations" class="primary-nav__link" data-lang="nav-menu-reservations" href="#">reservations</a>
                               </li>
                               <li class="primary-nav__item">
-                                    <a data-filter="contact" class="primary-nav__link" href="#">contact</a>
+                                    <a data-filter="contact" class="primary-nav__link" data-lang="nav-menu-contact" href="#">contact</a>
+                              </li>
+                              <li class="primary-nav__item">
+                                    <a id="lang-switch" class="primary-nav__link lang-btn__wrapper">
+                                          <!-- Javascript will write code here -->
+                                    </a>
                               </li>
                         </ul>
                   </nav> 
@@ -122,9 +136,9 @@
                   <div class="section-hero__logocontainer">
                         <img class="section-hero__logo" src="./assets/images/RDB_logo_white_outline.png" alt="Rang De Basanti logo">
                   </div>
-                  <h1 class="section-hero__title">Indian restaurant in Prague, Dolní Počernice</h1>
-                  <div class="btn-site__group btn-site__group--flex-row">
-                        <a href="https://rangdebasanti.adaptee.cz" class="btn-site btn-site--rounded btn-site--text-bold" target="_blank" role="button">place an order</a>
+                  <h1 class="section-hero__title" data-lang="hero-headline">Indian restaurant in Prague, Dolní Počernice</h1>
+                  <div>
+                        <a href="https://rangdebasanti.adaptee.cz" class="btn-site btn-site--rounded btn-site--text-bold" data-lang="btn-order" target="_blank" role="button">order a meal</a>
                   </div>
             </div>
 
@@ -471,7 +485,7 @@
                                           </div>
                                     </div>
                                     <div class="site-card__text site-card__text--lead">Mon-Fri <br>from 11:00<sup>a.m.</sup> till 2:30<sup>p.m.</sup></div>
-                                    <p class="site-card__text">*not applicable to public holidays</p>
+                                    <p class="site-card__text site-form__note">*not applicable to public holidays</p>
 
                                     <div id="lunchGallery" class="carousel site-card__carousel slide" data-ride="carousel" data-interval="300000000">
                                           <ol class="carousel-indicators site-card__carousel__indicators">
@@ -538,12 +552,12 @@
                                     <table>
                                           <tr>
                                                 <td>
-                                                      <i class="fas fa-phone"></i>&nbsp;&nbsp;++420 222-222-222
+                                                      <i class="fas fa-phone"></i>&nbsp;&nbsp;+420 281 931 018
                                                 </td>
                                           </tr>
                                           <tr>
                                                 <td>
-                                                      <i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;++420 773 197 878
+                                                      <i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;+420 773 197 878
                                                 </td>
                                           </tr>
                                           <tr>
@@ -777,6 +791,7 @@
                                                 </div>
                                           </div>
                                           <p class="site-form__note">Fields marked with asterix(&#42;) are required.</p>
+                                          <p class="site-form__note">Reservations can be made only from the days on from tommorrow. For reservations for today, please try RESTU or direct contact.</p>
                                           <a id = "reservation-submit" href="#" class="btn-site btn-site--rounded btn-site--text-bold  btn-site--full-width" role="button">
                                                 <span class="btn-caption">send</span> 
                                                 <span class="spinner">
@@ -831,18 +846,19 @@
                                     </h3>
                                     <p class="site-footer__feature__text site-footer__feature__text--lead">Inquiries and reservations at</p>
                                     <p class="site-footer__feature__text"></p>
-                                    <table>
-                                          <tr><td class="site-footer__feature__text">
-                                                <i class="fas fa-phone"></i>&nbsp;&nbsp;++420 281 931 018
-                                          </td></tr>
-                                          <tr><td class="site-footer__feature__text">
-                                                <i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;++420 773 197 878
-                                          </td></tr>
-                                          <tr><td class="site-footer__feature__text">
-                                                <i class="far fa-envelope"></i>&nbsp;&nbsp;info@rangdebasanti.cz
-                                          </td></tr>
-                                    </table>
-                                    
+                                    <address>
+                                          <table>
+                                                <tr><td class="site-footer__feature__text">
+                                                      <i class="fas fa-phone"></i>&nbsp;&nbsp;+420 281 931 018
+                                                </td></tr>
+                                                <tr><td class="site-footer__feature__text">
+                                                      <i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;+420 773 197 878
+                                                </td></tr>
+                                                <tr><td class="site-footer__feature__text">
+                                                      <i class="far fa-envelope"></i>&nbsp;&nbsp;info@rangdebasanti.cz
+                                                </td></tr>
+                                          </table>
+                                    </address>
                                     <a 
                                           class="btn-site btn-site--rounded btn-site--text-bold" 
                                           role="button"

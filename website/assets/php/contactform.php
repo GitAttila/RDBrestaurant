@@ -28,7 +28,7 @@ $siteSecret = 'fill your site secret here';
 if (strlen($_POST["g-recaptcha-response"]) == 0) {
     $result["errors"]["contact-recaptcha"] = "Recaptcha must be selected.";
 } else {
-    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$siteSecret.'&response='.$_POST['g-recaptcha-response']);
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6Lee64QUAAAAAF_63x1saE5nryLtMx0wCYLiGJIN'.$siteSecret.'&response='.$_POST['g-recaptcha-response']);
     $responseData = json_decode($verifyResponse);
     if ($responseData->success) {
             // recaptcha resposne was successful.
@@ -83,7 +83,7 @@ if (count($result["errors"]) == 0) {
         $mail->Password = "";
         $mail->setFrom($email, $name);
         //$mail->addReplyTo($email);
-        $mail->addAddress('ahastudio@seznam.cz');
+        $mail->addAddress('info@rangdebasanti.cz');
         $mail->Subject = 'RANGDEBASANTI.CZ: contact message from ' . $name;
         $mail->Body = $bodyToOwner;
 

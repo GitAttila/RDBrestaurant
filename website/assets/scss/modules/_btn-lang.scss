@@ -1,0 +1,24 @@
+.lang-btn {
+    display: none;
+    &__wrapper {
+        border: 2px solid $color-white;
+        width: auto;
+        height: 2rem;
+        padding: 0 0.5rem;
+        line-height: calc(2rem - 4px);
+        font-size: 0.8rem;
+        border-radius: 1rem;
+        display: inline-block;
+        cursor: pointer;
+    }
+    &--active {
+        color: white;
+        display: inline-block;
+    }
+    &-text__short {
+        display: none;
+    }
+    &-text__full {
+        display: none;
+    }
+}

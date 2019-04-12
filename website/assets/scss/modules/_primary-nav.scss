@@ -4,8 +4,20 @@
         padding: 0;
         display: flex;
         flex-direction: column;
+        .lang-btn-text__short {
+            display: none;
+        }
+        .lang-btn-text__full {
+            display: inline-block;
+        }
         @include atMedium {
             flex-direction: row;
+            .lang-btn-text__short {
+                display: inline-block
+            }
+            .lang-btn-text__full {
+                display: none;
+            }
         }
 
     }

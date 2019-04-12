@@ -18573,15 +18573,20 @@ var _reservationform = __webpack_require__(120);
 
 var _reservationform2 = _interopRequireDefault(_reservationform);
 
+var _lang = __webpack_require__(121);
+
+var _lang2 = _interopRequireDefault(_lang);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mobileMenu = new _MobileMenu2.default(); /*jshint esversion: 6 */
-
+/*jshint esversion: 6 */
+var mobileMenu = new _MobileMenu2.default();
 var carousels = new _carousels2.default();
 var menu = new _menu2.default();
 var contactform = new _contactform2.default();
 var reservationform = new _reservationform2.default();
 var openinghours = new _openinghours2.default();
+var languageController = new _lang2.default();
 
 contactform.initContactForm();
 reservationform.initReservationForm();
@@ -20902,8 +20907,9 @@ var Navigation = function () {
             });
 
             var minDate = new Date();
-            var sixmonths = 180 * 60 * 60 * 24 * 1000;
-            var maxDate = new Date(minDate.getTime() + sixmonths);
+            var oneday = 60 * 60 * 24 * 1000;
+            minDate = new Date(minDate.getTime() + oneday); // do not allow registrations for the same day
+            var maxDate = new Date(minDate.getTime() + oneday * 180);
 
             (0, _jquery2.default)('#res-date').pickadate({
                 min: minDate,
@@ -28665,6 +28671,125 @@ var ReservationForm = function () {
 ;
 
 exports.default = ReservationForm;
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _keys = __webpack_require__(114);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _classCallCheck2 = __webpack_require__(92);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(93);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var LangController = function () {
+    function LangController() {
+        (0, _classCallCheck3.default)(this, LangController);
+
+        this.langDefs = {
+            'english': {
+                'short': 'en',
+                'full': 'english',
+                'active': true
+            },
+            'czech': {
+                'short': 'cz',
+                'full': 'czech',
+                'active': false
+            }
+        };
+        this.URL = './assets/data/langDB.json';
+        this.langSwitch = (0, _jquery2.default)("#lang-switch");
+        this.getLangDB(this.URL);
+        // this.events();
+    }
+
+    (0, _createClass3.default)(LangController, [{
+        key: 'events',
+        value: function events() {
+            var _self = this;
+            (0, _jquery2.default)(this.langSwitch).on('click', function () {
+                var $next = (0, _jquery2.default)(this).children('.lang-btn--active').next();
+                if ($next.length === 0) {
+                    (0, _jquery2.default)(this).children().removeClass('lang-btn--active').eq(0).addClass('lang-btn--active').animateCss('pulse');
+                } else {
+                    (0, _jquery2.default)(this).children('.lang-btn--active').removeClass('lang-btn--active').next().addClass('lang-btn--active').animateCss('pulse');
+                }
+                var active = (0, _jquery2.default)(this).children('.lang-btn--active').attr('id');
+                active = active.split('-').pop();
+                _self.translate(active);
+            });
+        }
+    }, {
+        key: 'getLangDB',
+        value: function getLangDB(url, callbackFn) {
+            var _self = this;
+            callbackFn = callbackFn || function () {};
+            _jquery2.default.getJSON(url, function () {}).done(function (data) {
+                console.log("languages loaded...");
+                console.log(data);
+                _self.langDB = data;
+                _self.buildLangSwitch(_self.langDefs);
+                _self.events();
+            }).fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ": " + error;
+                console.log("Unable to load lang DB: " + err);
+                _self.langDB = [];
+                (0, _jquery2.default)('#lang-switch').parent().remove();
+            }).always(function () {
+                callbackFn();
+            });
+        }
+    }, {
+        key: 'translate',
+        value: function translate(langKey) {
+            var _self = this;
+            (0, _jquery2.default)('[data-lang]').each(function (key, val) {
+                var dataKey = (0, _jquery2.default)(val).data('lang');
+                (0, _jquery2.default)(this).text(_self.langDB[dataKey][langKey]).animateCss('pulse');
+            });
+        }
+    }, {
+        key: 'buildLangSwitch',
+        value: function buildLangSwitch(lngDefinitions) {
+            var html = '';
+            (0, _jquery2.default)((0, _keys2.default)(lngDefinitions)).each(function (key, val) {
+                var activeClass = '';
+                if (lngDefinitions[val].active) {
+                    activeClass = 'lang-btn--active';
+                }
+                html += '<div id="lang-switch-' + lngDefinitions[val].short + '" class="lang-btn ' + activeClass + '">';
+                html += '<span class="lang-btn-text__short">' + lngDefinitions[val].short + '</span>';
+                html += '<span class="lang-btn-text__full" data-lang="' + lngDefinitions[val].full + '">' + lngDefinitions[val].full + '</span>';
+                html += '</div>';
+            });
+            (0, _jquery2.default)('#lang-switch').append(html);
+        }
+    }]);
+    return LangController;
+}(); /*jshint esversion: 6 */
+
+
+exports.default = LangController;
 
 /***/ })
 /******/ ]);

@@ -9,7 +9,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
 	background-color: $secondary-background-color;
-	background-color: transparent;
+	// background-color: transparent;
 	font-size: 1rem;
 	overflow-x: hidden;
 	@include atLarge{

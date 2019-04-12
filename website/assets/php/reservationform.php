@@ -94,7 +94,7 @@ if (count($result["errors"]) == 0) {
 
         $mail->setFrom($email, $name);
         $mail->addReplyTo($email);
-        $mail->addAddress('ahastudio@seznam.cz');
+        $mail->addAddress('info@rangdebasanti.cz');
         $mail->Subject = 'RANGDEBASANTI.CZ - RESERVATION ';
         $mail->Body = $bodymsg;
 

@@ -11,6 +11,7 @@ import OpeningHours from './modules/openinghours';
 import Menu from './modules/menu';
 import ContactForm from './modules/contactform';
 import ReservationForm from './modules/reservationform';
+import LangController from './modules/lang';
 
 var mobileMenu = new MobileMenu();
 var carousels = new Carousels();
@@ -18,7 +19,7 @@ var menu = new Menu();
 var contactform = new ContactForm();
 var reservationform = new ReservationForm();
 var openinghours = new OpeningHours();
-
+var languageController = new LangController();
 
 contactform.initContactForm();
 reservationform.initReservationForm();

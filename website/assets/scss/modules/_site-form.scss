@@ -6,9 +6,11 @@
         position: relative;
         margin-bottom: 1rem;
     }
+
     &__field-wrapper {
         position: relative;
     }
+
     &__feedback {
         padding: 0.5rem 0.5rem 0 0.5rem;
         margin: 0;
@@ -17,6 +19,7 @@
         color: $secondary-text-color;
         display: none;
     }
+
     &__field-wrapper--material {
         .site-form__field {
             font-size: 1.2rem;
@@ -26,30 +29,38 @@
             border: none;
             border-radius: 0;
             box-shadow: none;
-            border-bottom: 1px solid rgba(0,0,0,0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
             outline: none;
             cursor: text;
             background-color: transparent;
-            color: rgba(255,255,255,0.75);
+            color: rgba(255, 255, 255, 0.75);
+
             &::-webkit-input-placeholder {
                 transition: color 300ms ease;
-                color: rgba(0,0,0,0.25);
+                color: rgba(0, 0, 0, 0.25);
             }
+
             &:not(:focus)::-webkit-input-placeholder {
                 color: transparent;
             }
-            &:focus ~ hr {
+
+            &:focus~hr {
                 transform: scaleX(1);
                 visibility: visible;
             }
-            &:focus ~ label /*, &:valid ~ label*/  {
-		        transform: scale(0.6);
-	        }
+
+            &:focus~label
+
+            /*, &:valid ~ label*/
+                {
+                transform: scale(0.6);
+            }
         }
-        textarea.site-form__field ~ hr {
+
+        textarea.site-form__field~hr {
             font-size: inherit;
         }
-        
+
         hr {
             content: '';
             display: block;
@@ -60,11 +71,11 @@
             height: 2px;
             font-size: 1px;
             margin: 0;
-		    background: $secondary-text-color;
-		    will-change: transform, visibility;
-		    transition: all 200ms ease-out;
-		    transform: scaleX(0);
-		    visibility: hidden;
+            background: $secondary-text-color;
+            will-change: transform, visibility;
+            transition: all 200ms ease-out;
+            transform: scaleX(0);
+            visibility: hidden;
             z-index: 10;
             border: none;
         }
@@ -78,69 +89,87 @@
             transform-origin: 0 -150%;
             transition: transform 300ms ease;
             pointer-events: none;
-            &--activated{
+
+            &--activated {
                 transform: scale(0.6);
             }
         }
-        
-        
+
+
     }
 
     &--danger {
         color: $danger-color;
+
         &.site-form__feedback {
-            color: $danger-color!important;
+            color: $danger-color !important;
         }
+
         &.site-form__field-wrapper--material {
             .site-form__field {
                 border-bottom: 1px solid $danger-color;
             }
+
             hr {
                 background: $danger-color;
             }
+
             .site-form__label {
                 color: $danger-color;
             }
         }
     }
+
     &--warning {
         color: $warning-color;
+
         &.site-form__feedback {
-            color: $warning-color!important;
+            color: $warning-color !important;
         }
+
         &.site-form__field-wrapper--material {
             .site-form__field {
                 border-bottom: 1px solid $warning-color;
             }
+
             hr {
                 background: $warning-color;
             }
+
             .site-form__label {
                 color: $warning-color;
             }
         }
     }
+
     &--success {
         color: $success-color;
+
         &.site-form__feedback {
-            color: $success-color!important;
+            color: $success-color !important;
         }
+
         &.site-form__field-wrapper--material {
             .site-form__field {
                 border-bottom: 1px solid $success-color;
             }
+
             hr {
                 background: $success-color;
             }
+
             .site-form__label {
                 color: $success-color;
             }
         }
     }
+
     &__note {
         font-size: 0.8rem;
+        margin-bottom: 0.3rem;
     }
 }
+
 .recaptcha-wrapper {
     margin: auto;
     margin-bottom: 1rem;

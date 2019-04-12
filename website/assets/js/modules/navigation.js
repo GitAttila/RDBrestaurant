@@ -124,9 +124,10 @@ class Navigation {
             });
         });
 
-        let minDate = new Date();
-        let sixmonths = 180 * 60 * 60 * 24 * 1000;
-        let maxDate = new Date(minDate.getTime() + sixmonths);
+        let minDate = new Date(); 
+        let oneday = 60 * 60 * 24 * 1000;
+        minDate = new Date(minDate.getTime() + oneday);// do not allow registrations for the same day
+        let maxDate = new Date(minDate.getTime() + (oneday * 180));
 
         $('#res-date').pickadate({
             min: minDate,
