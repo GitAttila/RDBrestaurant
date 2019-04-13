@@ -82,7 +82,7 @@ if (count($result["errors"]) == 0) {
         $restime = $_POST["reservationtime"];
         $guestsnum = $_POST["guestsnumber"];
 
-        $bodymsg = "You have a new reservation from the RANGDEBASANTI.CZ website with the following information: \n\nName: " . $name . "\nEmail: " . $email . "\nPhone: " . $phone . "\nMessage: " . $message . "\nReservation date: " . $resdate . "\nReservation time: " . $restime. "\nNumber of guests: " . $guestsnum;
+        $bodymsg = "Reservation from the RANGDEBASANTI.CZ website: \n\nName: " . $name . "\nEmail: " . $email . "\nPhone: " . $phone . "\nMessage: " . $message . "\nReservation date: " . $resdate . "\nReservation time: " . $restime. "\nNumber of guests: " . $guestsnum;
 
         $mail = new PHPMailer(); // https://github.com/PHPMailer/PHPMailer
 
