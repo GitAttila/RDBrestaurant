@@ -69,7 +69,9 @@ class LangController {
         let _self = this;
         $('[data-lang]').each(function(key,val){
             let dataKey = $(val).data('lang');
-            $(this).text(_self.langDB[dataKey][langKey]).animateCss('fadeInDown');
+            if (_self.langDB[dataKey]) {
+                $(this).text(_self.langDB[dataKey][langKey]).animateCss('fadeInDown');
+            }
         });
         $('[data-lang-' + langKey + ']').each(function(key,val){
             let translation = $(val).data('lang-' + langKey);

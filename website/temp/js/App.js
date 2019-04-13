@@ -28474,7 +28474,9 @@ var LangController = function () {
             var _self = this;
             (0, _jquery2.default)('[data-lang]').each(function (key, val) {
                 var dataKey = (0, _jquery2.default)(val).data('lang');
-                (0, _jquery2.default)(this).text(_self.langDB[dataKey][langKey]).animateCss('fadeInDown');
+                if (_self.langDB[dataKey]) {
+                    (0, _jquery2.default)(this).text(_self.langDB[dataKey][langKey]).animateCss('fadeInDown');
+                }
             });
             (0, _jquery2.default)('[data-lang-' + langKey + ']').each(function (key, val) {
                 var translation = (0, _jquery2.default)(val).data('lang-' + langKey);

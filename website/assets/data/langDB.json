@@ -109,6 +109,11 @@
         "en": "Opening hours may differ on public holidays in Czech Republic.",
         "cz": "Otevírací hodiny se můžou lišit v den státniho svátku v České Republice."
     },
+    "card-oh-note3":
+    {
+        "en": "There are the following public holidays in Czech Republic this week: ",
+        "cz": "Tento týdem slavíme v České Republice nasledující státni svátky: "
+    },
     "card-oh-mon":
     {
         "en": "Monday",
