@@ -40,6 +40,7 @@
         }
         &--disabled {
             color: $disabled-text-color;
+            cursor: not-allowed;
             &:hover, &:focus {
                 color: $disabled-text-color;
             }

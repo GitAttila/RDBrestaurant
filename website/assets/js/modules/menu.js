@@ -1,7 +1,10 @@
 import $ from 'jquery';
 
 import Navigation from './navigation';
-
+import LangController from './lang';
+import ContactForm from './contactform';
+import ReservationForm from './reservationform';
+import Holidays from './holidays';
 class Menu {
 
     constructor() {
@@ -229,15 +232,30 @@ class Menu {
             }
         ];
 
+        this.navigation;
+
+        this.languageController;
+
+        this.contactForm;
+
+        this.reservationForm;
+
+        this.holidays;
+
         this.menu = this.getMenu(this.URL,()=>{
             let html = this.buildMenu(this.menu,'en');
             $('#mainGrid').append(html);
             this.buildMenuCategories();
             setTimeout(()=>{
-                let navigation = new Navigation();
-                // navigation.updateGrid();
+                this.navigation = new Navigation();
+                this.languageController = new LangController(this.navigation);
+                this.contactform = new ContactForm(this.navigation);
+                this.contactform.initContactForm();
+                this.reservationForm = new ReservationForm(this.navigation);
+                this.reservationForm.initReservationForm();
+                this.holidays = new Holidays(this.navigation);
                 // init filtering to show 'about' grid initially
-                navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
+                this.navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
             },1000)
         });
     }
@@ -299,7 +317,7 @@ class Menu {
         $.getJSON( url, function() {
             })
             .done(function(data) {
-                console.log( "menu loaded..." );
+                console.log( "Menu loaded." );
                 _self.menu = data;
             })
             .fail(function(jqxhr, textStatus, error) {
@@ -322,11 +340,13 @@ class Menu {
         for (let i=0; i<menu.length; i++) {
             
             let categoryName = menu[i][lang + '_category'];
+            let categoryNamecz = menu[i]['cz_category'];
+            let categoryNameen = menu[i]['en_category'];
             styleClass = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['categoryTheming'];
             filTags = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['filterTags'];
             html += '<div data-menu="menu, ' + filTags + '" class="grid-layout__item grid-layout__item--menu">';
             html += '<div class="site-card ' + styleClass + '">';
-            html += '<h3 class="site-card__title">' + categoryName + '</h3>';
+            html += '<h3 class="site-card__title" data-lang-cz="' + categoryNamecz + '" data-lang-en="' + categoryNameen + '">' + categoryName + '</h3>';
             for (let x=0; x<menu[i].category.length; x++) {
                 html += '<div class="site-card__menu-item">';
                 html += this.buildMenuItem(menu[i].category[x], lang);
@@ -347,7 +367,11 @@ class Menu {
         let imageHtml = '';
         menuItem = menuItem || {image:'', cz_itemname:'',en_itemname:'',cz_itemdesc:'',en_itemdesc:'',price:0,allergenes:''};
         let name = menuItem[lang + '_itemname'];
+        let namecz = menuItem['cz_itemname'];
+        let nameen = menuItem['en_itemname'];
         let description = menuItem[lang + '_itemdesc'];
+        let descriptioncz = menuItem['cz_itemdesc'];
+        let descriptionen = menuItem['en_itemdesc'];
         if (menuItem.image.toLowerCase().trim() !== '') {
             imageHtml += '<div class="site-card__image site-card__image--menu">';
             imageHtml +='<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
@@ -355,12 +379,12 @@ class Menu {
         }
         str +='<div class="row align-items-center">';
         str += imageHtml;
-        str +='<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
+        str +='<div class="col-8"><h3 class="site-card__subtitle" data-lang-cz="' + namecz + '" data-lang-en="' + nameen + '">' + name + '</h3></div>';
         str +='<div class="col-4"><div class="site-card__price-tag">';
         str +='<h3 class="site-card__subtitle site-card__price">' + menuItem.price + '<sup class="site-card__currency">Kč</sup></h3>';
         str +='</div></div></div>';
         str += this.buildAllergenes(menuItem.allergenes);
-        str +='<p class="site-card__text">' + description + '</p>';
+        str +='<p class="site-card__text" data-lang-cz="' + descriptioncz + '" data-lang-en="' + descriptionen + '">' + description + '</p>';
         return str;
     }
 

@@ -2,7 +2,8 @@
 import $ from 'jquery';
 
 class LangController {
-    constructor() {
+    constructor(nav) {
+        this.navigation = nav;
         this.langDefs = {
             'english': {
                 'short': 'en',
@@ -18,12 +19,16 @@ class LangController {
         this.URL = './assets/data/langDB.json';
         this.langSwitch = $("#lang-switch");
         this.getLangDB(this.URL);
-        // this.events();
     }
 
     events() {
         let _self = this;
         $(this.langSwitch).on('click', function() {
+            let isLangSwitchDisabled = $(this).hasClass('primary-nav__link--disabled');
+            if (isLangSwitchDisabled) {
+                return;
+            }
+
             let $next = $(this).children('.lang-btn--active').next();
             if ($next.length === 0) {
                 $(this).children().removeClass('lang-btn--active').eq(0).addClass('lang-btn--active').animateCss('pulse');
@@ -42,8 +47,7 @@ class LangController {
         $.getJSON( url, function() {
             })
             .done(function(data) {
-                console.log( "languages loaded..." );
-                console.log(data);
+                console.log( "Translation keys loaded." );
                 _self.langDB = data;
                 _self.buildLangSwitch(_self.langDefs);
                 _self.events();
@@ -51,6 +55,7 @@ class LangController {
             .fail(function(jqxhr, textStatus, error) {
                 var err = textStatus + ": " + error;
                 console.log( "Unable to load lang DB: " + err );
+                console.log('Removing the language switcher.');
                 _self.langDB = [];
                 $('#lang-switch').parent().remove();
             })
@@ -60,11 +65,17 @@ class LangController {
     }
 
     translate(langKey) {
+        langKey = (langKey || 'en').toLowerCase();
         let _self = this;
         $('[data-lang]').each(function(key,val){
             let dataKey = $(val).data('lang');
-            $(this).text(_self.langDB[dataKey][langKey]).animateCss('pulse');
-        })
+            $(this).text(_self.langDB[dataKey][langKey]).animateCss('fadeInDown');
+        });
+        $('[data-lang-' + langKey + ']').each(function(key,val){
+            let translation = $(val).data('lang-' + langKey);
+            $(this).text(translation).animateCss('fadeInDown');
+        });
+        this.navigation.updateGrid();
     }
 
     buildLangSwitch (lngDefinitions) {

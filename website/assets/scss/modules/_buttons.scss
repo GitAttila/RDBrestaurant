@@ -43,6 +43,14 @@
     &--text-bold{
         font-weight: bold;
     }
+    &--disabled {
+        opacity: 0.34;
+        &:hover {
+            background-color: $highlight-background-color;
+            color: $secondary-text-color;
+            border-color: $highlight-background-color;
+        }
+    }
     &--nav-icon {
         font-size: 2rem;
         background-color: $color-white;

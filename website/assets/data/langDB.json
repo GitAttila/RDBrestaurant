@@ -43,5 +43,251 @@
     {
         "en": "order a meal",
         "cz": "objednat jídlo"
+    },
+    "card-photogallery":
+    {
+        "en": "Photo gallery",
+        "cz": "Foto galerie"
+    },
+    "card-tandoor":
+    {
+        "en": "Our meals are grilled in genuine tandoor",
+        "cz": "Grilujeme v originálním indickém tandúru"
+    },
+    "card-about-title":
+    {
+        "en": "Restaurant Rang De Basanti",
+        "cz": "Restaurace Rang De Basanti"
+    },
+    "card-about-subtitle":
+    {
+        "en": "Indian restaurant Rang De Basanti is located in Dolní Počernice, Prague.",
+        "cz": "Indická restaurace Rang De Basanti nacházející se v Dolních Počernicćh v Praze."
+    },
+    "card-about-text":
+    {
+        "en": "In Rang De Basanti, we believe that we are a tradition bearer in Indian cuisine, but we are also careful to ensure that the food we offer is always prepared with fresh and high-quality ingredients and that we are not forgetting the health of our guests, so they can enjoy our food without worrying about high cholesterol content. In our Indian restaurant in Dolní Počernice we handle meal orders within radius of up to three kilometers free of charge. We are open to renting our space, including providing a full catering service to celebrate different occasions such as weddings and various other anniversaries.",
+        "cz": "U nás, v indické restauraci Rang de Basanti věříme, že jsme nositeli tradice v indické kuchyni ale zároveň pečlivě dbáme na to, aby nami nabízené jídlo bylo vždy připravené z čerstvých a nejkvalitnejších surovin a aby jsme neopomíjeli taky zdraví našich hostů, takže si můžete vychutnat naše jídlo bez obav z obsahu vysokého cholesterolu. V naši indické restauraci v Dolních Počernicích vyřizujeme a zavážime objednávky jídel do tří kilometrů zdarma. Nabízime možnost pronajmutí prostor včetně nabídky kompletního cateringového servisu při příležitosti organizace oslav, jako jsou svadby a různé jiné výročí."
+    },
+    "card-lunch-title":
+    {
+        "en": "Lunch menu",
+        "cz": "Polední menu"
+    },
+    "card-lunch-subtitle":
+    {
+        "en": "all-you-can-eat-buffet",
+        "cz": "bufet ve formě 'Vše co sníte'"
+    },
+    "card-lunch-text":
+    {
+        "en": "Mon-Fri* from 11:00a.m. till 2:30p.m.",
+        "cz": "Po-Pá* od 11:00 do 14:30"
+    },
+    "card-lunch-note":
+    {
+        "en": "* not applicable to public holidays",
+        "cz": "* neplatí v dnech volna počas státních svátků"
+    },
+    "card-drinks":
+    {
+        "en": "Pilsen and Kozel beer on tap",
+        "cz": "Čepujeme Kozla a Plzeň"
+    },
+    "card-oh":
+    {
+        "en": "Opening hours",
+        "cz": "Otevírací hodiny"
+    },
+    "card-oh-note":
+    {
+        "en": "We are charging additional 10Kč for each meal box.",
+        "cz": "Účtujeme si dodatečných 10Kč za každé balení na jídlo."
+    },
+    "card-oh-note2":
+    {
+        "en": "Opening hours may differ on public holidays in Czech Republic.",
+        "cz": "Otevírací hodiny se můžou lišit v den státniho svátku v České Republice."
+    },
+    "card-oh-mon":
+    {
+        "en": "Monday",
+        "cz": "Pondelí"
+    },
+    "card-oh-tue":
+    {
+        "en": "Tuesday",
+        "cz": "Uterý"
+    },
+    "card-oh-wed":
+    {
+        "en": "Wednesday",
+        "cz": "Streda"
+    },
+    "card-oh-thu":
+    {
+        "en": "Thursday",
+        "cz": "Čtvrtek"
+    },
+    "card-oh-fri":
+    {
+        "en": "Friday",
+        "cz": "Pátek"
+    },
+    "card-oh-sat":
+    {
+        "en": "Saturday",
+        "cz": "Sobota"
+    },
+    "card-oh-sun":
+    {
+        "en": "Sunday",
+        "cz": "Neděle"
+    },
+    "card-contact-title":
+    {
+        "en": "Contact Info",
+        "cz": "Kontaktní údaje"
+    },
+    "card-restu-title":
+    {
+        "en": "Make reservation via Restu",
+        "cz": "Provést rezervaci přes Restu"
+    },
+    "card-restu-subtitle":
+    {
+        "en": "In case you feel more confortable ordering via Restu, hit the button below.",
+        "cz": "Pokuď si přejete provést rezervaci přes Restu, klikněte na tlačítko níže."
+    },
+    "card-restu-btn":
+    {
+        "en": "make a reservation",
+        "cz": "provést rezervaci"
+    },
+    "card-socialmedia-title":
+    {
+        "en": "Follow us on social media",
+        "cz": "Nasledujte nás na sociálních sítích"
+    },
+    "card-map-title":
+    {
+        "en": "Find us on the map",
+        "cz": "Najděte nás na mapě"
+    },
+    "card-message-title":
+    {
+        "en": "Send us a message",
+        "cz": "Pošlete nám zprávu"
+    },
+    "card-message-name":
+    {
+        "en": "your name",
+        "cz": "jméno"
+    },
+    "card-message-email":
+    {
+        "en": "your email",
+        "cz": "email"
+    },
+    "card-message-message":
+    {
+        "en": "your message",
+        "cz": "zpráva"
+    },
+    "card-message-btn":
+    {
+        "en": "send",
+        "cz": "poslat"
+    },
+    "card-reservation-title":
+    {
+        "en": "Make a reservation",
+        "cz": "Provést rezervaci"
+    },
+    "card-reservation-subtitle":
+    {
+        "en": "Please fill out the fields below and we will get back to you with confirmation of your reservation.",
+        "cz": "Vyplňte, prosím níže uvedený formulář a mi se vám ozveme zpátky s potvrzením vaši rezervace."
+    },
+    "card-reservation-name":
+    {
+        "en": "your name *",
+        "cz": "jméno *"
+    },
+    "card-reservation-email":
+    {
+        "en": "your email *",
+        "cz": "email *"
+    },
+    "card-reservation-phone":
+    {
+        "en": "your phone number *",
+        "cz": "telefon *"
+    },
+    "card-reservation-date":
+    {
+        "en": "reservation date *",
+        "cz": "datum *"
+    },
+    "card-reservation-time":
+    {
+        "en": "reservation time *",
+        "cz": "čas *"
+    },
+    "card-reservation-message":
+    {
+        "en": "reservation message",
+        "cz": "zpráva"
+    },
+    "card-reservation-numofguests":
+    {
+        "en": "number of guests",
+        "cz": "počet hostů"
+    },
+    "card-reservation-note":
+    {
+        "en": "Fields marked with asterix* are required.",
+        "cz": "Formulářová pole označená hvězdičkou* jsou povinna."
+    },
+    "card-reservation-note2":
+    {
+        "en": "Reservations can be made only from the days on from tommorrow. For reservations for today, please try RESTU or direct contact.",
+        "cz": "Přes tento formulář může být rezervace provedena jenom v nasleduící den. Jestli potřebujete provést rezervaci na dnešní den, udělejte tak prosím přes RESTU nebo volejte napřímo."
+    },
+    "card-reservation-btn":
+    {
+        "en": "send",
+        "cz": "poslat"
+    },
+    "footer-title":
+    {
+        "en": "Contact",
+        "cz": "Kontaktní informace"
+    },
+    "footer-subtitle":
+    {
+        "en": "Inquiries and reservations at",
+        "cz": "Dotazy a rezervace směřujte na"
+    },
+    "footer-btn":
+    {
+        "en": "QR code",
+        "cz": "QR kód"
+    },
+    "footer-social":
+    {
+        "en": "Follow us",
+        "cz": "Následujte nás"
+    },
+    "footer-address":
+    {
+        "en": "Find us",
+        "cz": "Najdete nás"
+    },
+    "footer-accept":
+    {
+        "en": "We accept",
+        "cz": "Přijímáme"
     }
+
 }

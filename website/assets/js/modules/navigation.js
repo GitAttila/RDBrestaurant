@@ -7,7 +7,6 @@ import "isotope-layout/js/layout-modes/fit-rows";
 import "bootstrap/js/dist/modal";
 import '../vendors/picker';
 import './animatecss';
-
 class Navigation {
     
     constructor() {
@@ -45,6 +44,7 @@ class Navigation {
             lastNavMenuClicked = filterValue;
             $('#menuContent .primary-nav__link').addClass('primary-nav__link--disabled');
             let menuSectionCaption = $(this).text().toLowerCase().trim() || "";
+            let langKey = $(this).data('lang');
             if (filterValue==='home') {menuSectionCaption = filterValue;}
             actualMenuCat = $('#menucategories-filter .btn-site.btn-site--active').text().toLocaleUpperCase();
             // console.log(filterValue);
@@ -60,6 +60,7 @@ class Navigation {
                 $('#allergenes-icon').hide();
             }
 
+            $("#main-section-title").data("lang", langKey); 
             $("#main-section-title").text(menuSectionCaption);
             $("#main-section-title").animateCss('fadeIn');
             $("#menuContent .primary-nav__link").removeClass("primary-nav__link--active");
@@ -69,10 +70,6 @@ class Navigation {
             if ($("#menuContent").hasClass('show')) {
                 $("#menuContent").delay(300).collapse('hide');
             }
-
-            $.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo", function( data ) {
-                console.log(data);
-            });
 
             grid.arrange({
                 filter: function(item){
@@ -96,7 +93,7 @@ class Navigation {
                 $(filteredItems).each(function(key,val){
                     $(val.element).stop().animateCss('pulse', delayed, ()=>{
                         if (key === (filteredItems.length-1)) {
-                            console.log('animation completed...');
+                            // console.log('animation completed...');
                             $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
                             $('#menuContent .primary-nav__link').blur();
                         }
@@ -184,10 +181,6 @@ class Navigation {
         $('#allergenes-list').on('shown.bs.modal', function () {
 
         });
-
-        return {
-            showAllergenes:showAllergenes
-        };
 
     }
 

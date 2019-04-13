@@ -5,10 +5,16 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 80%;
+        width: 100%;
         transform: translate(-50%,-50%);
         text-align: center;
         z-index: 2;
+        @include atMedium{
+            max-width: 80%;
+        }
+        @include atLarge{
+            max-width: 60%;
+        }
     }
     &__overlay{
         position: absolute;
@@ -32,10 +38,10 @@
             max-width: 25%;
         }
         @include atMedium{
-            max-width: 33%;
+            max-width: 40%;
         }
         @include atLarge{
-            max-width: 20%;
+            max-width: 33%;
         }
     }
     

@@ -1,5 +1,16 @@
 .lang-btn {
     display: none;
+    &--active {
+        color: $color-white;
+        transition: 0.3s color ease-in-out;
+        display: inline-block;
+    }
+    &-text__short {
+        display: none;
+    }
+    &-text__full {
+        display: none;
+    }
     &__wrapper {
         border: 2px solid $color-white;
         width: auto;
@@ -10,15 +21,13 @@
         border-radius: 1rem;
         display: inline-block;
         cursor: pointer;
-    }
-    &--active {
-        color: white;
-        display: inline-block;
-    }
-    &-text__short {
-        display: none;
-    }
-    &-text__full {
-        display: none;
+        transition: 0.3s border-color ease-in-out;
+        &.primary-nav__link--disabled {
+            border-color: $disabled-text-color;
+            cursor: not-allowed;
+            .lang-btn--active {
+                color: $disabled-text-color;
+            }
+        }
     }
 }

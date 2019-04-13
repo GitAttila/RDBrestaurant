@@ -18565,31 +18565,13 @@ var _menu = __webpack_require__(103);
 
 var _menu2 = _interopRequireDefault(_menu);
 
-var _contactform = __webpack_require__(113);
-
-var _contactform2 = _interopRequireDefault(_contactform);
-
-var _reservationform = __webpack_require__(120);
-
-var _reservationform2 = _interopRequireDefault(_reservationform);
-
-var _lang = __webpack_require__(121);
-
-var _lang2 = _interopRequireDefault(_lang);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/*jshint esversion: 6 */
-var mobileMenu = new _MobileMenu2.default();
+var mobileMenu = new _MobileMenu2.default(); /*jshint esversion: 6 */
+
 var carousels = new _carousels2.default();
 var menu = new _menu2.default();
-var contactform = new _contactform2.default();
-var reservationform = new _reservationform2.default();
 var openinghours = new _openinghours2.default();
-var languageController = new _lang2.default();
-
-contactform.initContactForm();
-reservationform.initReservationForm();
 
 /***/ }),
 /* 89 */
@@ -20384,6 +20366,22 @@ var _navigation = __webpack_require__(104);
 
 var _navigation2 = _interopRequireDefault(_navigation);
 
+var _lang = __webpack_require__(113);
+
+var _lang2 = _interopRequireDefault(_lang);
+
+var _contactform = __webpack_require__(118);
+
+var _contactform2 = _interopRequireDefault(_contactform);
+
+var _reservationform = __webpack_require__(119);
+
+var _reservationform2 = _interopRequireDefault(_reservationform);
+
+var _holidays = __webpack_require__(120);
+
+var _holidays2 = _interopRequireDefault(_holidays);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Menu = function () {
@@ -20578,15 +20576,30 @@ var Menu = function () {
             }
         }];
 
+        this.navigation;
+
+        this.languageController;
+
+        this.contactForm;
+
+        this.reservationForm;
+
+        this.holidays;
+
         this.menu = this.getMenu(this.URL, function () {
             var html = _this.buildMenu(_this.menu, 'en');
             (0, _jquery2.default)('#mainGrid').append(html);
             _this.buildMenuCategories();
             setTimeout(function () {
-                var navigation = new _navigation2.default();
-                // navigation.updateGrid();
+                _this.navigation = new _navigation2.default();
+                _this.languageController = new _lang2.default(_this.navigation);
+                _this.contactform = new _contactform2.default(_this.navigation);
+                _this.contactform.initContactForm();
+                _this.reservationForm = new _reservationform2.default(_this.navigation);
+                _this.reservationForm.initReservationForm();
+                _this.holidays = new _holidays2.default(_this.navigation);
                 // init filtering to show 'about' grid initially
-                navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
+                _this.navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
             }, 1000);
         });
     }
@@ -20648,7 +20661,7 @@ var Menu = function () {
             var _self = this;
             callbackFn = callbackFn || function () {};
             _jquery2.default.getJSON(url, function () {}).done(function (data) {
-                console.log("menu loaded...");
+                console.log("Menu loaded.");
                 _self.menu = data;
             }).fail(function (jqxhr, textStatus, error) {
                 var err = textStatus + ": " + error;
@@ -20670,11 +20683,13 @@ var Menu = function () {
             for (var i = 0; i < menu.length; i++) {
 
                 var categoryName = menu[i][lang + '_category'];
+                var categoryNamecz = menu[i]['cz_category'];
+                var categoryNameen = menu[i]['en_category'];
                 styleClass = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['categoryTheming'];
                 filTags = this.categoryConfig[menu[i]['en_category'].toLowerCase()]['filterTags'];
                 html += '<div data-menu="menu, ' + filTags + '" class="grid-layout__item grid-layout__item--menu">';
                 html += '<div class="site-card ' + styleClass + '">';
-                html += '<h3 class="site-card__title">' + categoryName + '</h3>';
+                html += '<h3 class="site-card__title" data-lang-cz="' + categoryNamecz + '" data-lang-en="' + categoryNameen + '">' + categoryName + '</h3>';
                 for (var x = 0; x < menu[i].category.length; x++) {
                     html += '<div class="site-card__menu-item">';
                     html += this.buildMenuItem(menu[i].category[x], lang);
@@ -20695,7 +20710,11 @@ var Menu = function () {
             var imageHtml = '';
             menuItem = menuItem || { image: '', cz_itemname: '', en_itemname: '', cz_itemdesc: '', en_itemdesc: '', price: 0, allergenes: '' };
             var name = menuItem[lang + '_itemname'];
+            var namecz = menuItem['cz_itemname'];
+            var nameen = menuItem['en_itemname'];
             var description = menuItem[lang + '_itemdesc'];
+            var descriptioncz = menuItem['cz_itemdesc'];
+            var descriptionen = menuItem['en_itemdesc'];
             if (menuItem.image.toLowerCase().trim() !== '') {
                 imageHtml += '<div class="site-card__image site-card__image--menu">';
                 imageHtml += '<img src="' + this.menuImagePath + menuItem.image.trim() + '" alt="' + name + ' / Rang De Basanti">';
@@ -20703,12 +20722,12 @@ var Menu = function () {
             }
             str += '<div class="row align-items-center">';
             str += imageHtml;
-            str += '<div class="col-8"><h3 class="site-card__subtitle">' + name + '</h3></div>';
+            str += '<div class="col-8"><h3 class="site-card__subtitle" data-lang-cz="' + namecz + '" data-lang-en="' + nameen + '">' + name + '</h3></div>';
             str += '<div class="col-4"><div class="site-card__price-tag">';
             str += '<h3 class="site-card__subtitle site-card__price">' + menuItem.price + '<sup class="site-card__currency">Kč</sup></h3>';
             str += '</div></div></div>';
             str += this.buildAllergenes(menuItem.allergenes);
-            str += '<p class="site-card__text">' + description + '</p>';
+            str += '<p class="site-card__text" data-lang-cz="' + descriptioncz + '" data-lang-en="' + descriptionen + '">' + description + '</p>';
             return str;
         }
     }, {
@@ -20828,6 +20847,7 @@ var Navigation = function () {
                 lastNavMenuClicked = filterValue;
                 (0, _jquery2.default)('#menuContent .primary-nav__link').addClass('primary-nav__link--disabled');
                 var menuSectionCaption = (0, _jquery2.default)(this).text().toLowerCase().trim() || "";
+                var langKey = (0, _jquery2.default)(this).data('lang');
                 if (filterValue === 'home') {
                     menuSectionCaption = filterValue;
                 }
@@ -20845,6 +20865,7 @@ var Navigation = function () {
                     (0, _jquery2.default)('#allergenes-icon').hide();
                 }
 
+                (0, _jquery2.default)("#main-section-title").data("lang", langKey);
                 (0, _jquery2.default)("#main-section-title").text(menuSectionCaption);
                 (0, _jquery2.default)("#main-section-title").animateCss('fadeIn');
                 (0, _jquery2.default)("#menuContent .primary-nav__link").removeClass("primary-nav__link--active");
@@ -20854,10 +20875,6 @@ var Navigation = function () {
                 if ((0, _jquery2.default)("#menuContent").hasClass('show')) {
                     (0, _jquery2.default)("#menuContent").delay(300).collapse('hide');
                 }
-
-                _jquery2.default.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo", function (data) {
-                    console.log(data);
-                });
 
                 grid.arrange({
                     filter: function filter(item) {
@@ -20881,7 +20898,7 @@ var Navigation = function () {
                     (0, _jquery2.default)(filteredItems).each(function (key, val) {
                         (0, _jquery2.default)(val.element).stop().animateCss('pulse', delayed, function () {
                             if (key === filteredItems.length - 1) {
-                                console.log('animation completed...');
+                                // console.log('animation completed...');
                                 (0, _jquery2.default)('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
                                 (0, _jquery2.default)('#menuContent .primary-nav__link').blur();
                             }
@@ -20964,10 +20981,6 @@ var Navigation = function () {
             };
 
             (0, _jquery2.default)('#allergenes-list').on('shown.bs.modal', function () {});
-
-            return {
-                showAllergenes: showAllergenes
-            };
         }
     }]);
     return Navigation;
@@ -28377,10 +28390,6 @@ var _keys = __webpack_require__(114);
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _stringify = __webpack_require__(118);
-
-var _stringify2 = _interopRequireDefault(_stringify);
-
 var _classCallCheck2 = __webpack_require__(92);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
@@ -28395,96 +28404,106 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ContactForm = function () {
-    function ContactForm() {
-        (0, _classCallCheck3.default)(this, ContactForm);
+var LangController = function () {
+    function LangController(nav) {
+        (0, _classCallCheck3.default)(this, LangController);
+
+        this.navigation = nav;
+        this.langDefs = {
+            'english': {
+                'short': 'en',
+                'full': 'english',
+                'active': true
+            },
+            'czech': {
+                'short': 'cz',
+                'full': 'czech',
+                'active': false
+            }
+        };
+        this.URL = './assets/data/langDB.json';
+        this.langSwitch = (0, _jquery2.default)("#lang-switch");
+        this.getLangDB(this.URL);
     }
 
-    (0, _createClass3.default)(ContactForm, [{
-        key: 'initContactForm',
-        value: function initContactForm() {
+    (0, _createClass3.default)(LangController, [{
+        key: 'events',
+        value: function events() {
+            var _self = this;
+            (0, _jquery2.default)(this.langSwitch).on('click', function () {
+                var isLangSwitchDisabled = (0, _jquery2.default)(this).hasClass('primary-nav__link--disabled');
+                if (isLangSwitchDisabled) {
+                    return;
+                }
 
-            (0, _jquery2.default)('#contact-submit').on("click", function (e) {
-                e.preventDefault();
-                (0, _jquery2.default)("#contact-form").submit();
+                var $next = (0, _jquery2.default)(this).children('.lang-btn--active').next();
+                if ($next.length === 0) {
+                    (0, _jquery2.default)(this).children().removeClass('lang-btn--active').eq(0).addClass('lang-btn--active').animateCss('pulse');
+                } else {
+                    (0, _jquery2.default)(this).children('.lang-btn--active').removeClass('lang-btn--active').next().addClass('lang-btn--active').animateCss('pulse');
+                }
+                var active = (0, _jquery2.default)(this).children('.lang-btn--active').attr('id');
+                active = active.split('-').pop();
+                _self.translate(active);
             });
-
-            (0, _jquery2.default)("#contact-form").submit(function (e) {
-                e.preventDefault();
-
-                (0, _jquery2.default)('#contact-submit .btn-caption').hide();
-                (0, _jquery2.default)('#contact-submit .spinner').show();
-
-                var inputElements = (0, _jquery2.default)("#contact-form").find('input, textarea, select');
-                var formValues = {};
-
-                inputElements.each(function () {
-                    if (this.name) {
-                        if (this.type == "checkbox" || this.type == "radio") {
-                            if (this.checked) {
-                                formValues[this.name] = this.value;
-                            }
-                        } else {
-                            formValues[this.name] = this.value;
-                        }
-                    }
-                });
-
-                console.log("formValues : " + (0, _stringify2.default)(formValues));
-
-                _jquery2.default.ajax({
-                    url: "./assets/php/contactform.php",
-                    method: "POST",
-                    data: formValues,
-                    success: function success(result) {
-                        console.log("AJAX post result result : " + (0, _stringify2.default)(result));
-                        (0, _jquery2.default)('div[data-error-id]').text("");
-                        (0, _jquery2.default)('div[data-error-id="contact-result"]').text("");
-
-                        if ((0, _keys2.default)(result.errors).length > 0) {
-                            for (var inputName in result.errors) {
-                                console.log("error in " + inputName + ": " + result.errors[inputName]);
-                                (0, _jquery2.default)('div[data-error-id="' + inputName + '"]').text(result.errors[inputName]).hide().slideDown();
-                            }
-                            grecaptcha.reset();
-                        } else {
-                            // console.log("Success");
-                            (0, _jquery2.default)('div[data-error-id="contact-result"]').text("Thank you. Your message has been sent.");
-                            (0, _jquery2.default)('div[data-error-id="contact-result"]').removeClass('site-form--danger').addClass('site-form--success');
-
-                            (0, _jquery2.default)('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp().promise().done(function () {
-                                console.log('resetting...');
-                                (0, _jquery2.default)('#contact-form input').val("");
-                                (0, _jquery2.default)('#contact-form textarea').val("");
-                                grecaptcha.reset();
-                                (0, _jquery2.default)('#contact-form label').removeClass('site-form__label--activated');
-                            });
-                        }
-                        (0, _jquery2.default)('#contact-submit .btn-caption').show();
-                        (0, _jquery2.default)('#contact-submit .spinner').hide();
-                    },
-                    error: function error(jqXHR, textStatus) {
-                        console.log(jqXHR);
-                        console.log("Request failed: " + textStatus);
-                        grecaptcha.reset();
-                        (0, _jquery2.default)('div[data-error-id="contact-result"]').removeClass('alert-success');
-                        (0, _jquery2.default)('div[data-error-id="contact-result"]').addClass('alert-danger');
-                        (0, _jquery2.default)('div[data-error-id="contact-result"]').text("Sorry... Your message could not have been delivered.");
-                        (0, _jquery2.default)('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp();
-                        (0, _jquery2.default)('#contact-submit .btn-caption').show();
-                        (0, _jquery2.default)('#contact-submit .spinner').hide();
-                    }
-
-                }); // the end of ajax call to post formValues
-            }); // the end of form submit function
+        }
+    }, {
+        key: 'getLangDB',
+        value: function getLangDB(url, callbackFn) {
+            var _self = this;
+            callbackFn = callbackFn || function () {};
+            _jquery2.default.getJSON(url, function () {}).done(function (data) {
+                console.log("Translation keys loaded.");
+                _self.langDB = data;
+                _self.buildLangSwitch(_self.langDefs);
+                _self.events();
+            }).fail(function (jqxhr, textStatus, error) {
+                var err = textStatus + ": " + error;
+                console.log("Unable to load lang DB: " + err);
+                console.log('Removing the language switcher.');
+                _self.langDB = [];
+                (0, _jquery2.default)('#lang-switch').parent().remove();
+            }).always(function () {
+                callbackFn();
+            });
+        }
+    }, {
+        key: 'translate',
+        value: function translate(langKey) {
+            langKey = (langKey || 'en').toLowerCase();
+            var _self = this;
+            (0, _jquery2.default)('[data-lang]').each(function (key, val) {
+                var dataKey = (0, _jquery2.default)(val).data('lang');
+                (0, _jquery2.default)(this).text(_self.langDB[dataKey][langKey]).animateCss('fadeInDown');
+            });
+            (0, _jquery2.default)('[data-lang-' + langKey + ']').each(function (key, val) {
+                var translation = (0, _jquery2.default)(val).data('lang-' + langKey);
+                (0, _jquery2.default)(this).text(translation).animateCss('fadeInDown');
+            });
+            this.navigation.updateGrid();
+        }
+    }, {
+        key: 'buildLangSwitch',
+        value: function buildLangSwitch(lngDefinitions) {
+            var html = '';
+            (0, _jquery2.default)((0, _keys2.default)(lngDefinitions)).each(function (key, val) {
+                var activeClass = '';
+                if (lngDefinitions[val].active) {
+                    activeClass = 'lang-btn--active';
+                }
+                html += '<div id="lang-switch-' + lngDefinitions[val].short + '" class="lang-btn ' + activeClass + '">';
+                html += '<span class="lang-btn-text__short">' + lngDefinitions[val].short + '</span>';
+                html += '<span class="lang-btn-text__full" data-lang="' + lngDefinitions[val].full + '">' + lngDefinitions[val].full + '</span>';
+                html += '</div>';
+            });
+            (0, _jquery2.default)('#lang-switch').append(html);
         }
     }]);
-    return ContactForm;
-}();
+    return LangController;
+}(); /*jshint esversion: 6 */
 
-;
 
-exports.default = ContactForm;
+exports.default = LangController;
 
 /***/ }),
 /* 114 */
@@ -28535,21 +28554,144 @@ module.exports = function (KEY, exec) {
 /* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(119), __esModule: true };
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _keys = __webpack_require__(114);
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _classCallCheck2 = __webpack_require__(92);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(93);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ContactForm = function () {
+    function ContactForm(nav) {
+        (0, _classCallCheck3.default)(this, ContactForm);
+
+        this.navigation = nav;
+    }
+
+    (0, _createClass3.default)(ContactForm, [{
+        key: 'initContactForm',
+        value: function initContactForm() {
+            var _self = this;
+
+            (0, _jquery2.default)('#contact-submit').on("click", function (e) {
+                e.preventDefault();
+                (0, _jquery2.default)("#contact-form").submit();
+            });
+
+            (0, _jquery2.default)("#contact-form").submit(function (e) {
+                e.preventDefault();
+                var isBtnDisabled = (0, _jquery2.default)('#contact-submit').hasClass('btn-site--disabled');
+                if (isBtnDisabled) {
+                    return;
+                }
+
+                (0, _jquery2.default)('#contact-submit').addClass('btn-site--disabled');
+                (0, _jquery2.default)('#contact-submit .btn-caption').hide();
+                (0, _jquery2.default)('#contact-submit .spinner').show();
+
+                var inputElements = (0, _jquery2.default)("#contact-form").find('input, textarea, select');
+                var formValues = {};
+
+                inputElements.each(function () {
+                    if (this.name) {
+                        if (this.type == "checkbox" || this.type == "radio") {
+                            if (this.checked) {
+                                formValues[this.name] = this.value;
+                            }
+                        } else {
+                            formValues[this.name] = this.value;
+                        }
+                    }
+                });
+
+                // console.log("formValues : " + JSON.stringify(formValues));
+
+                _jquery2.default.ajax({
+                    url: "./assets/php/contactform.php",
+                    method: "POST",
+                    data: formValues,
+                    success: function success(result) {
+                        // console.log("AJAX post result result : " + JSON.stringify(result));
+                        (0, _jquery2.default)('div[data-error-id]').text("");
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').text("");
+
+                        if ((0, _keys2.default)(result.errors).length > 0) {
+                            for (var inputName in result.errors) {
+                                // console.log("error in " + inputName + ": " + result.errors[inputName]);
+                                (0, _jquery2.default)('div[data-error-id="' + inputName + '"]').text(result.errors[inputName]).hide().slideDown();
+                            }
+                            grecaptcha.reset();
+                        } else {
+                            // console.log("Success");
+                            (0, _jquery2.default)('div[data-error-id="contact-result"]').text("Thank you. Your message has been sent.");
+                            (0, _jquery2.default)('div[data-error-id="contact-result"]').removeClass('site-form--danger').addClass('site-form--success');
+
+                            (0, _jquery2.default)('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp().promise().done(function () {
+                                // console.log('resetting...');
+                                (0, _jquery2.default)('#contact-form input').val("");
+                                (0, _jquery2.default)('#contact-form textarea').val("");
+                                grecaptcha.reset();
+                                (0, _jquery2.default)('#contact-form label').removeClass('site-form__label--activated');
+                            });
+                        }
+
+                        _self.navigation.updateGrid();
+
+                        setTimeout(function () {
+                            (0, _jquery2.default)('#contact-submit').removeClass('btn-site--disabled');
+                            (0, _jquery2.default)('#contact-submit .btn-caption').show();
+                            (0, _jquery2.default)('#contact-submit .spinner').hide();
+                        }, 1000);
+                    },
+                    error: function error(jqXHR, textStatus) {
+                        console.log(jqXHR);
+                        console.log("Request failed: " + textStatus);
+                        grecaptcha.reset();
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').removeClass('alert-success');
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').addClass('alert-danger');
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').text("Sorry... Your message could not have been delivered.");
+                        (0, _jquery2.default)('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp();
+
+                        _self.navigation.updateGrid();
+
+                        setTimeout(function () {
+                            (0, _jquery2.default)('#contact-submit').removeClass('btn-site--disabled');
+                            (0, _jquery2.default)('#contact-submit .btn-caption').show();
+                            (0, _jquery2.default)('#contact-submit .spinner').hide();
+                        }, 1000);
+                    }
+
+                }); // the end of ajax call to post formValues
+            }); // the end of form submit function
+        }
+    }]);
+    return ContactForm;
+}();
+
+;
+
+exports.default = ContactForm;
 
 /***/ }),
 /* 119 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var core = __webpack_require__(30);
-var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
-module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
-  return $JSON.stringify.apply($JSON, arguments);
-};
-
-
-/***/ }),
-/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28562,10 +28704,6 @@ Object.defineProperty(exports, "__esModule", {
 var _keys = __webpack_require__(114);
 
 var _keys2 = _interopRequireDefault(_keys);
-
-var _stringify = __webpack_require__(118);
-
-var _stringify2 = _interopRequireDefault(_stringify);
 
 var _classCallCheck2 = __webpack_require__(92);
 
@@ -28582,22 +28720,30 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ReservationForm = function () {
-    function ReservationForm() {
+    function ReservationForm(nav) {
         (0, _classCallCheck3.default)(this, ReservationForm);
+
+        this.navigation = nav;
     }
 
     (0, _createClass3.default)(ReservationForm, [{
         key: 'initReservationForm',
         value: function initReservationForm() {
+            var _self = this;
 
             (0, _jquery2.default)('#reservation-submit').on("click", function (e) {
                 e.preventDefault();
+                var isBtnDisabled = (0, _jquery2.default)('#reservation-submit').hasClass('btn-site--disabled');
+                if (isBtnDisabled) {
+                    return;
+                }
                 (0, _jquery2.default)("#reservation-form").submit();
             });
 
             (0, _jquery2.default)("#reservation-form").submit(function (e) {
                 e.preventDefault();
 
+                (0, _jquery2.default)('#reservation-submit').addClass('btn-site--disabled');
                 (0, _jquery2.default)('#reservation-submit .btn-caption').hide();
                 (0, _jquery2.default)('#reservation-submit .spinner').show();
 
@@ -28616,20 +28762,20 @@ var ReservationForm = function () {
                     }
                 });
 
-                console.log("formValues : " + (0, _stringify2.default)(formValues));
+                // console.log("formValues : " + JSON.stringify(formValues));
 
                 _jquery2.default.ajax({
                     url: "./assets/php/reservationform.php",
                     method: "POST",
                     data: formValues,
                     success: function success(result) {
-                        console.log("AJAX post result result : " + (0, _stringify2.default)(result));
+                        // console.log("AJAX post result : " + JSON.stringify(result));
                         (0, _jquery2.default)('#reservation-form div[data-error-id]').text("");
                         (0, _jquery2.default)('div[data-error-id="reservation-result"]').text("");
 
                         if ((0, _keys2.default)(result.errors).length > 0) {
                             for (var inputName in result.errors) {
-                                console.log("error in " + inputName + ": " + result.errors[inputName]);
+                                // console.log("error in " + inputName + ": " + result.errors[inputName]);
                                 (0, _jquery2.default)('div[data-error-id="' + inputName + '"]').text(result.errors[inputName]).hide().slideDown();
                             }
                             // grecaptcha.reset();
@@ -28639,15 +28785,21 @@ var ReservationForm = function () {
                             (0, _jquery2.default)('div[data-error-id="reservation-result"]').removeClass('site-form--danger').addClass('site-form--success');
 
                             (0, _jquery2.default)('div[data-error-id="reservation-result"]').slideDown().delay(4000).slideUp().promise().done(function () {
-                                console.log('resetting form...');
+                                // .log('resetting form...');
                                 (0, _jquery2.default)('#reservation-form input').val("");
                                 (0, _jquery2.default)('#reservation-form textarea').val("");
                                 grecaptcha.reset();
                                 (0, _jquery2.default)('#reservation-form label').removeClass('site-form__label--activated');
                             });
                         }
-                        (0, _jquery2.default)('#reservation-submit .btn-caption').show();
-                        (0, _jquery2.default)('#reservation-submit .spinner').hide();
+
+                        _self.navigation.updateGrid();
+
+                        setTimeout(function () {
+                            (0, _jquery2.default)('#reservation-submit').removeClass('btn-site--disabled');
+                            (0, _jquery2.default)('#reservation-submit .btn-caption').show();
+                            (0, _jquery2.default)('#reservation-submit .spinner').hide();
+                        }, 1000);
                     },
                     error: function error(jqXHR, textStatus) {
                         console.log(jqXHR);
@@ -28657,8 +28809,14 @@ var ReservationForm = function () {
                         (0, _jquery2.default)('div[data-error-id="reservation-result"]').addClass('alert-danger');
                         (0, _jquery2.default)('div[data-error-id="reservation-result"]').text("Sorry... Your message could not have been delivered.");
                         (0, _jquery2.default)('div[data-error-id="reservation-result"]').slideDown().delay(4000).slideUp();
-                        (0, _jquery2.default)('#reservation-submit .btn-caption').show();
-                        (0, _jquery2.default)('#reservation-submit .spinner').hide();
+
+                        _self.navigation.updateGrid();
+
+                        setTimeout(function () {
+                            (0, _jquery2.default)('#reservation-submit').removeClass('btn-site--disabled');
+                            (0, _jquery2.default)('#reservation-submit .btn-caption').show();
+                            (0, _jquery2.default)('#reservation-submit .spinner').hide();
+                        }, 1000);
                     }
 
                 }); // the end of ajax call to post formValues
@@ -28673,7 +28831,7 @@ var ReservationForm = function () {
 exports.default = ReservationForm;
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28682,10 +28840,6 @@ exports.default = ReservationForm;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _keys = __webpack_require__(114);
-
-var _keys2 = _interopRequireDefault(_keys);
 
 var _classCallCheck2 = __webpack_require__(92);
 
@@ -28701,95 +28855,147 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var LangController = function () {
-    function LangController() {
-        (0, _classCallCheck3.default)(this, LangController);
+var Holidays = function () {
+    function Holidays(nav) {
+        (0, _classCallCheck3.default)(this, Holidays);
 
-        this.langDefs = {
-            'english': {
-                'short': 'en',
-                'full': 'english',
-                'active': true
+        this.navigation = nav;
+        this.CzechHolidays = {
+            "restoration of the czech independence day": {
+                cz: "Den obnovy samostatného českého státu",
+                en: "Restoration of the Czech Independence Day, New Year's Day"
             },
-            'czech': {
-                'short': 'cz',
-                'full': 'czech',
-                'active': false
+            "new Year's day": {
+                cz: "Nový rok",
+                en: "New Year's Day"
+            },
+            "good friday": {
+                cz: "Velký pátek",
+                en: "Good Friday"
+            },
+            "easter monday": {
+                cz: "Velikonoční pondělí",
+                en: "Easter Monday"
+            },
+            "labor day": {
+                cz: "Svátek práce",
+                en: "Labor Day / May Day"
+            },
+            "victory in europe day": {
+                cz: "Den vítězství",
+                en: "Victory in Europe Day"
+            },
+            "saints cyril and methodius": {
+                cz: "Den slovanských věrozvěstů Cyrila a Metoděje",
+                en: "Saints Cyril and Methodius"
+            },
+            "jan hus day": {
+                cz: "Den upálení mistra Jana Husa",
+                en: "Jan Hus Day"
+            },
+            "st. wenceslas day": {
+                cz: "Den české státnosti",
+                en: "St. Wenceslas Day"
+            },
+            "independent czechoslovak state day": {
+                cz: "Den vzniku samostatného československého státu",
+                en: "Independent Czechoslovak State Day"
+            },
+            "struggle for freedom and democracy day": {
+                cz: "Den boje za svobodu a demokracii",
+                en: "Struggle for Freedom and Democracy Day"
+            },
+            "christmas eve": {
+                cz: "Štědrý den",
+                en: "Christmas Eve"
+            },
+            "christmas day": {
+                cz: "1. svátek vánoční",
+                en: "Christmas Day"
+            },
+            "st. stephen's day": {
+                cz: "2. svátek vánoční",
+                en: "St. Stephen's Day"
             }
         };
-        this.URL = './assets/data/langDB.json';
-        this.langSwitch = (0, _jquery2.default)("#lang-switch");
-        this.getLangDB(this.URL);
-        // this.events();
+
+        this.HolidaysCZ;
+        this.HolidaysCZYearAhead;
+        this.getHolidaysData();
     }
 
-    (0, _createClass3.default)(LangController, [{
-        key: 'events',
-        value: function events() {
+    (0, _createClass3.default)(Holidays, [{
+        key: "getHolidaysData",
+        value: function getHolidaysData() {
             var _self = this;
-            (0, _jquery2.default)(this.langSwitch).on('click', function () {
-                var $next = (0, _jquery2.default)(this).children('.lang-btn--active').next();
-                if ($next.length === 0) {
-                    (0, _jquery2.default)(this).children().removeClass('lang-btn--active').eq(0).addClass('lang-btn--active').animateCss('pulse');
-                } else {
-                    (0, _jquery2.default)(this).children('.lang-btn--active').removeClass('lang-btn--active').next().addClass('lang-btn--active').animateCss('pulse');
+
+            _jquery2.default.get("https://www.googleapis.com/calendar/v3/calendars/en.czech%23holiday%40group.v.calendar.google.com/events?key=AIzaSyC0_YQ9tuOphHXitIFVZAn0ltCgq9zjCOo", function (data) {
+                console.log('Retrieved holidays from Google API.');
+                _self.HolidaysCZ = _self.getPublicHolidays(data);
+                _self.HolidaysCZYearAhead = _self.getPublicHolidaysYearAhead(_self.HolidaysCZ);
+                _self.updateUI(_self.HolidaysCZYearAhead);
+            });
+        }
+    }, {
+        key: "getPublicHolidays",
+        value: function getPublicHolidays(data) {
+            var czechHolidays = [];
+            for (var i = 0; i < data.items.length; i++) {
+                var keyAPI = data.items[i].summary.toLowerCase().trim();
+                if (this.CzechHolidays[keyAPI]) {
+                    czechHolidays.push({
+                        key: keyAPI,
+                        name: this.CzechHolidays[keyAPI],
+                        date: data.items[i].start.date
+                    });
                 }
-                var active = (0, _jquery2.default)(this).children('.lang-btn--active').attr('id');
-                active = active.split('-').pop();
-                _self.translate(active);
-            });
+            }
+            return czechHolidays;
         }
     }, {
-        key: 'getLangDB',
-        value: function getLangDB(url, callbackFn) {
-            var _self = this;
-            callbackFn = callbackFn || function () {};
-            _jquery2.default.getJSON(url, function () {}).done(function (data) {
-                console.log("languages loaded...");
-                console.log(data);
-                _self.langDB = data;
-                _self.buildLangSwitch(_self.langDefs);
-                _self.events();
-            }).fail(function (jqxhr, textStatus, error) {
-                var err = textStatus + ": " + error;
-                console.log("Unable to load lang DB: " + err);
-                _self.langDB = [];
-                (0, _jquery2.default)('#lang-switch').parent().remove();
-            }).always(function () {
-                callbackFn();
-            });
-        }
-    }, {
-        key: 'translate',
-        value: function translate(langKey) {
-            var _self = this;
-            (0, _jquery2.default)('[data-lang]').each(function (key, val) {
-                var dataKey = (0, _jquery2.default)(val).data('lang');
-                (0, _jquery2.default)(this).text(_self.langDB[dataKey][langKey]).animateCss('pulse');
-            });
-        }
-    }, {
-        key: 'buildLangSwitch',
-        value: function buildLangSwitch(lngDefinitions) {
-            var html = '';
-            (0, _jquery2.default)((0, _keys2.default)(lngDefinitions)).each(function (key, val) {
-                var activeClass = '';
-                if (lngDefinitions[val].active) {
-                    activeClass = 'lang-btn--active';
+        key: "getPublicHolidaysYearAhead",
+        value: function getPublicHolidaysYearAhead(data) {
+            var czechHolidaysYearAhead = [];
+            var now = new Date();
+            var yearAhead = new Date(now.getTime() + 365 * 60 * 60 * 24 * 1000);
+            for (var i = 0; i < data.length; i++) {
+                var date = new Date(data[i].date);
+                // console.log(date, yearAhead);
+                if (date >= now && date < yearAhead) {
+                    czechHolidaysYearAhead.push(data[i]);
                 }
-                html += '<div id="lang-switch-' + lngDefinitions[val].short + '" class="lang-btn ' + activeClass + '">';
-                html += '<span class="lang-btn-text__short">' + lngDefinitions[val].short + '</span>';
-                html += '<span class="lang-btn-text__full" data-lang="' + lngDefinitions[val].full + '">' + lngDefinitions[val].full + '</span>';
-                html += '</div>';
-            });
-            (0, _jquery2.default)('#lang-switch').append(html);
+            }
+            return czechHolidaysYearAhead;
+        }
+    }, {
+        key: "updateUI",
+        value: function updateUI(data) {
+            var thisWeekHolidays = [];
+            var now = new Date();
+            // now.setDate(20);
+            var startweek = new Date(now.getTime() - (now.getDay() - 1) * 60 * 60 * 24 * 1000 - now.getHours() * 60 * 60 * 1000 - now.getMinutes() * 60 * 1000 - now.getSeconds() * 1000);
+            var endweek = new Date(startweek.getTime() + 6 * 60 * 60 * 24 * 1000);
+            for (var i = 0; i < data.length; i++) {
+                var date = new Date(data[i].date);
+                // console.log(date, startweek, endweek);
+                if (date >= startweek && date <= endweek) {
+                    // console.log('date... ' + date.toLocaleDateString());
+                    thisWeekHolidays.push(data[i].name.en + ', ' + date.toLocaleDateString() + ' ');
+                }
+            }
+            if (thisWeekHolidays.length > 0) {
+                (0, _jquery2.default)('.site-card__publicholidays--week').show();
+                (0, _jquery2.default)('.site-card__publicholidays--week-holder').text(thisWeekHolidays);
+                this.navigation.updateGrid();
+            }
         }
     }]);
-    return LangController;
-}(); /*jshint esversion: 6 */
+    return Holidays;
+}();
 
+;
 
-exports.default = LangController;
+exports.default = Holidays;
 
 /***/ })
 /******/ ]);
