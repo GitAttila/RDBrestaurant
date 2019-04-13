@@ -67,3 +67,9 @@ typings/
 .env
 
 .vscode
+
+.BridgeSort
+
+.DS_Store
+
+dist
