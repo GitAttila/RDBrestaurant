@@ -5,6 +5,8 @@ import LangController from './lang';
 import ContactForm from './contactform';
 import ReservationForm from './reservationform';
 import Holidays from './holidays';
+import imagesLoaded from 'imagesloaded';
+
 class Menu {
 
     constructor() {
@@ -246,17 +248,23 @@ class Menu {
             let html = this.buildMenu(this.menu,'en');
             $('#menuGrid').append(html);
             this.buildMenuCategories();
-            setTimeout(()=>{
-                this.navigation = new Navigation();
-                this.languageController = new LangController(this.navigation);
-                this.contactform = new ContactForm(this.navigation);
-                this.contactform.initContactForm();
-                this.reservationForm = new ReservationForm(this.navigation);
-                this.reservationForm.initReservationForm();
-                this.holidays = new Holidays(this.navigation);
-                // init filtering to show 'about' grid initially
-                this.navigation.navGrid.arrange({ filter: '[data-menu*="about"]' });
-            },1000)
+            imagesLoaded( '#main-section', function() {
+                // images have loaded
+                console.log('images have loaded...');
+                setTimeout(()=>{
+                    $('#main-section').css('opacity',1);
+                    this.navigation = new Navigation();
+                    this.languageController = new LangController(this.navigation);
+                    this.contactform = new ContactForm(this.navigation);
+                    this.contactform.initContactForm();
+                    this.reservationForm = new ReservationForm(this.navigation);
+                    this.reservationForm.initReservationForm();
+                    this.holidays = new Holidays(this.navigation);
+                    // init filtering to show 'about' grid initially
+                    this.navigation.navGrid.arrange({ filter: '[data-menu*="about"]' });
+                },1000)
+            });
+
         });
     }
 

@@ -48,6 +48,7 @@
     "animatewithsassclass": "^3.2.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-stage-2": "^6.24.1",
+    "imagesloaded": "^4.1.4",
     "isotope-layout": "^3.0.6",
     "isotope-packery": "^2.0.1",
     "jquery": "^3.3.1",
