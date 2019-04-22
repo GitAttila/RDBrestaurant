@@ -20453,7 +20453,7 @@ var Menu = function () {
         this.categoryConfig = {
             'starters': {
                 filterTags: 'all meals, starters',
-                categoryThemingClass: 'site-card__secondary'
+                categoryTheming: 'site-card__secondary'
             },
             'soup': {
                 filterTags: 'all meals, soup',
@@ -20588,7 +20588,7 @@ var Menu = function () {
 
         this.menu = this.getMenu(this.URL, function () {
             var html = _this.buildMenu(_this.menu, 'en');
-            (0, _jquery2.default)('#mainGrid').append(html);
+            (0, _jquery2.default)('#menuGrid').append(html);
             _this.buildMenuCategories();
             setTimeout(function () {
                 _this.navigation = new _navigation2.default();
@@ -20599,7 +20599,7 @@ var Menu = function () {
                 _this.reservationForm.initReservationForm();
                 _this.holidays = new _holidays2.default(_this.navigation);
                 // init filtering to show 'about' grid initially
-                _this.navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
+                _this.navigation.navGrid.arrange({ filter: '[data-menu*="about"]' });
             }, 1000);
         });
     }
@@ -20608,7 +20608,7 @@ var Menu = function () {
         key: 'buildMenuCategories',
         value: function buildMenuCategories() {
 
-            var $menuContainers = (0, _jquery2.default)('#mainGrid .grid-layout__item--menu');
+            var $menuContainers = (0, _jquery2.default)('#menuGrid .grid-layout__item--menu');
             var $buttons = (0, _jquery2.default)('#menucategories-filter');
             var tagged = {};
 
@@ -20700,7 +20700,7 @@ var Menu = function () {
                 }
                 html += '</div></div>';
             }
-
+            html = '<div class="grid-layout--menu-sizer"></div>' + html + '</div>';
             return html;
         }
     }, {
@@ -20813,7 +20813,9 @@ var Navigation = function () {
 
         this.scrollActions = new _scrolling_actions2.default();
         this.mainGrid = (0, _jquery2.default)('#mainGrid');
-        this.Grid = new _isotopeLayout2.default(this.mainGrid[0], {
+        this.menuGrid = (0, _jquery2.default)('#menuGrid');
+        this.sizer = (0, _jquery2.default)('#main-sizer');
+        this.navGrid = new _isotopeLayout2.default(this.mainGrid[0], {
             percentPosition: true,
             itemSelector: '.grid-layout__item',
             stagger: 50,
@@ -20822,20 +20824,34 @@ var Navigation = function () {
             }
         });
 
-        this.events(this.Grid);
+        this.navMenuGrid = new _isotopeLayout2.default(this.menuGrid[0], {
+            percentPosition: true,
+            itemSelector: '.grid-layout__item--menu',
+            stagger: 50,
+            masonry: {
+                columnWidth: '.grid-layout--menu-sizer'
+            }
+        });
+
+        this.events(this.navGrid, this.navMenuGrid);
 
         this.updateGrid = function () {
-            this.Grid.layout();
+            this.navGrid.layout();
+        };
+        this.updateMenuGrid = function () {
+            this.navMenuGrid.layout();
         };
     }
 
     (0, _createClass3.default)(Navigation, [{
         key: 'events',
-        value: function events(grid) {
-            var actualMenuCat = void 0;
+        value: function events(grid, menuGrid) {
+            var actualMenuCat = '';
             var lastNavMenuClicked = 'about';
             self = this;
-            grid = grid || this.Grid;
+            grid = grid || self.navGrid;
+            menuGrid = menuGrid || self.navMenuGrid;
+
             (0, _jquery2.default)("#menuContent [data-filter]").on('click', function (e) {
                 var isNavItemDisabled = (0, _jquery2.default)(this).hasClass('primary-nav__link--disabled');
                 e.preventDefault();
@@ -20855,12 +20871,13 @@ var Navigation = function () {
                 // console.log(filterValue);
                 if (filterValue === 'menu') {
                     var tooltips = new _tooltips2.default();
-                    // tooltips.initTooltips();
+                    (0, _jquery2.default)('#menuGrid').fadeIn(500, function () {
+                        self.updateMenuGrid();
+                    });
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideDown();
-                    (0, _jquery2.default)('#menucategories-filter .btn-site').removeClass('btn-site--active');
-                    (0, _jquery2.default)('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
                     (0, _jquery2.default)('#allergenes-icon').show();
                 } else {
+                    (0, _jquery2.default)('#menuGrid').hide();
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideUp();
                     (0, _jquery2.default)('#allergenes-icon').hide();
                 }
@@ -20950,7 +20967,7 @@ var Navigation = function () {
                 var filVal = (0, _jquery2.default)(e.target).data('filter').toLowerCase().trim();
                 (0, _jquery2.default)('#menucategories-filter a.btn-site').removeClass('btn-site--active');
                 (0, _jquery2.default)(e.target).addClass('btn-site--active');
-                grid.arrange({
+                menuGrid.arrange({
                     filter: function filter(item) {
                         var found = false;
                         var itemData = (0, _jquery2.default)(item).data("menu").toLowerCase().trim();
@@ -20964,15 +20981,27 @@ var Navigation = function () {
                     }
                 });
                 // if only one gri item is rpesent after filtereing, spread it across the screen
-                if (grid.filteredItems.length === 1) {
-                    (0, _jquery2.default)(grid.filteredItems[0].element).addClass('grid-layout__item--width-full');
+                if (menuGrid.filteredItems.length === 1) {
+                    (0, _jquery2.default)(menuGrid.filteredItems[0].element).addClass('grid-layout__item--width-full');
                     // otherwise take the 100% width class away if there are more than one grid items after filter has been applied
                 } else {
-                    (0, _jquery2.default)(grid.filteredItems).each(function (key, val) {
+                    (0, _jquery2.default)(menuGrid.filteredItems).each(function (key, val) {
                         (0, _jquery2.default)(val.element).removeClass('grid-layout__item--width-full');
                     });
                 }
-                grid.layout();
+
+                menuGrid.once('arrangeComplete', function (filteredItems) {
+                    var delayed = 300;
+                    (0, _jquery2.default)(filteredItems).each(function (key, val) {
+                        (0, _jquery2.default)(val.element).stop().animateCss('pulse', delayed, function () {
+                            if (key === filteredItems.length - 1) {
+                                // console.log('animation completed...');
+                                (0, _jquery2.default)('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
+                                (0, _jquery2.default)('#menuContent .primary-nav__link').blur();
+                            }
+                        });
+                    });
+                });
             });
 
             var showAllergenes = function showAllergenes(modalEl) {

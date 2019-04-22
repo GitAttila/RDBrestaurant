@@ -87,7 +87,7 @@ class Menu {
             'starters':
                 {
                     filterTags: 'all meals, starters',
-                    categoryThemingClass: 'site-card__secondary',
+                    categoryTheming: 'site-card__secondary',
                 },
             'soup':
                 {
@@ -244,7 +244,7 @@ class Menu {
 
         this.menu = this.getMenu(this.URL,()=>{
             let html = this.buildMenu(this.menu,'en');
-            $('#mainGrid').append(html);
+            $('#menuGrid').append(html);
             this.buildMenuCategories();
             setTimeout(()=>{
                 this.navigation = new Navigation();
@@ -255,14 +255,14 @@ class Menu {
                 this.reservationForm.initReservationForm();
                 this.holidays = new Holidays(this.navigation);
                 // init filtering to show 'about' grid initially
-                this.navigation.Grid.arrange({ filter: '[data-menu*="about"]' });
+                this.navigation.navGrid.arrange({ filter: '[data-menu*="about"]' });
             },1000)
         });
     }
 
     buildMenuCategories() {
 
-        let $menuContainers = $('#mainGrid .grid-layout__item--menu');
+        let $menuContainers = $('#menuGrid .grid-layout__item--menu');
         let $buttons = $('#menucategories-filter');
 		let tagged = {};
 
@@ -356,9 +356,8 @@ class Menu {
                 html +='</div>';
             }
             html +='</div></div>';
-            
         }
-        
+        html ='<div class="grid-layout--menu-sizer"></div>' + html + '</div>';
         return html;
     }
 

@@ -12,7 +12,9 @@ class Navigation {
     constructor() {
         this.scrollActions = new ScrollingActions();
         this.mainGrid = $('#mainGrid');
-        this.Grid = new Isotope( this.mainGrid[0], {
+        this.menuGrid = $('#menuGrid');
+        this.sizer = $('#main-sizer');
+        this.navGrid = new Isotope( this.mainGrid[0], {
             percentPosition : true,
             itemSelector: '.grid-layout__item',
             stagger:50,
@@ -21,18 +23,32 @@ class Navigation {
             }
         });
 
-        this.events(this.Grid);
+        this.navMenuGrid = new Isotope( this.menuGrid[0], {
+            percentPosition : true,
+            itemSelector: '.grid-layout__item--menu',
+            stagger:50,
+            masonry: {
+                columnWidth: '.grid-layout--menu-sizer'
+            }
+        });
+
+        this.events(this.navGrid, this.navMenuGrid);
 
         this.updateGrid = function() {
-            this.Grid.layout();
+            this.navGrid.layout();
+        };
+        this.updateMenuGrid = function() {
+            this.navMenuGrid.layout();
         };
     }
 
-    events(grid) {  
-        let actualMenuCat;
+    events(grid, menuGrid) {  
+        let actualMenuCat = '';
         let lastNavMenuClicked='about';
         self = this;
-        grid = grid || this.Grid;
+        grid = grid || self.navGrid;
+        menuGrid = menuGrid || self.navMenuGrid;
+
         $("#menuContent [data-filter]").on('click', function(e){
             let isNavItemDisabled = $(this).hasClass('primary-nav__link--disabled');
             e.preventDefault();
@@ -50,12 +66,15 @@ class Navigation {
             // console.log(filterValue);
             if (filterValue==='menu') {
                 let tooltips = new Tooltips();
-                // tooltips.initTooltips();
+                $('#menuGrid').fadeIn(500,
+                    function() {
+                        self.updateMenuGrid();
+                    }
+                );
                 $(".menu-categories-wrapper ").slideDown();
-                $('#menucategories-filter .btn-site').removeClass('btn-site--active');
-                $('#menucategories-filter .btn-site').eq(0).addClass('btn-site--active');
                 $('#allergenes-icon').show();
             }  else {
+                $('#menuGrid').hide();
                 $(".menu-categories-wrapper ").slideUp();
                 $('#allergenes-icon').hide();
             }
@@ -148,7 +167,7 @@ class Navigation {
             let filVal = $(e.target).data('filter').toLowerCase().trim();
             $('#menucategories-filter a.btn-site').removeClass('btn-site--active');
             $(e.target).addClass('btn-site--active');
-            grid.arrange({
+            menuGrid.arrange({
                 filter: function(item){
                     let found = false;
                     let itemData = $(item).data("menu").toLowerCase().trim();
@@ -162,15 +181,28 @@ class Navigation {
                 }
             });
             // if only one gri item is rpesent after filtereing, spread it across the screen
-            if (grid.filteredItems.length===1) {
-                $(grid.filteredItems[0].element).addClass('grid-layout__item--width-full');
+            if (menuGrid.filteredItems.length===1) {
+                $(menuGrid.filteredItems[0].element).addClass('grid-layout__item--width-full');
             // otherwise take the 100% width class away if there are more than one grid items after filter has been applied
             } else {
-                $(grid.filteredItems).each(function(key,val){
+                $(menuGrid.filteredItems).each(function(key,val){
                     $(val.element).removeClass('grid-layout__item--width-full');
                 });
             }
-            grid.layout();
+
+            menuGrid.once( 'arrangeComplete', function( filteredItems ) {
+                let delayed = 300;
+                $(filteredItems).each(function(key,val){
+                    $(val.element).stop().animateCss('pulse', delayed, ()=>{
+                        if (key === (filteredItems.length-1)) {
+                            // console.log('animation completed...');
+                            $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
+                            $('#menuContent .primary-nav__link').blur();
+                        }
+                    });
+                });
+            });
+
         });
 
         var showAllergenes = function(modalEl){
