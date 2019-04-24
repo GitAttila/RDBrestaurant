@@ -20887,6 +20887,8 @@ var Navigation = function () {
                     });
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideDown();
                     (0, _jquery2.default)('#allergenes-icon').show();
+                    (0, _jquery2.default)('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
+                    (0, _jquery2.default)('#menuContent .primary-nav__link').blur();
                 } else {
                     (0, _jquery2.default)('#menuGrid').hide();
                     (0, _jquery2.default)(".menu-categories-wrapper ").slideUp();
