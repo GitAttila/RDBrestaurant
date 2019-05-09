@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-import $ from 'jquery';
+// import $ from 'jquery';
 import Isotope from "isotope-layout";
 import Tooltips from './tooltips';
 import ScrollingActions from './scrolling_actions';

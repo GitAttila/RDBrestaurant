@@ -37,12 +37,27 @@
             <!-- For IE > 9 -->
             <script type="text/javascript">
                   if (window.navigator.msPointerEnabled) {
-                  window.location = "https://www.google.com/chrome/";
+                        window.location = "https://www.google.com/chrome/";
                   }
             </script>
       </head>
       
       <body>
+
+      <section class="section section-loading">
+            <div id="loading-spinner" class="rdb-spinner__wrapper">
+                  <img class="rdb-spinner__image" src="./assets/images/logo_RDB_frame.png" alt="RDB logo frame">
+                  <div class="progress rdb-spinner__progress"">
+                        <div class="progress__status"></div>
+                        <div class="progress__bg"></div>
+                  </div>
+                  <div class="rdb-spinner__label">
+                        <span class = "rdb-spinner__label--letter rdb-spinner__label--letter1">R.</span>
+                        <span class = "rdb-spinner__label--letter rdb-spinner__label--letter2">D.</span>
+                        <span class = "rdb-spinner__label--letter">B.</span>
+                  </div>
+            </div>
+      </section>
 
       <header id="site-header" class="site-header">
             <div class="container site-header__wrapper">

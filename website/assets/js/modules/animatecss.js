@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 $.fn.extend({
     animateCss: function(animationName, delay, callback) {
         var self = this;

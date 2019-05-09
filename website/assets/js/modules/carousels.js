@@ -1,5 +1,5 @@
+// import $ from 'jquery';
 import "bootstrap/js/dist/carousel";
-import $ from 'jquery';
 class Carousels {
 
     constructor () {

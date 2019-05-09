@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import Navigation from './navigation';
 import LangController from './lang';
@@ -246,23 +246,40 @@ class Menu {
 
         this.menu = this.getMenu(this.URL,()=>{
             let html = this.buildMenu(this.menu,'en');
+            let brokenCount = 0;
             $('#menuGrid').append(html);
             this.buildMenuCategories();
-            imagesLoaded( '#main-section', function() {
-                // images have loaded
+
+            // $($imagesToCheckContainer)
+            var imgLoaded = imagesLoaded('body', { background: true }, function () {
                 console.log('images have loaded...');
+            });
+            imgLoaded.on( 'always', function( instance ) {
                 setTimeout(()=>{
-                    $('#main-section').css('opacity',1);
-                    this.navigation = new Navigation();
-                    this.languageController = new LangController(this.navigation);
-                    this.contactform = new ContactForm(this.navigation);
-                    this.contactform.initContactForm();
-                    this.reservationForm = new ReservationForm(this.navigation);
-                    this.reservationForm.initReservationForm();
-                    this.holidays = new Holidays(this.navigation);
-                    // init filtering to show 'about' grid initially
-                    this.navigation.navGrid.arrange({ filter: '[data-menu*="about"]' });
-                },1000)
+                    $('section.section-loading').fadeOut(1000, function(){
+                        this.navigation = new Navigation();
+                        this.languageController = new LangController(this.navigation);
+                        this.contactform = new ContactForm(this.navigation);
+                        this.contactform.initContactForm();
+                        this.reservationForm = new ReservationForm(this.navigation);
+                        this.reservationForm.initReservationForm();
+                        this.holidays = new Holidays(this.navigation);
+                        // init filtering to show 'about' grid initially
+                        this.navigation.navGrid.arrange({ filter: '[data-menu*="about"]' });
+                    });
+                },1500);
+            });
+            imgLoaded.on( 'fail', function( instance ) {
+                console.log(
+                    brokenCount + " of images have broken links. Check your image paths."
+                );
+            });
+            imgLoaded.on( 'progress', function( instance, image ) {
+                if (image.isLoaded) {
+                    $('#loading-spinner .progress__status').width(instance.progressedCount / instance.images.length * 100 + '%');
+                } else {
+                    brokenCount++;
+                }
             });
 
         });

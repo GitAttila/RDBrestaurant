@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class LangController {
     constructor(nav) {

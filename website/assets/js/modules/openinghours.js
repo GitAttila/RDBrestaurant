@@ -1,6 +1,4 @@
 /*jshint esversion: 6 */
-import $ from 'jquery';
-import './animatecss';
 class OpeningHours {
     
     constructor() {

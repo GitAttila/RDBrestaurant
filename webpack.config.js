@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
     entry: {
         Vendor: "./website/assets/js/Vendor.js",
-        App: "./website/assets/js/App.js"
+        App: ["@babel/polyfill","./website/assets/js/App.js"]
     },
     mode: 'none',
     output: {
@@ -27,10 +27,9 @@ module.exports = {
         ]
     },
     plugins: [
-        // new webpack.ProvidePlugin({
-        //     $: "jquery",
-        //     jQuery: "jquery",
-        //     "window.jQuery": "jquery"
-        // })
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        })
     ]
 };

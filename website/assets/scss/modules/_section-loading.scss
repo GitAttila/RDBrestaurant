@@ -1,0 +1,102 @@
+.section-loading {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
+    position: fixed;
+    z-index: 1100;
+}
+.rdb-spinner {
+    &__wrapper {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 260px;
+        // min-width: 260px;
+        transform: translate(-50%, -50%);
+
+        img {
+            position: relative;
+            width: 100%;
+            z-index: 2;
+        }
+    }
+
+    &__progress {
+        position: absolute !important;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+
+        &.progress {
+            height: 3rem;
+            border-radius: 1rem;
+            overflow: hidden;
+
+            .progress__bg {
+                width: calc(100% - 1rem);
+                margin-left: 0.5rem;
+                background-color: transparent;
+            }
+
+            .progress__status {
+                background-color: $secondary-background-color;
+            }
+        }
+
+    }
+
+    &__label {
+        color: $highlight-text-color;
+        font-size: 3.3rem;
+        font-family: $logo-font;
+        font-weight: 700;
+        position: absolute !important;
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        display: inline-flex;
+        &--letter {
+            -webkit-animation: rdb-bouncedelay 1.4s infinite ease-in-out both;
+            animation: rdb-bouncedelay 1.4s infinite ease-in-out both;
+        }
+
+        &--letter1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        &--letter2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+    }
+}
+
+@-webkit-keyframes rdb-bouncedelay {
+
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0.7)
+    }
+
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes rdb-bouncedelay {
+
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0.7);
+        transform: scale(0.7);
+    }
+
+    40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
