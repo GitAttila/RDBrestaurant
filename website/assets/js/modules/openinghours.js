@@ -26,7 +26,7 @@ class OpeningHours {
         let msg = "";
         let oh = [
             {
-                openingHr: 12,  //Sunday
+                openingHr: 11,  //Sunday
                 openingMin: 0,
                 closingHr: 22,
                 closingMin: 0
@@ -62,7 +62,7 @@ class OpeningHours {
                 closingMin: 0
             },
             {
-                openingHr: 12,  //Saturday
+                openingHr: 11,  //Saturday
                 openingMin: 0,
                 closingHr: 22,
                 closingMin: 0

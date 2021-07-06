@@ -1,8 +1,8 @@
-// import $ from 'jquery';
-import "bootstrap/js/dist/carousel";
-class Carousels {
+import bootstrap from 'bootstrap/dist/js/bootstrap';
 
+class Carousels {
     constructor () {
+        
         this.carousels = 
             [
                 {
@@ -19,13 +19,17 @@ class Carousels {
         this.initCarousels(this.carousels);
     }
 
-    initCarousels(carousels) { 
+    initCarousels(carousels) {
         carousels = carousels || [];
         carousels.forEach(element => {
-            $(element.selector).carousel({
-                interval: element.interval,
-                ride: element.ride
-            });
+            const carouselSelector = element.selector;
+            new bootstrap.Carousel(
+                carouselSelector,
+                {
+                    interval: element.interval,
+                    ride: element.ride
+                }
+            );
         });
     }
 

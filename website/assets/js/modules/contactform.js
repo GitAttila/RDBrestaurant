@@ -1,4 +1,4 @@
-// import $ from 'jquery';
+
 class ContactForm {
     
     constructor(nav) {
@@ -39,30 +39,24 @@ class ContactForm {
                 }
             });
             
-            // console.log("formValues : " + JSON.stringify(formValues));
-            
             $.ajax({
                 url: "./assets/php/contactform.php",
                 method: "POST",
                 data: formValues,
                 success: function(result) {
-                    // console.log("AJAX post result result : " + JSON.stringify(result));
                     $('div[data-error-id]').text("");
                     $('div[data-error-id="contact-result"]').text("");
     
                     if (Object.keys(result.errors).length > 0) {
                         for (var inputName in result.errors) {
-                            // console.log("error in " + inputName + ": " + result.errors[inputName]);
                             $('div[data-error-id="' + inputName + '"]').text(result.errors[inputName]).hide().slideDown();
                         }
                         grecaptcha.reset();
                     }else {
-                        // console.log("Success");
                         $('div[data-error-id="contact-result"]').text("Thank you. Your message has been sent.");
                         $('div[data-error-id="contact-result"]').removeClass('site-form--danger').addClass('site-form--success');
                         
                         $('div[data-error-id="contact-result"]').slideDown().delay(4000).slideUp().promise().done(function() { 
-                            // console.log('resetting...');
                             $('#contact-form input').val("");
                             $('#contact-form textarea').val("");
                             grecaptcha.reset();
@@ -79,8 +73,6 @@ class ContactForm {
                     },1000);   
                 },
                 error: function(jqXHR, textStatus) {
-                    console.log(jqXHR);
-                    console.log( "Request failed: " + textStatus );
                     grecaptcha.reset();
                     $('div[data-error-id="contact-result"]').removeClass('alert-success');
                     $('div[data-error-id="contact-result"]').addClass('alert-danger');

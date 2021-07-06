@@ -5,24 +5,27 @@ module.exports = {
         Vendor: "./website/assets/js/Vendor.js",
         App: ["@babel/polyfill","./website/assets/js/App.js"]
     },
-    mode: 'none',
+    mode: 'development',
     output: {
         path: __dirname + "/website/temp/js",
         filename: "[name].js"
     },
+    devtool: 'source-map',
     resolve: {
         alias: {'picker' : '../vendors/picker'}
     },
     module: {
         rules: [
             {
-                loader: 'babel-loader',
-                query: {
-                    plugins: ["transform-runtime"],
-                    presets: ['es2015']
-                },
                 test: /\.js$/,
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ["@babel/plugin-transform-runtime", "transform-node-env-inline"],
+                        presets: [["@babel/preset-env", { "targets": {"esmodules": true} }]]
+                    }
+                }
             }
         ]
     },

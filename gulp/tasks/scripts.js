@@ -1,25 +1,19 @@
-var gulp = require('gulp'),
-	webpack = require('webpack');
+var gulp = require('gulp');
+var	webpack = require('webpack');
 
-//Scripts
-gulp.task('scripts', function(callback){  // ['phpscripts','JSONdatafiles']
+function scripts(done) {
 	webpack(require('../../webpack.config'), function(err, stats){
+		console.log('running webpack...');
 		if (err) {
 			console.log(err.toString());
 		}
-		console.log(stats.toString());
-		callback();
+		if (stats) {
+			console.log(stats.toString());
+		}
 	});
-});
+	done();
+};
 
-//PHP scripts
-// gulp.task('phpscripts', function() {
-//     return gulp.src('./website/assets/php/**/*.*')
-//     	.pipe(gulp.dest('./website/temp/php'));
-// });
+const scriptsTask = gulp.series(scripts);
 
-// JSON data files
-// gulp.task("JSONdatafiles", function(){
-// 	return gulp.src('./website/assets/data/*.json')
-// 		.pipe(gulp.dest('./website/temp/data'));
-// });
+exports.scripts = scriptsTask;

@@ -1,6 +1,4 @@
 /*jshint esversion: 6 */
-// import $ from 'jquery';
-import 'bootstrap/js/src/collapse';
 class MobileMenu {
     
     constructor() {
@@ -12,16 +10,14 @@ class MobileMenu {
 
     events() {
         var self = this;
-        $(this.menuContent).on("show.bs.collapse", function(){
+        const menuCon = document.getElementById('menuContent');
+        this.menuContent[0].addEventListener('show.bs.collapse', () => {
             self.toggleTheIcon();
             self.toggleTheMenu();
         });
-        // $(this.menuContent).on("shown.bs.collapse", function(){
-        //     self.toggleTheMenu();
-        // });
-        $(this.menuContent).on("hide.bs.collapse", function(){
-            self.toggleTheMenu();
+        this.menuContent[0].addEventListener('hide.bs.collapse', () => {
             self.toggleTheIcon();
+            self.toggleTheMenu();
         });
     }
     

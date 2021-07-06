@@ -1,11 +1,22 @@
-var gulp = require("gulp"),
-	autoprefixer = require("gulp-autoprefixer"),
-	sourcemaps= require("gulp-sourcemaps"),
-	sass = require("gulp-sass"),
-	cleanCSS = require("gulp-clean-css"),
-	concat = require("gulp-concat");
+var gulp = require("gulp");
+var	autoprefixer = require("gulp-autoprefixer");
+var	sourcemaps= require("gulp-sourcemaps");
+var	sass = require("gulp-dart-sass");
+var	cleanCSS = require("gulp-clean-css");
+var	concat = require("gulp-concat");
 
-gulp.task('styles',['css-styles'], function(){
+function cssStyles() {
+	return gulp.src('./website/assets/css/vendors/*.css')
+		.on('error',function(errorInfo){
+			console.log(errorInfo.toString());
+			this.emit('end');
+		})
+		.pipe(cleanCSS())
+		.pipe(concat('vendors.css'))
+		.pipe(gulp.dest('./website/temp/styles'));
+};
+
+function sassStyles () {
 	return gulp.src('./website/assets/scss/sitestyles.scss')
 		.on('error',function(errorInfo){
 			console.log(errorInfo.toString());
@@ -22,15 +33,9 @@ gulp.task('styles',['css-styles'], function(){
         }))
         .pipe(sourcemaps.write())
 		.pipe(gulp.dest('./website/temp/styles'));
-});
+};
 
-gulp.task('css-styles', function(){
-	return gulp.src('./website/assets/css/vendors/*.css')
-		.on('error',function(errorInfo){
-			console.log(errorInfo.toString());
-			this.emit('end');
-		})
-		.pipe(cleanCSS())
-		.pipe(concat('vendors.css'))
-		.pipe(gulp.dest('./website/temp/styles'));
-});
+const styles = gulp.series(cssStyles, sassStyles);
+
+exports.styles = styles;
+

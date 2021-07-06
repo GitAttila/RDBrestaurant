@@ -1,5 +1,4 @@
-import "popper.js/dist/umd/popper";
-import "bootstrap/js/dist/tooltip";
+import bootstrap from 'bootstrap/dist/js/bootstrap';
 
 class Tooltips {
 
@@ -8,7 +7,10 @@ class Tooltips {
     }
 
     initTooltips() {
-        $('[data-toggle="tooltip"]').tooltip();
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
     }
 
 }

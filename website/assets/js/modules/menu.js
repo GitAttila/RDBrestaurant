@@ -428,7 +428,7 @@ class Menu {
         }
         txt = '<div class="allergenes__group">';
         for (let a=0;a<allergArr.length;a++) {
-            txt+= '<div class="allergenes__item" data-toggle="tooltip" data-placement="top" title="' + this.allergenesList[allergArr[a]-1].tooltipContent + '">';
+            txt+= '<div class="allergenes__item" data-bs-toggle="tooltip" data-bs-placement="top" title="' + this.allergenesList[allergArr[a]-1].tooltipContent + '">';
             txt+= '<img src="' + this.imagePath + this.allergenesList[allergArr[a]-1].imageFileName + '" alt="' + this.allergenesList[allergArr[a]-1].alt + '">';
             txt+= '</div>';
         }

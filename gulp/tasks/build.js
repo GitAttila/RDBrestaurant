@@ -1,42 +1,45 @@
-var gulp = require('gulp'),
-	imagemin = require('gulp-imagemin'),
-	imageminPngQuant = require('imagemin-pngquant'),
-	imageminJpegRecompress = require('imagemin-jpeg-recompress'),
-	del = require('del'),
-	usemin = require('gulp-usemin'),
-	rev = require('gulp-rev'),
-	cssnano = require('gulp-cssnano'),
-	uglify = require('gulp-uglify'),
-	browserSync = require('browser-sync').create();
 
-gulp.task('previewDist', function(){
-	browserSync.init({
+const styles = require('./styles').styles;
+const scripts = require('./scripts').scripts;
+const fonts = require('./fonts').fonts;
+
+const gulp = require('gulp');
+const imagemin = require('gulp-imagemin');
+const imageminPngQuant = require('imagemin-pngquant');
+const imageminJpegRecompress = require('imagemin-jpeg-recompress');
+const del = require('del');
+const usemin = require('gulp-usemin');
+const rev = require('gulp-rev');
+const cssnano = require('gulp-cssnano');
+const uglify = require('gulp-uglify');
+const browserSync = require('browser-sync');
+const server = browserSync.create();
+
+gulp.task('previewDist', function(done){
+	server.init({
 		notify: false,
 		server: {
 			baseDir: "dist"
 		}
 	});
+	done();
 });
 
-gulp.task('deleteDistFolder', function(){
-	return del("./dist");
-});
+const deleteDistFolder = () => {
+	return del('./dist');
+}
 
-gulp.task('deleteDistFolderQuick', function(){
-	return del.sync([
+const deleteDistFolderQuick = (done) => {
+	del.sync([
 		'./dist/**/*',
 		'!./dist/assets',
 		'!./dist/assets/images',
 		'!./dist/assets/images/**/*'
 	]);
-});
+	done();
+};
 
-gulp.task('copyHTMLFiles', ['deleteDistFolder'], function(){
-	return gulp.src('./website/*.html')
-		.pipe(gulp.dest('./dist'));
-});
-
-gulp.task('copyGeneralFiles', ['copyHTMLFiles'], function(){
+const copyGeneralFiles = () => {
 	var pathsToCopy = [
 		'./website/assets/**/*',
 		'!./website/assets/images',
@@ -53,17 +56,16 @@ gulp.task('copyGeneralFiles', ['copyHTMLFiles'], function(){
 		'!./website/temp/styles',
 		'!./website/temp/styles/**'
 	];
-
 	return gulp.src(pathsToCopy)
 		.pipe(gulp.dest('./dist/assets'));
-});
+};
 
-gulp.task('images',['deleteDistFolder'], function(){
+const transformImages = () => {
 	return gulp.src(["./website/assets/images/**/*"])
 		.pipe(imagemin(
 			[
 				imagemin.gifsicle(),
-				imagemin.jpegtran(),
+				imagemin.mozjpeg(),
 				imagemin.optipng(),
 				imagemin.svgo(),
 				imageminPngQuant(),
@@ -77,23 +79,27 @@ gulp.task('images',['deleteDistFolder'], function(){
 			}
 		))
 		.pipe(gulp.dest("./dist/assets/images"));
-});
+};
 
-gulp.task('usemin',['deleteDistFolder','styles','scripts'],function(){
+const minify = () => {
 	return gulp.src("./website/index.html")
 		.pipe(usemin({
-			js: [ function(){ return rev();} /*, function(){ return uglify();}*/ ],
-			css: [ function() {return rev();}, function() {return cssnano();} ]
+			js: [  () => {return rev();}  /*, function(){ return uglify();}*/ ],
+			css: [ () => {return rev();}, function() {return cssnano();} ]
 		}))
 		.on('error',function(errorInfo){
 				console.log(errorInfo.toString());
 				this.emit('end');
 			})
 		.pipe(gulp.dest('./dist'));
-});
+};
 
-gulp.task('build',['deleteDistFolder','usemin','images', 'fonts', 'copyGeneralFiles']);
+gulp.task('minify', gulp.series( deleteDistFolder, styles, scripts, minify));
 
-gulp.task('quickbuild',['deleteDistFolderQuick','usemin', 'fonts', 'copyGeneralFiles']);
+gulp.task('images', gulp.series( deleteDistFolder, transformImages));
 
-gulp.task('default',['build']);
+gulp.task('build', gulp.series( deleteDistFolder, styles, scripts, minify, transformImages, fonts, copyGeneralFiles));
+
+gulp.task('quickbuild', gulp.series( deleteDistFolderQuick, styles, scripts, minify, fonts, copyGeneralFiles));
+
+gulp.task('default', gulp.series('build'));

@@ -1,5 +1,4 @@
 /*jshint esversion: 6 */
-import $ from 'jquery';
 import './modules/animatecss';
 
 import './modules/map';

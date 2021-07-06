@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-// import $ from 'jquery';
+
 import Isotope from "isotope-layout";
 import Tooltips from './tooltips';
 import ScrollingActions from './scrolling_actions';
@@ -7,6 +7,7 @@ import "isotope-layout/js/layout-modes/fit-rows";
 import "bootstrap/js/dist/modal";
 import '../vendors/picker';
 import './animatecss';
+
 class Navigation {
     
     constructor() {
@@ -45,6 +46,7 @@ class Navigation {
     events(grid, menuGrid) {  
         let actualMenuCat = '';
         let lastNavMenuClicked='about';
+        let tooltips;
         self = this;
         grid = grid || self.navGrid;
         menuGrid = menuGrid || self.navMenuGrid;
@@ -53,8 +55,8 @@ class Navigation {
             let isNavItemDisabled = $(this).hasClass('primary-nav__link--disabled');
             e.preventDefault();
             let filterValue = $(this).data('filter').toLowerCase().trim();
+
             if ((lastNavMenuClicked === filterValue) || isNavItemDisabled) {
-                // console.log('returning from the function...');
                 return;
             }
             lastNavMenuClicked = filterValue;
@@ -63,9 +65,8 @@ class Navigation {
             let langKey = $(this).data('lang');
             if (filterValue==='home') {menuSectionCaption = filterValue;}
             actualMenuCat = $('#menucategories-filter .btn-site.btn-site--active').text().toLocaleUpperCase();
-            // console.log(filterValue);
+
             if (filterValue==='menu') {
-                let tooltips = new Tooltips();
                 $('#menuGrid').fadeIn(500,
                     function() {
                         self.updateMenuGrid();
@@ -74,11 +75,26 @@ class Navigation {
                 $(".menu-categories-wrapper ").slideDown();
                 $('#allergenes-icon').show();
                 $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
-                $('#menuContent .primary-nav__link').blur();
+                // $('#menuContent .primary-nav__link').blur();
             }  else {
                 $('#menuGrid').hide();
                 $(".menu-categories-wrapper ").slideUp();
                 $('#allergenes-icon').hide();
+            }
+            if (filterValue==='menu' || filterValue==='daily-menu') {
+                tooltips = new Tooltips();
+            }
+
+            if (filterValue==='daily-menu') {
+                const today = new Date(); 
+                const day = today.getDay();
+                let index = day - 1;
+                index === -1 || index === 5 ? index = 0 : index = index;
+                const dailyMenuEls = $('#daily-menu .site-card__daily-menu-wrapper');
+                if (dailyMenuEls.length && dailyMenuEls[index]) {
+                    dailyMenuEls.removeClass('site-card__daily-menu-wrapper--active');
+                    dailyMenuEls.eq(index).addClass('site-card__daily-menu-wrapper--active');
+                } 
             }
 
             $("#main-section-title").data("lang", langKey); 
@@ -114,7 +130,6 @@ class Navigation {
                 $(filteredItems).each(function(key,val){
                     $(val.element).stop().animateCss('pulse', delayed, ()=>{
                         if (key === (filteredItems.length-1)) {
-                            // console.log('animation completed...');
                             $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
                             $('#menuContent .primary-nav__link').blur();
                         }
@@ -142,10 +157,10 @@ class Navigation {
             });
         });
 
-        let minDate = new Date(); 
+        let today = new Date(); 
         let oneday = 60 * 60 * 24 * 1000;
-        minDate = new Date(minDate.getTime() + oneday);// do not allow registrations for the same day
-        let maxDate = new Date(minDate.getTime() + (oneday * 180));
+        let minDate = new Date(today.getTime() + oneday);// do not allow registrations for the same day
+        let maxDate = new Date(today.getTime() + (oneday * 180));
 
         $('#res-date').pickadate({
             min: minDate,
@@ -182,7 +197,7 @@ class Navigation {
                     return found;
                 }
             });
-            // if only one gri item is rpesent after filtereing, spread it across the screen
+            // if only one grid item is present after filtereing, spread it across the screen
             if (menuGrid.filteredItems.length===1) {
                 $(menuGrid.filteredItems[0].element).addClass('grid-layout__item--width-full');
             // otherwise take the 100% width class away if there are more than one grid items after filter has been applied
@@ -197,22 +212,12 @@ class Navigation {
                 $(filteredItems).each(function(key,val){
                     $(val.element).stop().animateCss('pulse', delayed, ()=>{
                         if (key === (filteredItems.length-1)) {
-                            // console.log('animation completed...');
                             $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
                             $('#menuContent .primary-nav__link').blur();
                         }
                     });
                 });
             });
-
-        });
-
-        var showAllergenes = function(modalEl){
-            modalEl = modalEl || '';
-            $(modalEl).modal('show');
-        };
-
-        $('#allergenes-list').on('shown.bs.modal', function () {
 
         });
 

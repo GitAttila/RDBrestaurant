@@ -74,20 +74,58 @@
         "en": "Lunch menu",
         "cz": "Polední menu"
     },
+    "card-lunch-title-drinks":
+    {
+        "en": "Drinks",
+        "cz": "Nápoje"
+    },
     "card-lunch-subtitle":
     {
-        "en": "all-you-can-eat-buffet",
-        "cz": "bufet ve formě 'Vše co sníte'"
+        "en": "selection from five meals on workdays",
+        "cz": "výběr z pěti jídel každý pracovní den"
+    },
+    "card-lunch-price-prefix":
+    {
+        "en": "from",
+        "cz": "od"
     },
     "card-lunch-text":
     {
-        "en": "Mon-Fri* from 11:00a.m. till 2:30p.m.",
-        "cz": "Po-Pá* od 11:00 do 14:30"
+        "en": "Mon-Fri* from 11:00a.m. till 3:00p.m.",
+        "cz": "Po-Pá* od 11:00 do 15:00"
+    },
+    "card-lunch-menu-note": {
+        "en": "Rice, naan, salad or dessert with every lunch meal already included in the price.",
+        "cz": "Ke každému jídlu podáváme rýži, chléb naan, salát a dezert. Vše je zahrnuto v ceně hlavního jídla."
     },
     "card-lunch-note":
     {
-        "en": "* not applicable to public holidays",
-        "cz": "* neplatí v dnech volna počas státních svátků"
+        "en": "* only available during work days and not applicable to public holidays",
+        "cz": "* platí jenom v běžný pracovní den a neplatí v dnech volna počas státních svátků"
+    },
+    "card-lunch-note2":
+    {
+        "en": "Please go to 'daily menu' for more detail.",
+        "cz": "V sekci 'Polední menu' se dozvíte víc."
+    },
+    "card-lunch-note-drinks": {
+        "en": "* following drinks prices applicable only during the lunch menu hour",
+        "cz": "* nasledovní ceny nápojů zde platí k polednímu menu"
+    },
+    "card-lunch-item1":
+    {
+        "en": "selection from two vegetarian meals at 140",
+        "cz": "výběr ze dvou vegeteríanskych jídel za 140"
+    },
+    "card-lunch-item2":
+    {
+        "en": "selection from two chicken meals at 150",
+        "cz": "výběr ze dvou kuřecích jídel za 150"
+    },
+    "card-lunch-item3":
+    {
+        "en": "choice of one lamb meal at 199",
+        "cz": "výběr z jednoho jehněčího jídla za 199"
     },
     "card-drinks":
     {
