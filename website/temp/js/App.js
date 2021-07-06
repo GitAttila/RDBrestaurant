@@ -13334,9 +13334,11 @@ class Holidays {
 __webpack_require__.r(__webpack_exports__);
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /*jshint esversion: 6 */
-// import $ from 'jquery';
 class LangController {
   constructor(nav) {
+    $.ajaxSetup({
+      cache: false
+    });
     this.navigation = nav;
     this.langDefs = {
       'english': {

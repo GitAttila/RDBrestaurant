@@ -15,7 +15,7 @@ const uglify = require('gulp-uglify');
 const browserSync = require('browser-sync');
 const server = browserSync.create();
 
-gulp.task('previewDist', function(done){
+gulp.task('preview', function(done){
 	server.init({
 		notify: false,
 		server: {

@@ -1,8 +1,8 @@
 /*jshint esversion: 6 */
-// import $ from 'jquery';
 
 class LangController {
     constructor(nav) {
+        $.ajaxSetup({ cache: false });
         this.navigation = nav;
         this.langDefs = {
             'english': {

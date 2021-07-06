@@ -3,7 +3,6 @@ var	webpack = require('webpack');
 
 function scripts(done) {
 	webpack(require('../../webpack.config'), function(err, stats){
-		console.log('running webpack...');
 		if (err) {
 			console.log(err.toString());
 		}
