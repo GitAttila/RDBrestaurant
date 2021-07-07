@@ -73,16 +73,17 @@ class Navigation {
                     }
                 );
                 $(".menu-categories-wrapper ").slideDown();
-                $('#allergenes-icon').show();
                 $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
-                // $('#menuContent .primary-nav__link').blur();
             }  else {
                 $('#menuGrid').hide();
                 $(".menu-categories-wrapper ").slideUp();
-                $('#allergenes-icon').hide();
+                
             }
             if (filterValue==='menu' || filterValue==='daily-menu') {
                 tooltips = new Tooltips();
+                $('#allergenes-icon').show();
+            } else {
+                $('#allergenes-icon').hide();
             }
 
             if (filterValue==='daily-menu') {

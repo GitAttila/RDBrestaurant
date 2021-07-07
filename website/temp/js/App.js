@@ -14134,16 +14134,17 @@ class Navigation {
           self.updateMenuGrid();
         });
         $(".menu-categories-wrapper ").slideDown();
-        $('#allergenes-icon').show();
-        $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled'); // $('#menuContent .primary-nav__link').blur();
+        $('#menuContent .primary-nav__link').removeClass('primary-nav__link--disabled');
       } else {
         $('#menuGrid').hide();
         $(".menu-categories-wrapper ").slideUp();
-        $('#allergenes-icon').hide();
       }
 
       if (filterValue === 'menu' || filterValue === 'daily-menu') {
         tooltips = new _tooltips__WEBPACK_IMPORTED_MODULE_1__.default();
+        $('#allergenes-icon').show();
+      } else {
+        $('#allergenes-icon').hide();
       }
 
       if (filterValue === 'daily-menu') {
